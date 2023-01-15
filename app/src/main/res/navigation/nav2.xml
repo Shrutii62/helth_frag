@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav2"
+    app:startDestination="@id/p_to_D_form">
+
+
+
+    <fragment
+        android:id="@+id/p_to_D_form"
+        android:name="com.example.helth_frag.p_to_d_form"
+        android:label="p_to__d_form"
+        tools:layout="@layout/p_to__d_form" >
+<!--        <action-->
+<!--            app:popUpTo="@id/p_to_D_form"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            android:id="@+id/p_to_D_form_to_user1stpg2"-->
+<!--            app:destination="@id/user1stpg2" />-->
+
+    </fragment>
+
+<!--    <fragment-->
+<!--        android:id="@+id/user1stpg2"-->
+<!--        android:name="com.example.helth_frag.user1stpg"-->
+<!--        android:label="user1stpg"-->
+<!--        tools:layout="@layout/user1stpg" >-->
+<!--        <action-->
+<!--            android:id="@+id/ho"-->
+<!--            app:destination="@id/tryy" />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/d_get_pApp_details"-->
+<!--        android:name="com.example.helth_frag.D_get_pApp_details"-->
+<!--        android:label="d_get_papp_details"-->
+<!--        tools:layout="@layout/d_get_papp_details" />-->
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/tryy"-->
+<!--        android:name="com.example.helth_frag.tryy"-->
+<!--        android:label="tryy"-->
+<!--        tools:layout="@layout/tryy" />-->
+
+</navigation>

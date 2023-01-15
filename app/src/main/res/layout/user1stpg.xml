@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".user1stpg"
+    android:background="@drawable/splas_bac"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        >
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Dictionary"
+            android:backgroundTint="#63A598"
+            app:navigationIcon="@drawable/menu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/appt_details"
+        android:layout_width="130dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:elevation="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/circle_green"
+                android:src="@drawable/person"
+                android:padding="15dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightgray"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/appt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Appoinment details"
+                android:textStyle="bold"
+                android:padding="5dp"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</LinearLayout>

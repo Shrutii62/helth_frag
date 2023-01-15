@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".P_registration"
+    android:padding="20dp"
+    android:background="@drawable/grey_appbackgroun_"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/splashimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo" />
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:layout_gravity="center"
+                android:text="Patient Details"
+                android:textColor="#039695"
+                android:textSize="30dp" />
+
+            <!--            //fullname-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/uname"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Patient's name"
+                    android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/unamePE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="text"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <!--            //address-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/U_add"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter  address"
+                    android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/U_addPE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="text"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <!--            //Musername-->
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="2dp"-->
+<!--                android:orientation="vertical">-->
+
+<!--                <com.google.android.material.textfield.TextInputLayout-->
+<!--                    android:id="@+id/mngr_name"-->
+<!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:hint="Enter manager name"-->
+<!--                    android:layout_marginBottom="2dp"-->
+<!--                    android:textColorHint="@color/black"-->
+<!--                    app:boxStrokeColor="@color/black"-->
+<!--                    app:boxStrokeWidthFocused="2dp"-->
+<!--                    app:endIconMode="clear_text"-->
+<!--                    app:endIconTint="@color/black"-->
+<!--                    app:hintTextColor="@color/black"-->
+<!--                    app:startIconDrawable="@drawable/passwrd"-->
+<!--                    app:startIconTint="@color/black">-->
+
+<!--                    <com.google.android.material.textfield.TextInputEditText-->
+
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="match_parent"-->
+<!--                        android:fontFamily="casual"-->
+<!--                        android:inputType="text"-->
+<!--                        android:textColorHint="@color/black" />-->
+<!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+            <!--            //enter emial-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/emailmU"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Email-id"
+                    android:layout_marginBottom="2dp"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailmUPE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="text"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <!--            //phone number-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phoneno_U"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Phone number"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:passwordToggleEnabled="true"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/phoneno_UPE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="number"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+
+            <!--            //enter pass-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/passwdh_U"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Password"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:passwordToggleEnabled="true"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/passwdh_UPE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="textPassword"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+<androidx.cardview.widget.CardView
+    android:id="@+id/crad"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    app:cardBackgroundColor="#0000"
+    android:layout_marginTop="7dp"
+    app:startIconDrawable="@drawable/passwrd"
+    app:startIconTint="#50000000 ">
+    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+        android:id="@+id/spn"
+        android:textColorHint="@color/black"
+        app:boxStrokeColor="@color/black"
+        app:boxStrokeWidthFocused="2dp"
+        android:hint="Select Hospital Name"
+
+        app:hintTextColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:hintText="Select Hospital Name"
+        android:fontFamily="sans-casual"
+        android:background="@drawable/dropd_gradient"/>
+</androidx.cardview.widget.CardView>
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="casual"
+                android:gravity="center">
+            </com.google.android.material.textview.MaterialTextView>
+
+            <TextView
+                android:id="@+id/display"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-black"
+                android:textSize="18sp"
+                android:hint="Address will displayed here"/>
+
+
+            <!--                        <RelativeLayout-->
+            <!--                            android:layout_width="match_parent"-->
+            <!--                            android:layout_height="match_parent"-->
+            <!--                            android:layout_marginTop="20dp"-->
+            <!--                            android:layout_marginBottom="50dp">-->
+            <!--                //remember me-->
+
+            <!--                <CheckBox-->
+            <!--                    android:layout_width="fill_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    style="@style/Widget.AppCompat.CompoundButton.CheckBox"-->
+            <!--                    android:text="Remember me"-->
+            <!--                    android:textColor="@color/black"-->
+            <!--                    android:layout_centerVertical="true"-->
+            <!--                    android:buttonTint="@color/black"/>-->
+
+            <!--                //forgot passward-->
+            <!--                <Button-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Forgot Password"-->
+            <!--                    android:textColor="@color/wb"-->
+            <!--                    android:textAllCaps="false"-->
+            <!--                    android:layout_alignParentRight="true"-->
+            <!--                    android:layout_alignParentEnd="true"-->
+            <!--                    app:backgroundTint="#00000000"/>-->
+
+
+            <!--            </RelativeLayout>-->
+
+
+            <!--            //next button-->
+            <Button
+                android:id="@+id/btnext1Detail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/btn_1st"
+                app:backgroundTint="@null"
+                android:layout_marginTop="20dp"/>
+
+            <Button
+                android:id="@+id/already_login"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="already have an account"
+                android:layout_gravity="center"
+                android:textColor="@color/black"
+                android:textAllCaps="false"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                app:backgroundTint="#00000000"
+                android:elevation="5dp"/>
+
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

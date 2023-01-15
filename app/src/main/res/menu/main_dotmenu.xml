@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/hos"
+        android:title="TODO">
+
+    </item>
+
+    <item
+        android:id="@+id/men1"
+        android:title="Log out"/>
+
+    <item
+        android:id="@+id/men2"
+        android:title="men2"/>
+
+    <item
+        android:id="@+id/men3"
+        android:title="men3">
+        <menu>
+            <item
+                android:id="@+id/options"
+                android:icon="@drawable/circle_green"
+                android:title="search" />
+        </menu>
+    </item>
+
+</menu>

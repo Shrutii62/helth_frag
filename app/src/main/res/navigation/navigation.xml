@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashScreen">
+<!--    app:startDestination="@id/select_type_option">-->
+
+
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.example.helth_frag.splashScreen"
+        android:label="splash_screen"
+        tools:layout="@layout/splash_screen" >
+
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/toselection_type_option"
+            app:destination="@id/select_type_option"
+            />
+
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/h_Admn_selection"
+            app:destination="@id/h_Admn_selection"
+            />
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/user1stpg"
+            app:destination="@id/user1stpg"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/select_type_option"
+        android:name="com.example.helth_frag.select_type_option"
+        android:label="select_type_option"
+        tools:layout="@layout/select_type_option" >
+        <action
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_select_type_option_to_usr_login"
+            app:destination="@id/h_login" />
+        <action
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_select_type_option_to_h_registration"
+            app:destination="@id/h_registration" />
+
+
+            />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/h_Admn_selection"
+        android:name="com.example.helth_frag.h_Admn_selection"
+        android:label="h__admn_selection"
+        tools:layout="@layout/h__admn_selection" >
+
+        <action
+            app:popUpTo="@id/h_Admn_selection"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_Admn_selection_to_usr_registration"
+            app:destination="@id/usr_registration" />
+        <action
+            app:popUpTo="@id/h_Admn_selection"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_Admn_selection_to_select_type_option"
+            app:destination="@id/select_type_option" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/h_login"
+        android:name="com.example.helth_frag.h_login"
+        android:label="h_login"
+        tools:layout="@layout/h_login" >
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_login_to_h_registration"
+            app:destination="@id/h_registration" />
+
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_login_to_h_Admin_selection"
+            app:destination="@id/h_Admn_selection" />
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_login_to_usr_registration"
+            app:destination="@id/usr_registration" />
+
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/ltouser1stpg"
+            app:destination="@id/user1stpg" />
+
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/ltopatient1pg"
+            app:destination="@id/patient1pg" />
+
+        <action
+            app:popUpTo="@id/h_login"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_login_to_p_registration"
+            app:destination="@id/p_registration" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/h_registration"
+        android:name="com.example.helth_frag.h_registration"
+        android:label="h_registration"
+        tools:layout="@layout/h_registration">
+        <action
+            app:popUpTo="@id/h_registration"
+            app:popUpToInclusive="true"
+            android:id="@+id/regToLogin"
+            app:destination="@id/h_login" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/usr_registration"
+        android:name="com.example.helth_frag.Usr_registration"
+        android:label="usr_registration"
+        tools:layout="@layout/usr_registration" >
+        <action
+            app:popUpTo="@id/usr_registration"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_usr_registration_to_h_login"
+            app:destination="@id/h_login" />
+        <action
+            app:popUpTo="@id/usr_registration"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_usr_registration_to_h_Admn_selection"
+            app:destination="@id/h_Admn_selection" />
+        <action
+            app:popUpTo="@id/usr_registration"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_usr_registration_to_user1stpg"
+            app:destination="@id/user1stpg" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/user1stpg"
+        android:name="com.example.helth_frag.user1stpg"
+        android:label="user1stpg"
+        tools:layout="@layout/user1stpg" >
+
+        <action
+            app:popUpTo="@id/user1stpg"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_user1stpg_to_select_type_option"
+            app:destination="@id/select_type_option" />
+
+
+        <action
+            app:popUpTo="@id/user1stpg"
+            app:popUpToInclusive="true"
+            android:id="@+id/u_to_act_D"
+            app:destination="@id/d_get_pApp_details2" />
+        <action
+            android:id="@+id/action_user1stpg_to_nav_d"
+            app:destination="@id/nav_d" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/p_registration"
+        android:name="com.example.helth_frag.P_registration"
+        android:label="p_registration"
+        tools:layout="@layout/p_registration" >
+
+        <action
+            app:popUpTo="@id/p_registration"
+            app:popUpToInclusive="true"
+            android:id="@+id/PregToLogin"
+            app:destination="@id/h_login" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/patient1pg"
+        android:name="com.example.helth_frag.patient1pg"
+        android:label="patient1pg"
+        tools:layout="@layout/patient1pg" >
+
+        <action
+            app:popUpTo="@id/patient1pg"
+            app:popUpToInclusive="true"
+            android:id="@+id/patient1pg_to_select_type_option"
+            app:destination="@id/select_type_option" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/aSearchableSpinner"
+        android:name="com.example.helth_frag.aSearchableSpinner"
+        android:label="searchable_spinner"
+        tools:layout="@layout/searchable_spinner" />
+
+    <fragment
+        android:id="@+id/d_get_pApp_details2"
+        android:name="com.example.helth_frag.D_get_pApp_details"
+        android:label="d_get_papp_details"
+        tools:layout="@layout/d_get_papp_details" >
+
+
+    </fragment>
+    <include app:graph="@navigation/nav_d" />
+
+
+</navigation>

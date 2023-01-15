@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/men1"
+        android:icon="@drawable/hos"
+        android:title="book appointment">
+
+    </item>
+
+    <item
+        android:id="@+id/men2"
+        android:title="abc"/>
+
+
+
+</menu>

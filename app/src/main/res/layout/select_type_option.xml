@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".select_type_option"
+    android:orientation="vertical"
+    android:background="@drawable/grey_appbackgroun_"
+    >
+
+    <ImageView
+        android:id="@+id/splashimage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="start"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/logo" />
+
+    <Button
+        android:id="@+id/hosR"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/white"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+       android:background="@drawable/btn_1st"
+        app:backgroundTint="@null"
+        android:text="hospital Admin">
+    </Button>
+    <Button
+        android:id="@+id/usrR"
+        android:layout_marginTop="50dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_1st"
+        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:text="hospital staff">
+    </Button>
+
+    <Button
+        android:id="@+id/Patient"
+        android:layout_marginTop="50dp"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/btn_1st"
+        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:text="Patient">
+    </Button>
+
+
+
+</LinearLayout>

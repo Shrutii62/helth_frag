@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "610976519386",
+    "project_id": "helth-frag",
+    "storage_bucket": "helth-frag.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610976519386:android:2a77e88278b061f2df01e3",
+        "android_client_info": {
+          "package_name": "com.example.helth_frag"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610976519386-66d66bhj4n162tmma91a0tbt9pfeaqgr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUQjcnW4MjTY2MeNdOAFy2uf6oVYpGdYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "610976519386-66d66bhj4n162tmma91a0tbt9pfeaqgr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_d"
+    app:startDestination="@id/d_get_pApp_details2">
+
+    <fragment
+        android:id="@+id/d_get_pApp_details2"
+        android:name="com.example.helth_frag.D_get_pApp_details"
+        android:label="d_get_papp_details"
+        tools:layout="@layout/d_get_papp_details" >
+
+        <action
+            app:popUpTo="@id/d_get_pApp_details2"
+            app:popUpToInclusive="true"
+            android:id="@+id/d_to_tryy"
+            app:destination="@id/tryy" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/tryy"
+        android:name="com.example.helth_frag.tryy"
+        android:label="tryy"
+        tools:layout="@layout/tryy" />
+
+
+</navigation>

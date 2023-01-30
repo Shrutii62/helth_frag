@@ -8,6 +8,15 @@ public class model_appointment {
     String d_id;
     String aptmt_id;
     String p_email;
+    String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public String getP_email() {
         return p_email;
@@ -75,7 +84,7 @@ public class model_appointment {
         this.d_id = d_id;
     }
 
-    public model_appointment(String date, String time, String issue, String ppid, String d_id, String aptmt_id, String p_email,String p_name) {
+    public model_appointment(String date, String time, String issue, String ppid, String d_id, String aptmt_id, String p_email,String p_name,String status) {
         this.date = date;
         this.time = time;
         this.issue = issue;
@@ -84,6 +93,7 @@ public class model_appointment {
         this.aptmt_id = aptmt_id;
         this.p_email = p_email;
         this.p_name = p_name;
+        this.status = status;
     }
 
     public model_appointment() {

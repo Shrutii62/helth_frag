@@ -12,6 +12,11 @@
         android:name="com.example.helth_frag.p_to_d_form"
         android:label="p_to__d_form"
         tools:layout="@layout/p_to__d_form" >
+
+        <action app:popUpTo="@id/p_to_D_form"
+            app:popUpToInclusive="true"
+            android:id="@+id/p_to_D_form_TO_patient1pg2"
+            app:destination="@id/patient1pg2"/>
 <!--        <action-->
 <!--            app:popUpTo="@id/p_to_D_form"-->
 <!--            app:popUpToInclusive="true"-->
@@ -19,8 +24,17 @@
 <!--            app:destination="@id/user1stpg2" />-->
 
     </fragment>
+    <fragment
+        android:id="@+id/patient1pg2"
+        android:name="com.example.helth_frag.patient1pg"
+        android:label="patient1pg"
+        tools:layout="@layout/patient1pg" >
 
-<!--    <fragment-->
+
+
+    </fragment>
+
+    <!--    <fragment-->
 <!--        android:id="@+id/user1stpg2"-->
 <!--        android:name="com.example.helth_frag.user1stpg"-->
 <!--        android:label="user1stpg"-->

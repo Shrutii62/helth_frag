@@ -13,6 +13,13 @@
         android:theme="@style/Theme.Helth_frag"
         tools:targetApi="31">
         <activity
+            android:name=".tablayoutP"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activities.Act_D"
             android:exported="false">
             <meta-data
@@ -25,14 +32,13 @@
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity>
-<!--        <activity-->
-<!--            android:name=".P_fill_aptmt"-->
-<!--            android:exported="false">-->
-<!--            <meta-data-->
-<!--                android:name="android.app.lib_name"-->
-<!--                android:value="" />-->
-<!--        </activity>-->
+        </activity> <!-- <activity -->
+        <!-- android:name=".P_fill_aptmt" -->
+        <!-- android:exported="false"> -->
+        <!-- <meta-data -->
+        <!-- android:name="android.app.lib_name" -->
+        <!-- android:value="" /> -->
+        <!-- </activity> -->
         <activity
             android:name=".MainActivity"
             android:exported="true">

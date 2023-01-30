@@ -20,10 +20,10 @@ public class PageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return  new p_to_d_form();
+                return  new D_get_pApp_details();
 
             case 1:
-                return  new patient1pg();
+                return  new d_historyappointment();
 
             default:
                 return null;

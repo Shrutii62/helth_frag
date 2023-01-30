@@ -1,5 +1,6 @@
 package com.example.helth_frag;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -85,7 +86,10 @@ public class user1stpg extends Fragment {
         appt_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(user1stpg.this).navigate(R.id.u_to_d_get_pApp_details2);
+                Intent intent = new Intent(requireActivity(),tablayoutP.class);
+                startActivity(intent);
+
+//                NavHostFragment.findNavController(user1stpg.this).navigate(R.id.u_to_d_get_pApp_details2);
 
 
 

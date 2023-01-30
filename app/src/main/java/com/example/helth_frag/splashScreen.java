@@ -154,7 +154,7 @@ public class splashScreen extends Fragment {
                                                     String cde = dsnapshot.child(HencodeUserEmail).child("email").getValue(String.class);
 
                                                     if (dsnapshot.exists()) {
-                                                        Navigation.findNavController(view).navigate(R.id.inactive);
+                                                        Navigation.findNavController(view).navigate(R.id.patient1pg);
                                                     }else {
 
 

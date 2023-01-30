@@ -295,7 +295,7 @@ public class Usr_registration extends Fragment {
 
                                                 if (task.isSuccessful()) {
 
-                                                    modelH_usr modelur = new modelH_usr(hname_u,emailm_u,phone_u,passwrd_u,gethid,spinnerPosition,  String.valueOf(usr_id+1));
+                                                    modelH_usr modelur = new modelH_usr(hname_u,emailm_u,phone_u,passwrd_u,gethid,spinnerPosition,  String.valueOf(u_id+1));
 
 //                            String id = task.getResult().getUser().getUid();
 //                            firebaseDatabase.getReference().child("h").child(id).setValue(user);

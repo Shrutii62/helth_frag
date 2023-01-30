@@ -168,6 +168,12 @@
             app:popUpToInclusive="true"
             android:id="@+id/u_to_act_D"
             app:destination="@id/d_get_pApp_details2" />
+
+        <action
+            app:popUpTo="@id/user1stpg"
+            app:popUpToInclusive="true"
+            android:id="@+id/u_to_d_get_pApp_details2"
+            app:destination="@id/d_get_pApp_details2" />
         <action
             android:id="@+id/action_user1stpg_to_nav_d"
             app:destination="@id/nav_d" />

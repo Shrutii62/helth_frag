@@ -12,8 +12,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.helth_frag.activities.Act_D;
 import com.example.helth_frag.activities.Act_P;
 
 import java.util.ArrayList;
@@ -22,6 +25,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 
     Context contextD;
     ArrayList<model_appointment> listD;
+    View view;
 
     public Adapter_getApptmtDetail_D(Context context, ArrayList<model_appointment> list) {
         this.contextD = context;
@@ -38,31 +42,44 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
     @Override
     public void onBindViewHolder(@NonNull Adapter_getApptmtDetail_D.Viewholder holder, int position) {
         model_appointment model_appointment= listD.get(position);
-        holder.issue.setText(model_appointment.getIssue());
+        holder.issue.setText(model_appointment.getP_name());
         holder.email.setText(model_appointment.getIssue());
         holder.time.setText(model_appointment.getTime());
         holder.date.setText(model_appointment.getDate());
+        view= holder.rootview;
 
 
-        holder.cardRecyl.setOnClickListener(new View.OnClickListener() {
+        holder.cardRecylA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(contextD, "recycler", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-                View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.p_dailog_recyl,null );
+                View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.d_dailog_recyl,null );
 
-                TextView getAptmt;
-                getAptmt=dailogview.findViewById(R.id.getApptmt);
+                TextView adddetails;
+                adddetails=dailogview.findViewById(R.id.adddetails);
 
-                getAptmt.setOnClickListener(new View.OnClickListener() {
+                adddetails.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         String id = listD.get(holder.getAdapterPosition()).d_id;
                         String name = listD.get(holder.getAdapterPosition()).p_name;
+                        String pid = listD.get(holder.getAdapterPosition()).getPpid();
+                        String aptid = listD.get(holder.getAdapterPosition()).getAptmt_id();
                         Toast.makeText(view.getContext(), "pp"+id, Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(view.getContext(), Act_P.class);
+
+
+//                        NavController navController= Navigation.findNavController(view);
+//                        navController.navigateUp();
+//                        navController.navigate(R.id.d_addPrescription);
+
+                        Toast.makeText(builder.getContext(), "bhjdbfj"+pid, Toast.LENGTH_SHORT).show();
+
+                        Intent intent = new Intent(view.getContext(), Act_D.class);
                         intent.putExtra("id",id);
+                        intent.putExtra("pid",pid);
                         intent.putExtra("name",name);
+                        intent.putExtra("aptid",aptid);
 //                            intent.putExtra("STRING_I_NEED",);
                         view.getContext().startActivity(intent);
                     }
@@ -86,7 +103,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 
     public class Viewholder extends RecyclerView.ViewHolder {
 
-        public CardView cardRecyl;
+        public CardView cardRecylA;
         TextView issue, email, date, time;
         ImageView dot3;
         View rootview;
@@ -98,7 +115,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
             email = itemView.findViewById(R.id.Aemail);
             time = itemView.findViewById(R.id.Atime);
             date = itemView.findViewById(R.id.Adate);
-            cardRecyl = itemView.findViewById(R.id.cardRecylA);
+            cardRecylA = itemView.findViewById(R.id.cardRecylA);
 //            dot3 = (ImageView) itemView.findViewById(R.id.Adot);
 //            dot3.setClickable(true);
 //            dot3.setOnClickListener((View.OnClickListener) this);

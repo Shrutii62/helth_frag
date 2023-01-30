@@ -85,7 +85,7 @@ public class user1stpg extends Fragment {
         appt_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(user1stpg.this).navigate(R.id.action_user1stpg_to_nav_d);
+                NavHostFragment.findNavController(user1stpg.this).navigate(R.id.u_to_d_get_pApp_details2);
 
 
 

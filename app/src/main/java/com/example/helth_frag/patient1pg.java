@@ -158,16 +158,16 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
                                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                                 modelH_usr modelH_usr = dataSnapshot.getValue(com.example.helth_frag.modelH_usr.class);
 
-                                                list.add(modelH_usr);
-
-
-
-//                                                if(modelH_usr.h_id.equals(gethid)){
 //                                                list.add(modelH_usr);
-//                                                }else {
-//
-//                                                    Toast.makeText(getActivity(), "hjghjgjh", Toast.LENGTH_SHORT).show();
-//                                                }
+
+
+
+                                                if(modelH_usr.h_id.equals(gethid)){
+                                                list.add(modelH_usr);
+                                                }else {
+
+                                                    Toast.makeText(getActivity(), "hjghjgjh", Toast.LENGTH_SHORT).show();
+                                                }
 
 
                                             }

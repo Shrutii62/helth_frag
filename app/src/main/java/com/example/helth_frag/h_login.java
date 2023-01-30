@@ -1,5 +1,6 @@
 package com.example.helth_frag;
 
+import static android.content.ContentValues.TAG;
 import static android.content.Context.MODE_PRIVATE;
 
 import android.app.ProgressDialog;
@@ -17,6 +18,7 @@ import androidx.navigation.Navigation;
 import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,11 +52,13 @@ public class h_login extends Fragment {
     FirebaseDatabase database;
 
     ImageView Imback;
-    static Button createAcc, btlogon;
+     Button createAcc, btlogon, tvforgotpass1;
     TextInputLayout email, passwdll;
     CheckBox chRemmbrme1M;
 
     TextInputEditText emailE,passwdllE;
+
+     String huser;
 
 
 
@@ -120,6 +124,8 @@ public class h_login extends Fragment {
 
         emailE = view.findViewById(R.id.emailE);
         passwdllE = view.findViewById(R.id.passwdlE);
+
+        tvforgotpass1 = view.findViewById(R.id.tvforgotpass1);
 
         auth = FirebaseAuth.getInstance();
         //for database
@@ -248,7 +254,7 @@ public class h_login extends Fragment {
 
 
                     progressDialog.show();
-                    final String huser = email.getEditText().getText().toString();
+                    huser = email.getEditText().getText().toString();
                     final String passData = passwdll.getEditText().getText().toString();
 
 
@@ -391,6 +397,9 @@ public class h_login extends Fragment {
 
                                 }
                             });
+
+
+
                 }
             }
         });
@@ -431,6 +440,29 @@ public class h_login extends Fragment {
 
             }
         });
+        tvforgotpass1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                auth.sendPasswordResetEmail(email.getEditText().getText().toString())
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(getActivity(), "email sent", Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(getActivity(), "Failed to send reset email!", Toast.LENGTH_SHORT).show();
+                                }
+
+
+                            }
+                        });
+            }
+        });
+
+
+
 
 
 

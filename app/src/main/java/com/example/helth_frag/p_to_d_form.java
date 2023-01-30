@@ -293,7 +293,7 @@ public class p_to_d_form extends Fragment {
 
                                 if (snapshot.exists()){
 
-                                    model_appointment mdl_apt = new model_appointment(dateget,timeget,issueM,get_Pid,dateget, id, demail,getnameP);
+                                    model_appointment mdl_apt = new model_appointment(dateget,timeget,issueM,get_Pid,did, String.valueOf(aptmnt_id+1), demail,getnameP);
                                     String emailEncode = demail.replace(".", ",");
                                     databaseReferenceA.child(id).setValue(mdl_apt);
                                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();

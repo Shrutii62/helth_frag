@@ -53,6 +53,7 @@ public class p_to_d_form extends Fragment {
     DatabaseReference databaseReferenceA;
 
     long aptmnt_id;
+    String status;
 
     boolean isDateSelected = false;
     boolean isTimeSelected = false;
@@ -219,6 +220,7 @@ public class p_to_d_form extends Fragment {
 
                     String did = getActivity().getIntent().getExtras().getString("id");
                     String demail = getActivity().getIntent().getExtras().getString("name");
+                    status="on";
                     Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
 
 
@@ -231,18 +233,18 @@ public class p_to_d_form extends Fragment {
                     referenceU = DatabaseU.getReference("appointment");
 
 
-                    referenceU.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists())
-                                aptmnt_id=(snapshot.getChildrenCount());
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+//                    referenceU.addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            if (snapshot.exists())
+//                                aptmnt_id=(snapshot.getChildrenCount());
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
 
 
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -287,15 +289,15 @@ public class p_to_d_form extends Fragment {
 
                      String id = String.valueOf(aptmnt_id+1);
                     if(isDateSelected && isTimeSelected){
-                        databaseReferenceA.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                if (snapshot.exists()){
 
-                                    model_appointment mdl_apt = new model_appointment(dateget,timeget,issueM,get_Pid,did, String.valueOf(aptmnt_id+1), demail,getnameP);
+
+                                    String key = databaseReferenceA.push().getKey();
+                                    model_appointment mdl_apt = new model_appointment(dateget,timeget,issueM,get_Pid,did, key, demail,getnameP,status);
                                     String emailEncode = demail.replace(".", ",");
-                                    databaseReferenceA.child(id).setValue(mdl_apt);
+//                                    databaseReferenceA.child(String.valueOf(aptmnt_id)).setValue(mdl_apt);
+
+                                    databaseReferenceA.child(key).setValue(mdl_apt);
                                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
                                     Runnable progressRunnable = new Runnable() {
@@ -303,22 +305,18 @@ public class p_to_d_form extends Fragment {
                                         @Override
                                         public void run() {
                                             progressDialogP.dismiss();
+
                                         }
                                     };
                                     Handler pdCanceller = new Handler();
                                     pdCanceller.postDelayed(progressRunnable, 3000);
 
 //                                 progressDialogP.dismiss();
-                                }else {
-                                    Toast.makeText(getActivity(), "datbase not exist", Toast.LENGTH_SHORT).show();
-                                }
-                            }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
+
+
+
                     }else{
                         progressDialogP.dismiss();
                         progressD.show();

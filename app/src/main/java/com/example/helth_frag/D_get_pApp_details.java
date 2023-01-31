@@ -71,19 +71,47 @@ public class D_get_pApp_details extends Fragment {
                     String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
                     Toast.makeText(getActivity(), "mila"+ get_did, Toast.LENGTH_SHORT).show();
 
+                    Query statusCheck= databaseReference.orderByChild("status").equalTo("off");
                     Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
+
+
 
                     didcheck.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot2) {
                             if (snapshot2.exists()){
-                                Toast.makeText(getActivity(), "hidcheck_mila"+ get_did, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "hidcheck_mila"+ get_did, Toast.LENGTH_SHORT).show();
+//                                for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
+//                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+//
+//                                    listD.add(model_appointment);}
 
-                                for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
-                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+                                    statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot3) {
+                                            if (snapshot3.exists()){
 
-                                    listD.add(model_appointment);
-                                }
+                                                Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
+                                                for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
+                                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+
+                                                    listD.add(model_appointment);
+                                                    Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+                                                }
+
+                                            }else{
+                                                Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
+
+
 
                                 }else{ Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();}
 

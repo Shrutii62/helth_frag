@@ -48,17 +48,24 @@ public class model_d_addPrescriptn {
     public model_d_addPrescriptn() {
     }
 
-    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid) {
+    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid, String descrp_id) {
         this.pid = pid;
         this.did = did;
         this.hid = hid;
         this.description = description;
         this.test_recomd = test_recomd;
+        this.descrp_id = descrp_id;
     }
 
     String description;
     String test_recomd;
+    String descrp_id;
 
+    public String getDescrp_id() {
+        return descrp_id;
+    }
 
-
+    public void setDescrp_id(String descrp_id) {
+        this.descrp_id = descrp_id;
+    }
 }

@@ -42,52 +42,62 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
     @Override
     public void onBindViewHolder(@NonNull Adapter_getApptmtDetail_D.Viewholder holder, int position) {
         model_appointment model_appointment= listD.get(position);
-        holder.issue.setText(model_appointment.getP_name());
+        holder.issue.setText(model_appointment.getP_email());
         holder.email.setText(model_appointment.getIssue());
         holder.time.setText(model_appointment.getTime());
         holder.date.setText(model_appointment.getDate());
+//        holder.status.setText(model_appointment.getStatus());
+        String s = model_appointment.getStatus();
+
         view= holder.rootview;
 
 
         holder.cardRecylA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(contextD, "recycler", Toast.LENGTH_SHORT).show();
-                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-                View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.d_dailog_recyl,null );
+//                Toast.makeText(contextD, "status"+s, Toast.LENGTH_SHORT).show();
 
-                TextView adddetails;
-                adddetails=dailogview.findViewById(R.id.adddetails);
 
-                adddetails.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String id = listD.get(holder.getAdapterPosition()).d_id;
-                        String name = listD.get(holder.getAdapterPosition()).p_name;
-                        String pid = listD.get(holder.getAdapterPosition()).getPpid();
-                        String aptid = listD.get(holder.getAdapterPosition()).getAptmt_id();
-                        Toast.makeText(view.getContext(), "pp"+id, Toast.LENGTH_SHORT).show();
+                if ( s.equals("on")){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                    View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.d_dailog_recyl,null );
+
+                    TextView adddetails;
+                    adddetails=dailogview.findViewById(R.id.adddetails);
+                    adddetails.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String id = listD.get(holder.getAdapterPosition()).d_id;
+                            String name = listD.get(holder.getAdapterPosition()).p_name;
+                            String pid = listD.get(holder.getAdapterPosition()).getPpid();
+                            String aptid = listD.get(holder.getAdapterPosition()).getAptmt_id();
+                            Toast.makeText(view.getContext(), "pp"+id, Toast.LENGTH_SHORT).show();
 
 
 //                        NavController navController= Navigation.findNavController(view);
 //                        navController.navigateUp();
 //                        navController.navigate(R.id.d_addPrescription);
 
-                        Toast.makeText(builder.getContext(), "bhjdbfj"+pid, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(builder.getContext(), "bhjdbfj"+pid, Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(view.getContext(), Act_D.class);
-                        intent.putExtra("id",id);
-                        intent.putExtra("pid",pid);
-                        intent.putExtra("name",name);
-                        intent.putExtra("aptid",aptid);
+                            Intent intent = new Intent(view.getContext(), Act_D.class);
+                            intent.putExtra("id",id);
+                            intent.putExtra("pid",pid);
+                            intent.putExtra("name",name);
+                            intent.putExtra("aptid",aptid);
 //                            intent.putExtra("STRING_I_NEED",);
-                        view.getContext().startActivity(intent);
-                    }
-                });
+                            view.getContext().startActivity(intent);
+                        }
+                    });
+                    builder.setView(dailogview);
+                    builder.setCancelable(true);
+                    builder.show();
+                }
 
-                builder.setView(dailogview);
-                builder.setCancelable(true);
-                builder.show();
+
+
+
+
 
 
             }
@@ -104,7 +114,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
     public class Viewholder extends RecyclerView.ViewHolder {
 
         public CardView cardRecylA;
-        TextView issue, email, date, time;
+        TextView issue, email, date, time, status;
         ImageView dot3;
         View rootview;
 

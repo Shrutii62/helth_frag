@@ -146,8 +146,8 @@ public class d_addPrescription extends Fragment {
                     String pid = getActivity().getIntent().getExtras().getString("pid");
                     String did = getActivity().getIntent().getExtras().getString("id");
                     String aptid = getActivity().getIntent().getExtras().getString("aptid");
-                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
 
 
                     //update in appointment
@@ -198,6 +198,7 @@ public class d_addPrescription extends Fragment {
                      databaseReferenceDdscrptn = firebaseDatabaseDdscrptn.getReference("Dp_description");
 
                     String id = String.valueOf(descrip_id+1);
+                    String keyDescp = databaseReferenceA.push().getKey();
 
                         databaseReferenceDdscrptn.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -205,10 +206,10 @@ public class d_addPrescription extends Fragment {
 
                                 if (snapshot.exists()){
 
-                                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid);
+                                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp);
 
 
-                                    databaseReferenceDdscrptn.child(tstname).setValue(model_d_addPrescriptn);
+                                    databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);
                                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
 //                                    Runnable progressRunnable = new Runnable() {

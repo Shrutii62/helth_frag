@@ -43,12 +43,12 @@
                 <TextView
                     android:id="@+id/Aname"
                     android:fontFamily="monospace"
-                    android:layout_width="240dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/propic"
                     android:text="studentName"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold">
 
                 </TextView>
@@ -94,20 +94,7 @@
 
 
                 </LinearLayout>
-                <Button
-                    android:id="@+id/update_details"
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Accept"
-                    android:textColor="@color/black"
-                    android:textAllCaps="false"
-                    android:layout_gravity="end"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:background="#989898"
-                    app:backgroundTint="@null"
-                    android:layout_marginTop="10dp"
-                    />
+
 
             </LinearLayout>
 
@@ -116,14 +103,14 @@
 
 
 
-        <ImageView
-            android:id="@+id/Adot"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/dot3"/>
+<!--        <ImageView-->
+<!--            android:id="@+id/Adot"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:layout_marginTop="7dp"-->
+<!--            android:src="@drawable/dot3"/>-->
 
 
 

@@ -129,7 +129,7 @@
                 android:id="@+id/update_details"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="Get Appointment"
+                android:text="Add Patient details"
                 android:textColor="@color/black"
                 android:textAllCaps="false"
                 android:layout_gravity="center"

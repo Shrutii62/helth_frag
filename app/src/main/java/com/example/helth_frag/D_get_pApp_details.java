@@ -63,6 +63,87 @@ public class D_get_pApp_details extends Fragment {
         Query checkemail = UdatabaseReference.orderByChild("email").equalTo(email);
         String HencodeUserEmail = email.replace(".", ",");
 
+//        checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot1) {
+//                if (snapshot1.exists()){
+//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+//                    String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
+//                    Toast.makeText(getActivity(), "mila"+ get_did, Toast.LENGTH_SHORT).show();
+//
+//
+//                    Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
+//
+//
+//
+//                    didcheck.addListenerForSingleValueEvent(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot2) {
+//                            if (snapshot2.exists()){
+////                                Toast.makeText(getActivity(), "hidcheck_mila"+ get_did, Toast.LENGTH_SHORT).show();
+////                                for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
+////                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+////
+////                                    listD.add(model_appointment);}
+//
+//                                Query statusCheck= databaseReference.orderByChild("status").equalTo("on");
+//                                    statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
+//                                        @Override
+//                                        public void onDataChange(@NonNull DataSnapshot snapshot3) {
+//                                            if (snapshot3.exists()){
+//
+//                                                Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
+//                                                for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
+//                                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+//
+//                                                    listD.add(model_appointment);
+//                                                    Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                                }
+//
+//                                            }else{
+//                                                Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+//                                            }
+//
+//                                            adapterD = new Adapter_getApptmtDetail_D(
+//                                                    getActivity(),listD
+//                                            );
+//                                            recyclerViewD.setAdapter(adapterD);
+//                                        }
+//
+//                                        @Override
+//                                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                        }
+//                                    });
+//
+//
+//
+//
+//                                }else{ Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();}
+//
+//                            Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
+//                            adapterD = new Adapter_getApptmtDetail_D(
+//                                    getActivity(),listD);
+//                            recyclerViewD.setAdapter(adapterD);
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+//
+//
+//                }else{}
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+
+
         checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
@@ -71,7 +152,6 @@ public class D_get_pApp_details extends Fragment {
                     String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
                     Toast.makeText(getActivity(), "mila"+ get_did, Toast.LENGTH_SHORT).show();
 
-                    Query statusCheck= databaseReference.orderByChild("status").equalTo("off");
                     Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
 
 
@@ -84,41 +164,43 @@ public class D_get_pApp_details extends Fragment {
 //                                for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
 //                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
 //
-//                                    listD.add(model_appointment);}
+//                                    listD.add(model_appointment);
+//                                }
+                                Query statusCheck= databaseReference.orderByChild("status").equalTo("on");
 
-                                    statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
-                                        @Override
-                                        public void onDataChange(@NonNull DataSnapshot snapshot3) {
-                                            if (snapshot3.exists()){
+                                statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot3) {
+                                        if (snapshot3.exists()){
 
-                                                Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
-                                                for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
-                                                    model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
+                                            Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
+                                            for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
+                                                model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
 
-                                                    listD.add(model_appointment);
-                                                    Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
-                                                }
-
-                                            }else{
-                                                Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+                                                listD.add(model_appointment);
+                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                             }
+
+                                        }else{
+                                            Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                                         }
+                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
+                                        adapterD = new Adapter_getApptmtDetail_D(
+                                                getActivity(),listD);
+                                        recyclerViewD.setAdapter(adapterD);
+                                    }
 
-                                        @Override
-                                        public void onCancelled(@NonNull DatabaseError error) {
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                        }
-                                    });
-
-
+                                    }
+                                });
 
 
-                                }else{ Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();}
 
-                            Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
-                            adapterD = new Adapter_getApptmtDetail_D(
-                                    getActivity(),listD);
-                            recyclerViewD.setAdapter(adapterD);
+
+                            }else{ Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();}
+
                         }
 
                         @Override
@@ -129,6 +211,7 @@ public class D_get_pApp_details extends Fragment {
 
 
                 }else{}
+
             }
 
             @Override

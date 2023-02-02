@@ -28,8 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 
 public class d_addPrescription extends Fragment {
 
-    TextInputEditText P_eamilE, issueDescriptionE, testnameE;
-    TextInputLayout P_eamil ,issueDescription, testname;
+    TextInputEditText P_eamilE, issueDescriptionE, testnameE,amountE;
+    TextInputLayout P_eamil ,issueDescription, testname, amount;
     Button update_details;
 
     ProgressDialog progressdp;
@@ -55,10 +55,12 @@ public class d_addPrescription extends Fragment {
         P_eamilE = v.findViewById(R.id.P_eamilE);
         issueDescriptionE = v.findViewById(R.id.issueDescriptionE);
         testnameE = v.findViewById(R.id.testnameE);
+        amountE = v.findViewById(R.id.amountE);
 
         P_eamil = v.findViewById(R.id.P_eamil);
         issueDescription = v.findViewById(R.id.issueDescription);
         testname = v.findViewById(R.id.testname);
+        amount = v.findViewById(R.id.amount);
 
         update_details = v.findViewById(R.id.update_details);
 
@@ -142,6 +144,7 @@ public class d_addPrescription extends Fragment {
 
                     String emal = P_eamil.getEditText().getText().toString();
                     String tstname = testname.getEditText().getText().toString();
+                    String Aamount = amount.getEditText().getText().toString();
                     String issueDescripton = issueDescription.getEditText().getText().toString();
                     String pid = getActivity().getIntent().getExtras().getString("pid");
                     String did = getActivity().getIntent().getExtras().getString("id");
@@ -206,7 +209,7 @@ public class d_addPrescription extends Fragment {
 
                                 if (snapshot.exists()){
 
-                                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp);
+                                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp,Aamount);
 
 
                                     databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);

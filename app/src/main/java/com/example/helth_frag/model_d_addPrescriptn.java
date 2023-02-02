@@ -4,6 +4,15 @@ public class model_d_addPrescriptn {
     String pid;
     String did;
     String hid;
+    String amount;
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
 
     public String getHid() {
         return hid;
@@ -48,13 +57,14 @@ public class model_d_addPrescriptn {
     public model_d_addPrescriptn() {
     }
 
-    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid, String descrp_id) {
+    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid, String descrp_id, String amount) {
         this.pid = pid;
         this.did = did;
         this.hid = hid;
         this.description = description;
         this.test_recomd = test_recomd;
         this.descrp_id = descrp_id;
+        this.amount = amount;
     }
 
     String description;

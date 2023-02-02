@@ -122,6 +122,31 @@
                         android:textColorHint="@color/black" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/amount"
+                    android:layout_marginTop="20dp"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Fees to be payed"
+                    android:textColorHint="@color/black"
+                    app:boxStrokeColor="@color/black"
+                    app:boxStrokeWidthFocused="2dp"
+                    app:endIconMode="clear_text"
+                    app:endIconTint="@color/black"
+                    app:hintTextColor="@color/black"
+                    app:startIconDrawable="@drawable/passwrd"
+                    app:startIconTint="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/amountE"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="casual"
+                        android:inputType="text"
+                        android:textColorHint="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
 

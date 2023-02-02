@@ -328,7 +328,7 @@ public class h_login extends Fragment {
                                                                             Toast.makeText(getActivity(), "cde" + fgh, Toast.LENGTH_SHORT).show();
 
                                                                             if (dsnapshot.exists()) {
-                                                                                Navigation.findNavController(view).navigate(R.id.ltopatient1pg);
+                                                                                Navigation.findNavController(view).navigate(R.id.ltop_selectionPage);
                                                                             }
 
 

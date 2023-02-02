@@ -29,6 +29,11 @@
             android:id="@+id/user1stpg"
             app:destination="@id/user1stpg"
             />
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/stop_selectionPage"
+            app:destination="@id/p_selectionPage"
+            />
     </fragment>
 
     <fragment
@@ -103,8 +108,8 @@
         <action
             app:popUpTo="@id/h_login"
             app:popUpToInclusive="true"
-            android:id="@+id/ltopatient1pg"
-            app:destination="@id/patient1pg" />
+            android:id="@+id/ltop_selectionPage"
+            app:destination="@id/p_selectionPage" />
 
         <action
             app:popUpTo="@id/h_login"
@@ -224,6 +229,37 @@
 
     </fragment>
     <include app:graph="@navigation/nav_d" />
+    <fragment
+        android:id="@+id/p_selectionPage"
+        android:name="com.example.helth_frag.p_selectionPage"
+        android:label="p_selection_page"
+        tools:layout="@layout/p_selection_page" >
+
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/p_selectionPageTo_patient1pg"
+            app:destination="@id/patient1pg" />
+
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/p_selectionPageTo_p_Payment"
+            app:destination="@id/p_Payment" />
+
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/p_selectionPageTo_select_type_option"
+            app:destination="@id/select_type_option" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/p_Payment"
+        android:name="com.example.helth_frag.P_Payment"
+        android:label="p__payment"
+        tools:layout="@layout/p__payment" />
 
 
 </navigation>

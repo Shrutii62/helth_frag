@@ -34,7 +34,7 @@ public class d_historyappointment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_d_historyappointment, container, false);
+        View view=inflater.inflate(R.layout.d_historyappointment, container, false);
 
         recyclerViewD = view.findViewById(R.id.recyclerviewD);
         databaseReference= FirebaseDatabase.getInstance().getReference("appointment");

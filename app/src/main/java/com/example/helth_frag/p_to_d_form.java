@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.material.datepicker.CalendarConstraints;
+import com.google.android.material.datepicker.DateValidatorPointForward;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -156,9 +158,14 @@ public class p_to_d_form extends Fragment {
 //        });
 
 
+        CalendarConstraints.Builder cc = new CalendarConstraints.Builder().setValidator(DateValidatorPointForward.now());
+
+
          datePicker = MaterialDatePicker.Builder.datePicker()
+                 .setCalendarConstraints(cc.build())
                 .setTitleText("select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .build();
+
 
         dateE.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -270,25 +277,13 @@ public class p_to_d_form extends Fragment {
                                  get_Pid = snapshot2.child(encodeP_Email).child("p_id").getValue(String.class);
                                  getnameP = snapshot2.child(encodeP_Email).child("pname").getValue(String.class);
 
-                            }else{
-                                Toast.makeText(getActivity(), "user does't exist", Toast.LENGTH_SHORT).show();
-                            }
 
+                                String issueM = issue.getEditText().getText().toString();
+                                firebaseDatabaseA= FirebaseDatabase.getInstance();
+                                databaseReferenceA = firebaseDatabaseA.getReference("appointment");
 
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-                    String issueM = issue.getEditText().getText().toString();
-                     firebaseDatabaseA= FirebaseDatabase.getInstance();
-                     databaseReferenceA = firebaseDatabaseA.getReference("appointment");
-
-                     String id = String.valueOf(aptmnt_id+1);
-                    if(isDateSelected && isTimeSelected){
+                                String id = String.valueOf(aptmnt_id+1);
+                                if(isDateSelected && isTimeSelected){
 
 
 
@@ -317,22 +312,37 @@ public class p_to_d_form extends Fragment {
 
 
 
-                    }else{
-                        progressDialogP.dismiss();
-                        progressD.show();
-                        Toast.makeText(getActivity(), "Select date", Toast.LENGTH_SHORT).show();
-                        validateDate();
-                        validateTime();
-                        Runnable progressRunnable = new Runnable() {
+                                }else{
+                                    progressDialogP.dismiss();
+                                    progressD.show();
+                                    Toast.makeText(getActivity(), "Select date", Toast.LENGTH_SHORT).show();
+                                    validateDate();
+                                    validateTime();
+                                    Runnable progressRunnable = new Runnable() {
 
-                            @Override
-                            public void run() {
-                                progressD.dismiss();
+                                        @Override
+                                        public void run() {
+                                            progressD.dismiss();
+                                        }
+                                    };
+                                    Handler pdCanceller = new Handler();
+                                    pdCanceller.postDelayed(progressRunnable, 2000);
+                                }
+
+
+                            }else{
+                                Toast.makeText(getActivity(), "user does't exist", Toast.LENGTH_SHORT).show();
                             }
-                        };
-                        Handler pdCanceller = new Handler();
-                        pdCanceller.postDelayed(progressRunnable, 2000);
-                    }
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
 
 
 

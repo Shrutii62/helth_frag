@@ -60,7 +60,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 
                 if ( s.equals("on")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-                    View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.d_dailog_recyl,null );
+                    View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.pytm_item_row,null );
 
                     TextView adddetails;
                     adddetails=dailogview.findViewById(R.id.adddetails);
@@ -69,9 +69,9 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
                         public void onClick(View view) {
                             String id = listD.get(holder.getAdapterPosition()).d_id;
                             String name = listD.get(holder.getAdapterPosition()).p_name;
-                            String pid = listD.get(holder.getAdapterPosition()).getPpid();
+                            String pid = listD.get(holder.getAdapterPosition()).ppid;
                             String aptid = listD.get(holder.getAdapterPosition()).getAptmt_id();
-                            Toast.makeText(view.getContext(), "pp"+id, Toast.LENGTH_SHORT).show();
+
 
 
 //                        NavController navController= Navigation.findNavController(view);
@@ -83,7 +83,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
                             Intent intent = new Intent(view.getContext(), Act_D.class);
                             intent.putExtra("id",id);
                             intent.putExtra("pid",pid);
-                            intent.putExtra("name",name);
+                            intent.putExtra("n",name);
                             intent.putExtra("aptid",aptid);
 //                            intent.putExtra("STRING_I_NEED",);
                             view.getContext().startActivity(intent);

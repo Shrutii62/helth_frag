@@ -146,11 +146,11 @@ public class d_addPrescription extends Fragment {
                     String tstname = testname.getEditText().getText().toString();
                     String Aamount = amount.getEditText().getText().toString();
                     String issueDescripton = issueDescription.getEditText().getText().toString();
-                    String pid = getActivity().getIntent().getExtras().getString("pid");
+                    String pid = getActivity().getIntent().getExtras().getString("id");
                     String did = getActivity().getIntent().getExtras().getString("id");
                     String aptid = getActivity().getIntent().getExtras().getString("aptid");
 //                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
-//                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
 
 
                     //update in appointment
@@ -174,7 +174,28 @@ public class d_addPrescription extends Fragment {
 
                     Query hhereId= databaseReferenceU.orderByChild("u_id").equalTo(did);
 
-                    hhereId.addValueEventListener(new ValueEventListener() {
+//                    hhereId.addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshoth) {
+//
+//                            if (snapshoth.exists()){
+//                                get_hid = snapshoth.child(encodeD_Email).child("h_id").getValue(String.class);
+//
+//                            }else{
+//                                Toast.makeText(getActivity(), "snapshot does not exist", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
+
+                    //
+
+                    hhereId.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshoth) {
 

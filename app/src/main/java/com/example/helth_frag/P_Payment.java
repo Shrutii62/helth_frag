@@ -108,9 +108,11 @@ public class P_Payment extends Fragment {
                                     model_d_addPrescriptn model_d_addPrescriptn = dataSnapshot.getValue(com.example.helth_frag.model_d_addPrescriptn.class);
 
                                     lispymtt.add(model_d_addPrescriptn);
-                                    Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+
                                 }
-                            }else{}
+                            }else{
+                                Toast.makeText(getActivity(), "there not", Toast.LENGTH_SHORT).show();
+                            }
 
                             Toast.makeText(getActivity(), "dd"+lispymtt.size(), Toast.LENGTH_SHORT).show();
                             adapterPymtr = new Adapter_pymt(

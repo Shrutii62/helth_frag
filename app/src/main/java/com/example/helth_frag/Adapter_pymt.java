@@ -62,6 +62,8 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
+            test_rprtName = itemView.findViewById(R.id.test_rprtName);
+
 
 
             test_rprtName = itemView.findViewById(R.id.test_rprtName);

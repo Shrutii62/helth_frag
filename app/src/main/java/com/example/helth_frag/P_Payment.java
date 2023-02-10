@@ -60,20 +60,20 @@ public class P_Payment extends Fragment {
                 .setAllCorners(CornerFamily.ROUNDED,radius)
                 .build());
 
-        topAppBar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.men1:
-                    FirebaseAuth.getInstance().signOut();
-                    Navigation.findNavController(view).navigate(R.id.patient1pg_to_select_type_option);
-                    Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
-                default:
-                    return false;
-            }
-        });
+//        topAppBar.setOnMenuItemClickListener(item -> {
+//            switch (item.getItemId()) {
+//                case R.id.men1:
+//                    FirebaseAuth.getInstance().signOut();
+//                    Navigation.findNavController(view).navigate(R.id.patient1pg_to_select_type_option);
+//                    Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
+//                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
+//                default:
+//                    return false;
+//            }
+//        });
 
 
         recyclerViewPymt = view.findViewById(R.id.recyclerview);
@@ -91,17 +91,19 @@ public class P_Payment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshotP) {
                 if (snapshotP.exists()){
-                    String getpidd = String.valueOf(snapshotP.child(HencodeUserEmail).child("p_id"));
+                    String getpidd = snapshotP.child(HencodeUserEmail).child("p_id").getValue(String.class);
                     Toast.makeText(getActivity(), "pid"+getpidd, Toast.LENGTH_SHORT).show();
 
 
                     Query checkemail = databaseReference.orderByChild("pid").equalTo(getpidd);
 
-                    checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
+                    checkemail.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             if (snapshot.exists()){
+                                Toast.makeText(requireContext(), "yes", Toast.LENGTH_SHORT).show();
+
                                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                     model_d_addPrescriptn model_d_addPrescriptn = dataSnapshot.getValue(com.example.helth_frag.model_d_addPrescriptn.class);
 

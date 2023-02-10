@@ -1,5 +1,6 @@
 package com.example.helth_frag;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -88,6 +89,7 @@ public class select_type_option extends Fragment {
             @Override
             public void onClick(View view) {
 
+
                 Bundle args = new Bundle();
                 args.putString("user_id", "u");
                 h_login newFragment = new h_login ();
@@ -110,6 +112,7 @@ public class select_type_option extends Fragment {
         Patient.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Bundle args = new Bundle();
                 args.putString("user_id", "p");
                 h_login newFragment = new h_login ();

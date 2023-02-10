@@ -60,7 +60,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 
                 if ( s.equals("on")){
                     AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
-                    View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.pytm_item_row,null );
+                    View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.d_dailog_recyl,null );
 
                     TextView adddetails;
                     adddetails=dailogview.findViewById(R.id.adddetails);
@@ -78,7 +78,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 //                        navController.navigateUp();
 //                        navController.navigate(R.id.d_addPrescription);
 
-                            Toast.makeText(builder.getContext(), "bhjdbfj"+pid, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(view.getContext(), Act_D.class);
                             intent.putExtra("id",id);

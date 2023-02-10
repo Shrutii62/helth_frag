@@ -67,6 +67,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
                         intent.putExtra("name",name);
 //                            intent.putExtra("STRING_I_NEED",);
                         view.getContext().startActivity(intent);
+
                     }
                 });
 

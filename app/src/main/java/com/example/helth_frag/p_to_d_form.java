@@ -66,10 +66,12 @@ public class p_to_d_form extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.p_to__d_form, container, false);
 
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
 //        button = v.findViewById(R.id.button);
 
+        String did = getActivity().getIntent().getExtras().getString("id");
+        String demail = getActivity().getIntent().getExtras().getString("name");
 
         dateE = v.findViewById(R.id.dateE);
         timeE = v.findViewById(R.id.timeE);
@@ -89,6 +91,34 @@ public class p_to_d_form extends Fragment {
         progressD.setTitle("Error occur");
         progressD.setMessage("Fields cannot be empty");
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String Pemail = user.getEmail();
+
+
+        FirebaseDatabase PDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference PReference = PDatabase.getReference("Patient");
+
+
+        String encodeP_Email = Pemail.replace(".", ",");
+
+        Query check_Pid = PReference.orderByChild("email").equalTo(Pemail);
+        check_Pid.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                get_Pid = snapshot.child(encodeP_Email).child("p_id").getValue(String.class);
+                getnameP = snapshot.child(encodeP_Email).child("pname").getValue(String.class);
+
+
+                Toast.makeText(getActivity(), "pid" + get_Pid, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "did" + did, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         dateE.addTextChangedListener(new TextWatcher() {
@@ -115,7 +145,7 @@ public class p_to_d_form extends Fragment {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-               validateTime();
+                validateTime();
 
             }
 
@@ -149,20 +179,12 @@ public class p_to_d_form extends Fragment {
             }
         });
 
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                NavHostFragment.findNavController(p_to_d_form.this).navigate(R.id.p_to_D_form_to_user1stpg2);
-//
-//            }
-//        });
-
 
         CalendarConstraints.Builder cc = new CalendarConstraints.Builder().setValidator(DateValidatorPointForward.now());
 
 
-         datePicker = MaterialDatePicker.Builder.datePicker()
-                 .setCalendarConstraints(cc.build())
+        datePicker = MaterialDatePicker.Builder.datePicker()
+                .setCalendarConstraints(cc.build())
                 .setTitleText("select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
                 .build();
 
@@ -170,13 +192,13 @@ public class p_to_d_form extends Fragment {
         dateE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datePicker.show(getParentFragmentManager(),"Material_date_picker");
+                datePicker.show(getParentFragmentManager(), "Material_date_picker");
                 datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
                     @Override
                     public void onPositiveButtonClick(Object selection) {
                         date.getEditText().setText(datePicker.getHeaderText());
-                         dateget = datePicker.getHeaderText();
-                        isDateSelected= true;
+                        dateget = datePicker.getHeaderText();
+                        isDateSelected = true;
 
                     }
                 });
@@ -184,204 +206,88 @@ public class p_to_d_form extends Fragment {
         });
 
 
-
-        Calendar calendar= Calendar.getInstance();
+        Calendar calendar = Calendar.getInstance();
         MaterialTimePicker materialTimePicker = new MaterialTimePicker.Builder().setTimeFormat(TimeFormat.CLOCK_24H)
                 .setHour(calendar.get(Calendar.HOUR_OF_DAY))
-                        .setMinute(calendar.get(Calendar.MINUTE))
-                                .build();
+                .setMinute(calendar.get(Calendar.MINUTE))
+                .build();
 
         timeE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-            materialTimePicker.show(getParentFragmentManager(), "Material_time_picker");
-            materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int Hour = materialTimePicker.getHour();
-                    int min = materialTimePicker.getMinute();
-                    time.getEditText().setText(Hour+":"+min);
-                     timeget = Hour+":"+min;
-                    isTimeSelected= true;
+                materialTimePicker.show(getParentFragmentManager(), "Material_time_picker");
+                materialTimePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int Hour = materialTimePicker.getHour();
+                        int min = materialTimePicker.getMinute();
+                        time.getEditText().setText(Hour + ":" + min);
+                        timeget = Hour + ":" + min;
+                        isTimeSelected = true;
 
-                }
-            });
+                    }
+                });
 
             }
         });
-
-
 
 
         getApptmt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if ( !validatIssue() | !validateTime() | !validateDate()) {
+                if (!validatIssue() | !validateTime() | !validateDate()) {
                     return;
-                }else {
+                } else {
 
                     progressDialogP.show();
 
 
-                    String did = getActivity().getIntent().getExtras().getString("id");
-                    String demail = getActivity().getIntent().getExtras().getString("name");
-                    status="on";
-                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
 
+                    status = "on";
 
-
-
-//                     firebaseDatabase= FirebaseDatabase.getInstance();
-//                    DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
 
                     DatabaseU = DatabaseU.getInstance();
                     referenceU = DatabaseU.getReference("appointment");
 
 
-//                    referenceU.addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                            if (snapshot.exists())
-//                                aptmnt_id=(snapshot.getChildrenCount());
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
+                    String issueM = issue.getEditText().getText().toString();
+                    firebaseDatabaseA = FirebaseDatabase.getInstance();
+                    databaseReferenceA = firebaseDatabaseA.getReference("appointment");
+
+                    String id = String.valueOf(aptmnt_id + 1);
 
 
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    String Pemail = user.getEmail();
+                    String key = databaseReferenceA.push().getKey();
+                    model_appointment mdl_apt = new model_appointment(dateget, timeget, issueM, get_Pid, did, key, demail, getnameP, status);
+                    String emailEncode = demail.replace(".", ",");
 
+                    databaseReferenceA.child(key).setValue(mdl_apt);
 
-
-                    FirebaseDatabase PDatabase= FirebaseDatabase.getInstance();
-                    DatabaseReference PReference = PDatabase.getReference("Patient");
-
-//                    long idapt=(aptmnt_id +1) ;
-//                    String aptmtID = String.valueOf(idapt);
-
-//                    Toast.makeText(getActivity(), "aptmt"+aptmtID, Toast.LENGTH_SHORT).show();
-                    String encodeP_Email = Pemail.replace(".", ",");
-
-                    Query check_Pid = PReference.orderByChild("email").equalTo(Pemail);
-                    check_Pid.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot2) {
-                            if (snapshot2.exists()){
-
-                                 get_Pid = snapshot2.child(encodeP_Email).child("p_id").getValue(String.class);
-                                 getnameP = snapshot2.child(encodeP_Email).child("pname").getValue(String.class);
-
-
-                                String issueM = issue.getEditText().getText().toString();
-                                firebaseDatabaseA= FirebaseDatabase.getInstance();
-                                databaseReferenceA = firebaseDatabaseA.getReference("appointment");
-
-                                String id = String.valueOf(aptmnt_id+1);
-                                if(isDateSelected && isTimeSelected){
-
-
-
-                                    String key = databaseReferenceA.push().getKey();
-                                    model_appointment mdl_apt = new model_appointment(dateget,timeget,issueM,get_Pid,did, key, demail,getnameP,status);
-                                    String emailEncode = demail.replace(".", ",");
-//                                    databaseReferenceA.child(String.valueOf(aptmnt_id)).setValue(mdl_apt);
-
-                                    databaseReferenceA.child(key).setValue(mdl_apt);
-                                    Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
-
-                                    Runnable progressRunnable = new Runnable() {
-
-                                        @Override
-                                        public void run() {
-                                            progressDialogP.dismiss();
-
-                                        }
-                                    };
-                                    Handler pdCanceller = new Handler();
-                                    pdCanceller.postDelayed(progressRunnable, 3000);
-
-//                                 progressDialogP.dismiss();
-
-
-
-
-
-                                }else{
-                                    progressDialogP.dismiss();
-                                    progressD.show();
-                                    Toast.makeText(getActivity(), "Select date", Toast.LENGTH_SHORT).show();
-                                    validateDate();
-                                    validateTime();
-                                    Runnable progressRunnable = new Runnable() {
-
-                                        @Override
-                                        public void run() {
-                                            progressD.dismiss();
-                                        }
-                                    };
-                                    Handler pdCanceller = new Handler();
-                                    pdCanceller.postDelayed(progressRunnable, 2000);
-                                }
-
-
-                            }else{
-                                Toast.makeText(getActivity(), "user does't exist", Toast.LENGTH_SHORT).show();
-                            }
-
-
-                        }
+                    Runnable progressRunnable = new Runnable() {
 
                         @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
+                        public void run() {
+                            progressDialogP.dismiss();
 
                         }
-                    });
+                    };
+                    Handler pdCanceller = new Handler();
+                    pdCanceller.postDelayed(progressRunnable, 3000);
 
-
-
-
-
-
-
-//                    Query checkdoc = databaseReference.orderByChild("uname").equalTo(Item);
-//                        checkdoc.addListenerForSingleValueEvent(new ValueEventListener() {
-//                            @Override
-//                            public void onDataChange(@NonNull DataSnapshot snapshot1) {
-//                                if (snapshot1.exists()){
-//
-//
-//
-//
-//
-//                                    Toast.makeText(getActivity(), "exisssssssssst", Toast.LENGTH_SHORT).show();
-//                                }else {
-//                                    Toast.makeText(getActivity(), "not exist", Toast.LENGTH_SHORT).show();
-//                                }
-//                            }
-//
-//                            @Override
-//                            public void onCancelled(@NonNull DatabaseError error) {
-//
-//                            }
-//                        });
 
                 }
 
 
             }
+
+
         });
-
-
-
 
         return v;
     }
+
 
 
     private Boolean validatIssue() {

@@ -28,8 +28,7 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
     @NonNull
     @Override
     public Adapter_pymt.Viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(contextD).inflate(R.layout.d_itemrow_shw_appt,parent,false);
-//        return new Adapter_getApptmtDetail_D.Viewholder(v);
+        View v = LayoutInflater.from(contextD).inflate(R.layout.pytm_item_row,parent,false);
         return  new Adapter_pymt.Viewholder(v);
     }
 
@@ -62,6 +61,11 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
+
+
+
+            test_rprtName = itemView.findViewById(R.id.test_rprtName);
+
 
 
         }

@@ -39,7 +39,7 @@ public class d_addPrescription extends Fragment {
 
     long descrip_id;
 
-    String get_hid;
+    String hhId;
 
 
 
@@ -65,6 +65,42 @@ public class d_addPrescription extends Fragment {
         update_details = v.findViewById(R.id.update_details);
 
 
+        String pid = getActivity().getIntent().getExtras().getString("pid");
+        String did = getActivity().getIntent().getExtras().getString("id");
+
+        FirebaseDatabase firebaseU= FirebaseDatabase.getInstance();
+        DatabaseReference databaseReferenceU = firebaseU.getReference("Users");
+        Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String Demail = user.getEmail();
+        String encodeD_Email = Demail.replace(".", ",");
+
+        Query hhereId= databaseReferenceU.orderByChild("u_id").equalTo(did);
+
+
+        hhereId.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshoth) {
+
+                if (snapshoth.exists()){
+                    hhId = snapshoth.child(encodeD_Email).child("h_id").getValue(String.class);
+                    Toast.makeText(getActivity(), "hid"+hhId, Toast.LENGTH_SHORT).show();
+
+
+                }else{
+                    Toast.makeText(getActivity(), "snapshot does not exist", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         update_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,12 +111,6 @@ public class d_addPrescription extends Fragment {
 
 //                    progressDialogP.show();
 
-
-
-
-
-
-
 //                     firebaseDatabase= FirebaseDatabase.getInstance();
 //                    DatabaseReference databaseReference = firebaseDatabase.getReference("Users");
 
@@ -90,19 +120,18 @@ public class d_addPrescription extends Fragment {
                     firebaseDatabaseDdscrptn= FirebaseDatabase.getInstance();
                     databaseReferenceDdscrptn = firebaseDatabaseDdscrptn.getReference("Dp_description");
 
-
-                    databaseReferenceDdscrptn.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            if (snapshot.exists())
-                                descrip_id=(snapshot.getChildrenCount());
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
+//                    databaseReferenceDdscrptn.addValueEventListener(new ValueEventListener() {
+//                        @Override
+//                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                            if (snapshot.exists())
+//                                descrip_id=(snapshot.getChildrenCount());
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(@NonNull DatabaseError error) {
+//
+//                        }
+//                    });
 
 
 
@@ -146,11 +175,10 @@ public class d_addPrescription extends Fragment {
                     String tstname = testname.getEditText().getText().toString();
                     String Aamount = amount.getEditText().getText().toString();
                     String issueDescripton = issueDescription.getEditText().getText().toString();
-                    String pid = getActivity().getIntent().getExtras().getString("id");
-                    String did = getActivity().getIntent().getExtras().getString("id");
+
                     String aptid = getActivity().getIntent().getExtras().getString("aptid");
 //                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "pd"+pid, Toast.LENGTH_SHORT).show();
 
 
                     //update in appointment
@@ -165,76 +193,24 @@ public class d_addPrescription extends Fragment {
 
 
 
-                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    String Demail = user.getEmail();
-                    String encodeD_Email = Demail.replace(".", ",");
 
-                    FirebaseDatabase firebaseU= FirebaseDatabase.getInstance();
-                    DatabaseReference databaseReferenceU = firebaseU.getReference("Users");
-
-                    Query hhereId= databaseReferenceU.orderByChild("u_id").equalTo(did);
-
-//                    hhereId.addValueEventListener(new ValueEventListener() {
-//                        @Override
-//                        public void onDataChange(@NonNull DataSnapshot snapshoth) {
-//
-//                            if (snapshoth.exists()){
-//                                get_hid = snapshoth.child(encodeD_Email).child("h_id").getValue(String.class);
-//
-//                            }else{
-//                                Toast.makeText(getActivity(), "snapshot does not exist", Toast.LENGTH_SHORT).show();
-//                            }
-//
-//                        }
-//
-//                        @Override
-//                        public void onCancelled(@NonNull DatabaseError error) {
-//
-//                        }
-//                    });
-
-                    //
-
-                    hhereId.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshoth) {
-
-                            if (snapshoth.exists()){
-                                get_hid = snapshoth.child(encodeD_Email).child("h_id").getValue(String.class);
-
-                            }else{
-                                Toast.makeText(getActivity(), "snapshot does not exist", Toast.LENGTH_SHORT).show();
-                            }
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-
-
-
-
-
-                     firebaseDatabaseDdscrptn= FirebaseDatabase.getInstance();
-                     databaseReferenceDdscrptn = firebaseDatabaseDdscrptn.getReference("Dp_description");
+                    firebaseDatabaseDdscrptn= FirebaseDatabase.getInstance();
+                    databaseReferenceDdscrptn = firebaseDatabaseDdscrptn.getReference("Dp_description");
 
                     String id = String.valueOf(descrip_id+1);
                     String keyDescp = databaseReferenceA.push().getKey();
 
-                        databaseReferenceDdscrptn.addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    databaseReferenceDdscrptn.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                if (snapshot.exists()){
+                            if (snapshot.exists()){
 
-                                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp,Aamount);
+                                model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,hhId,keyDescp,Aamount);
 
 
-                                    databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);
-                                    Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
+                                databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);
+                                Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
 //                                    Runnable progressRunnable = new Runnable() {
 //
@@ -247,17 +223,20 @@ public class d_addPrescription extends Fragment {
 //                                    pdCanceller.postDelayed(progressRunnable, 3000);
 
 //                                 progressDialogP.dismiss();
-                                }else {
-                                    Toast.makeText(getActivity(), "datbase not exist", Toast.LENGTH_SHORT).show();
-                                }
+                            }else {
+                                Toast.makeText(getActivity(), "datbase not exist", Toast.LENGTH_SHORT).show();
                             }
+                        }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
-                    }
+                        }
+                    });
+
+
+
+                }
 
 
 

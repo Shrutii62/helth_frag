@@ -75,11 +75,11 @@ public class D_get_pApp_details extends Fragment {
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getList();
-    }
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        getList();
+//    }
 
     public void getList(){
         databaseReference= FirebaseDatabase.getInstance().getReference("appointment");

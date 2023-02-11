@@ -63,25 +63,9 @@ public class D_get_pApp_details extends Fragment {
         Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
 
 
-        getList();
-//
-
-
-
-
-
-        return view;
-
-
-    }
-
-//    @Override
-//    public void onResume() {
-//        super.onResume();
 //        getList();
-//    }
 
-    public void getList(){
+
         databaseReference= FirebaseDatabase.getInstance().getReference("appointment");
         DatabaseReference UdatabaseReference=FirebaseDatabase.getInstance().getReference("Users");
         Query checkemail = UdatabaseReference.orderByChild("email").equalTo(email);
@@ -155,5 +139,23 @@ public class D_get_pApp_details extends Fragment {
 
             }
         });
+
+
+
+
+
+        return view;
+
+
     }
+
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        getList();
+//    }
+
+//    public void getList(){
+//
+//    }
 }

@@ -5,6 +5,15 @@ public class model_d_addPrescriptn {
     String did;
     String hid;
     String amount;
+    String Date;
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
 
     public String getAmount() {
         return amount;
@@ -57,7 +66,7 @@ public class model_d_addPrescriptn {
     public model_d_addPrescriptn() {
     }
 
-    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid, String descrp_id, String amount) {
+    public model_d_addPrescriptn(String pid, String did, String description, String test_recomd, String hid, String descrp_id, String amount,String Date) {
         this.pid = pid;
         this.did = did;
         this.hid = hid;
@@ -65,6 +74,7 @@ public class model_d_addPrescriptn {
         this.test_recomd = test_recomd;
         this.descrp_id = descrp_id;
         this.amount = amount;
+        this.Date = Date;
     }
 
     String description;

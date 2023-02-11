@@ -36,7 +36,8 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
     public void onBindViewHolder(@NonNull Adapter_pymt.Viewholder holder, int position) {
 
         model_d_addPrescriptn model_d_addPrescriptn= listpytm.get(position);
-        holder.test_rprtName.setText(model_d_addPrescriptn.test_recomd);
+        holder.Date.setText(model_d_addPrescriptn.Date);
+        holder.amnt.setText("Amount To Be Paid : ₹"+model_d_addPrescriptn.amount);
 //        holder.email.setText(model_appointment.getIssue());
 //        holder.time.setText(model_appointment.getTime());
 //        holder.date.setText(model_appointment.getDate());
@@ -55,18 +56,16 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
 
         public CardView cardRecylpytm;
         TextView issue, email, date, time, status;
-        TextView test_rprtName;
+        TextView Date, amnt;
         ImageView dot3;
         View rootview;
 
         public Viewholder(@NonNull View itemView) {
             super(itemView);
 
-            test_rprtName = itemView.findViewById(R.id.test_rprtName);
+            Date = itemView.findViewById(R.id.test_rprtName);
+            amnt = itemView.findViewById(R.id.amnt);
 
-
-
-            test_rprtName = itemView.findViewById(R.id.test_rprtName);
 
 
 

@@ -25,6 +25,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class d_addPrescription extends Fragment {
 
@@ -148,7 +152,12 @@ public class d_addPrescription extends Fragment {
                     Toast.makeText(getActivity(), "pid"+pid, Toast.LENGTH_SHORT).show();
                     Toast.makeText(getActivity(), "hid"+get_hid, Toast.LENGTH_SHORT).show();
 
-                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp,Aamount);
+
+
+
+
+
+                    model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp,Aamount,DateFormat.getDateInstance().format(System.currentTimeMillis()));
 
                     databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);
 

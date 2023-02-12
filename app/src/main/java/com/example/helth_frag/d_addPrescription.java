@@ -40,7 +40,6 @@ public class d_addPrescription extends Fragment {
 
     FirebaseDatabase firebaseDatabaseDdscrptn;
     DatabaseReference databaseReferenceDdscrptn;
-
     long descrip_id;
 
     String get_hid;

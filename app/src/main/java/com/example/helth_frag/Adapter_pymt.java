@@ -1,6 +1,7 @@
 package com.example.helth_frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,11 +39,21 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
         model_d_addPrescriptn model_d_addPrescriptn= listpytm.get(position);
         holder.Date.setText(model_d_addPrescriptn.Date);
         holder.amnt.setText("Amount To Be Paid : ₹"+model_d_addPrescriptn.amount);
-//        holder.email.setText(model_appointment.getIssue());
-//        holder.time.setText(model_appointment.getTime());
-//        holder.date.setText(model_appointment.getDate());
-////        holder.status.setText(model_appointment.getStatus());
-//        String s = model_appointment.getStatus();
+
+        holder.cardRecylpytm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String amount = listpytm.get(holder.getAdapterPosition()).amount;
+
+                Intent intent = new Intent(view.getContext(), Actity_UpiPayment.class);
+                intent.putExtra("a",amount);
+                view.getContext().startActivity(intent);
+//                view.getContext().startActivity(intent);
+            }
+        });
+
+
 
         view= holder.rootview;
     }
@@ -52,7 +63,7 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
         return listpytm.size();
     }
 
-    public class Viewholder extends RecyclerView.ViewHolder {
+    public class Viewholder extends RecyclerView.ViewHolder  {
 
         public CardView cardRecylpytm;
         TextView issue, email, date, time, status;
@@ -65,10 +76,8 @@ public class Adapter_pymt extends RecyclerView.Adapter<Adapter_pymt.Viewholder>{
 
             Date = itemView.findViewById(R.id.test_rprtName);
             amnt = itemView.findViewById(R.id.amnt);
-
-
-
-
+            cardRecylpytm = itemView.findViewById(R.id.cardRecylpytm);
         }
+
     }
 }

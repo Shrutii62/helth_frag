@@ -7,7 +7,8 @@
     tools:context=".Actity_UpiPayment"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/grey_appbackgroun_">
+    android:background="@drawable/grey_appbackgroun_"
+    >
 
     <TextView
         android:textColor="@color/black"
@@ -21,7 +22,7 @@
         android:fontFamily="casual"
         android:text="a"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         android:id="@+id/amount_et"/>
 
 <!--    <com.google.android.material.textfield.TextInputLayout-->

@@ -2,63 +2,124 @@ package com.example.helth_frag;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Lab1#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.MaterialShapeDrawable;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
+
 public class Lab1 extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView recyclerviewLT;
+    DatabaseReference databaseReference_DP;
+    Adapter_l_testList adapter_l_testList;
+    ArrayList<model_d_addPrescriptn> list_lt;
+    private Toolbar topAppBar;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Lab1() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Lab1.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Lab1 newInstance(String param1, String param2) {
-        Lab1 fragment = new Lab1();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String email = user.getEmail();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.lab1, container, false);
+        View view = inflater.inflate(R.layout.lab1, container, false);
+
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        setHasOptionsMenu(true);
+
+
+        topAppBar = view.findViewById(R.id.topAppBar);
+        topAppBar.inflateMenu(R.menu.main_dotmenu);
+
+//        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
+
+        float radius = getResources().getDimension(R.dimen.default_corner_radius);
+        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable)topAppBar.getBackground();
+        materialShapeDrawable.setShapeAppearanceModel(materialShapeDrawable.getShapeAppearanceModel()
+                .toBuilder()
+                .setAllCorners(CornerFamily.ROUNDED,radius)
+                .build());
+
+
+        recyclerviewLT = view.findViewById(R.id.recyclerviewLT);
+
+
+        recyclerviewLT.setHasFixedSize(true);
+        recyclerviewLT.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        list_lt = new ArrayList<>();
+
+
+        databaseReference_DP= FirebaseDatabase.getInstance().getReference("Dp_description");
+        DatabaseReference databaseReferenceUl= FirebaseDatabase.getInstance().getReference("Users");
+
+        Query checkemail = databaseReferenceUl.orderByChild("email").equalTo(email);
+        String HencodeUserEmail = email.replace(".", ",");
+        checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                if (snapshot1.exists()){
+                    String get_hid = snapshot1.child(HencodeUserEmail).child("h_id").getValue(String.class);
+                    Query hd = databaseReference_DP.orderByChild("hid").equalTo(get_hid);
+                    hd.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot2) {
+                            if (snapshot2.exists()){
+                                for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
+                                    model_d_addPrescriptn model_d_addPrescriptn = dataSnapshot.getValue(com.example.helth_frag.model_d_addPrescriptn.class);
+
+                                    list_lt.add(model_d_addPrescriptn);
+
+                                }
+                            }else{
+                                Toast.makeText(getActivity(), "sanp2 not exist", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+
+
+
+
+                }else {
+                    Toast.makeText(getActivity(), "sanp1 not exist", Toast.LENGTH_SHORT).show();
+                }
+                adapter_l_testList = new Adapter_l_testList(
+                        getActivity(),list_lt);
+                recyclerviewLT.setAdapter(adapter_l_testList);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        return view;
     }
 }

@@ -14,6 +14,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -48,6 +49,9 @@ public class Actity_UpiPayment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.actity_upi_payment);
+        getSupportActionBar().hide();
+
+//        getActivity().getActionBar().hide();
 
         initializeViews();
 
@@ -287,16 +291,13 @@ public class Actity_UpiPayment extends AppCompatActivity {
 
     private Boolean validateUPI() {
         String val = upiIdE.getEditText().getText().toString();
-        String regex = "[a-zA-Z0-9\\\\.\\\\-]{2,256}\\\\@[a-zA-Z][a-zA-Z]{2,64}";
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(val);
+//        String regex = "[a-zA-Z0-9\\\\.\\\\-]{2,256}\\\\@[a-zA-Z][a-zA-Z]{2,64}";
+//        Pattern p = Pattern.compile(regex);
+//        Matcher m = p.matcher(val);
 
 
         if (val.isEmpty()) {
             upiIdE.setError("Field cannot be empty");
-            return false;
-        }else if (!val.matches(String.valueOf(p))){
-            upiIdE.setError("Invalid UpiID address");
             return false;
         }
         else {

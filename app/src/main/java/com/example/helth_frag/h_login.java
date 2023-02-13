@@ -312,10 +312,16 @@ public class h_login extends Fragment {
                                                             public void onDataChange(@NonNull DataSnapshot dsnapshot) {
 
                                                                 String cde = dsnapshot.child(HencodeUserEmail).child("email").getValue(String.class);
-                                                                Toast.makeText(getActivity(), "cde" + cde, Toast.LENGTH_SHORT).show();
+                                                                String userType = dsnapshot.child(HencodeUserEmail).child("userTypedd").getValue(String.class);
+
 
                                                                 if (dsnapshot.exists()) {
-                                                                    Navigation.findNavController(view).navigate(R.id.ltouser1stpg);
+                                                                    if (userType.equals("4")){
+                                                                        Navigation.findNavController(view).navigate(R.id.ltouser1stpg);
+                                                                    }else if (userType.equals("3")){
+                                                                        Navigation.findNavController(view).navigate(R.id.action_h_login_to_lab12);
+                                                                    }
+
                                                                 }else{
                                                                     DatabaseReference UdatabaseReference = firebaseDatabase.getReference("Patient");
                                                                     Query Ucheckemail = UdatabaseReference.orderByChild("email").equalTo(email);

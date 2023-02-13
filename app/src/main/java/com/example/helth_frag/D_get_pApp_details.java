@@ -60,7 +60,7 @@ public class D_get_pApp_details extends Fragment {
 
         listD = new ArrayList<>();
 
-        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
 
 
 //        getList();

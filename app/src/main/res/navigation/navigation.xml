@@ -21,6 +21,12 @@
 
         <action app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true"
+            android:id="@+id/lab12"
+            app:destination="@id/lab12"
+            />
+
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
             android:id="@+id/h_Admn_selection"
             app:destination="@id/h_Admn_selection"
             />
@@ -105,6 +111,8 @@
             android:id="@+id/ltouser1stpg"
             app:destination="@id/user1stpg" />
 
+
+
         <action
             app:popUpTo="@id/h_login"
             app:popUpToInclusive="true"
@@ -116,6 +124,9 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_h_login_to_p_registration"
             app:destination="@id/p_registration" />
+        <action
+            android:id="@+id/action_h_login_to_lab12"
+            app:destination="@id/lab12" />
 
     </fragment>
 
@@ -241,7 +252,11 @@
         android:name="com.example.helth_frag.P_Payment"
         android:label="p__payment"
         tools:layout="@layout/p__payment" />
-
+    <fragment
+        android:id="@+id/lab12"
+        android:name="com.example.helth_frag.Lab1"
+        android:label="lab1"
+        tools:layout="@layout/lab1" />
 
 
 </navigation>

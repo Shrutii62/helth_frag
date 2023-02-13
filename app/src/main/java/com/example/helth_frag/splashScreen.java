@@ -146,7 +146,7 @@ public class splashScreen extends Fragment {
                                             if (userType.equals("4")){
                                                 Navigation.findNavController(view).navigate(R.id.user1stpg);
                                             }else if (userType.equals("3")){
-                                                Navigation.findNavController(view).navigate(R.id.action_h_login_to_lab12);
+                                                Navigation.findNavController(view).navigate(R.id.lab12);
                                             }
 
                                         }else{

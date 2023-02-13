@@ -94,6 +94,9 @@ public class Lab1 extends Fragment {
                             }else{
                                 Toast.makeText(getActivity(), "sanp2 not exist", Toast.LENGTH_SHORT).show();
                             }
+                            adapter_l_testList = new Adapter_l_testList(
+                                    getActivity(),list_lt);
+                            recyclerviewLT.setAdapter(adapter_l_testList);
                         }
 
                         @Override
@@ -108,9 +111,7 @@ public class Lab1 extends Fragment {
                 }else {
                     Toast.makeText(getActivity(), "sanp1 not exist", Toast.LENGTH_SHORT).show();
                 }
-                adapter_l_testList = new Adapter_l_testList(
-                        getActivity(),list_lt);
-                recyclerviewLT.setAdapter(adapter_l_testList);
+
             }
 
             @Override

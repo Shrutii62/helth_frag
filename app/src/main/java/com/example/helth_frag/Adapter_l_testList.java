@@ -1,6 +1,7 @@
 package com.example.helth_frag;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.helth_frag.activities.Act_D;
 
 import java.util.ArrayList;
 
@@ -39,6 +42,14 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
         holder.textnamelt.setText(model_d_addPrescriptn.test_recomd);
 //        holder.amnt.setText("Amount To Be Paid : ₹"+model_d_addPrescriptn.amount);
 //
+        holder.cardRecyllt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(view.getContext(), lab2_PDF.class);
+                view.getContext().startActivity(intent);
+            }
+        });
 
 
 
@@ -52,7 +63,7 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
 
     public class Viewholder extends RecyclerView.ViewHolder {
 
-        public CardView cardRecylpytm;
+        public CardView cardRecyllt;
 
         TextView textnamelt, amnt;
 
@@ -63,7 +74,7 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
 
             textnamelt = itemView.findViewById(R.id.Testamelt);
 //            amnt = itemView.findViewById(R.id.amnt);
-            cardRecylpytm = itemView.findViewById(R.id.cardRecylpytm);
+            cardRecyllt = itemView.findViewById(R.id.cardRecylLT);
         }
     }
 }

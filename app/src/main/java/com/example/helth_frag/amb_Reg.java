@@ -90,7 +90,7 @@ public class amb_Reg extends Fragment {
 //                }
 
                 Bundle args = new Bundle();
-                args.putString("phone_no", menternum.getText().toString());
+                args.putString("pnumber", menternum.getText().toString());
                 amb_Reg newFragment = new amb_Reg();
                 newFragment.setArguments(args);
                 Navigation.findNavController(view).navigate(R.id.amb_Reg2To_amb_OTPVerify,args);

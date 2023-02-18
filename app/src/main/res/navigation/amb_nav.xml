@@ -26,10 +26,15 @@
         android:label="amb__o_t_p_verify"
         tools:layout="@layout/amb__o_t_p_verify" >
 
+        <action app:popUpTo="@id/amb_OTPVerify"
+            app:popUpToInclusive="true"
+            android:id="@+id/amb_OTPVerifyTo_ambu1_form"
+            app:destination="@id/ambu1_form"/>
+
     </fragment>
     <fragment
-        android:id="@+id/tryy"
-        android:name="com.example.helth_frag.tryy"
-        android:label="tryy"
-        tools:layout="@layout/tryy" />
+        android:id="@+id/ambu1_form"
+        android:name="com.example.helth_frag.ambu1_form"
+        android:label="ambu1_form"
+        tools:layout="@layout/ambu1_form" />
 </navigation>

@@ -11,13 +11,12 @@
         android:label="amb__reg"
         tools:layout="@layout/amb__reg" >
 
-        <action android:id="@+id/t"
-             app:destination="@+id/tryy"/>
+
 
         <action app:popUpTo="@id/amb_Reg2"
             app:popUpToInclusive="true"
-            android:id="@+id/tryy"
-            app:destination="@id/tryy"/>
+            android:id="@+id/amb_Reg2To_amb_OTPVerify"
+            app:destination="@id/amb_OTPVerify"/>
 
     </fragment>
 

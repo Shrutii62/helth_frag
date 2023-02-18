@@ -98,7 +98,7 @@ public class select_type_option extends Fragment {
 //                args.putString("user_id", "p");
 //                h_login newFragment = new h_login ();
 //                newFragment.setArguments(args);
-                Navigation.findNavController(view).navigate(R.id.action_select_type_option_to_amb_Reg);
+                Navigation.findNavController(view).navigate(R.id.actAmbulance);
             }
         });
 

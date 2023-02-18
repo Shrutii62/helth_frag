@@ -64,6 +64,12 @@
             android:id="@+id/action_select_type_option_to_amb_Reg"
             app:destination="@id/amb_Reg" />
 
+        <action
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true"
+            android:id="@+id/actAmbulance"
+            app:destination="@id/actAmbulance" />
+
 
     </fragment>
 
@@ -277,6 +283,11 @@
         android:name="com.example.helth_frag.amb_Reg"
         android:label="amb__reg"
         tools:layout="@layout/amb__reg" />
+    <activity
+        android:id="@+id/actAmbulance"
+        android:name="com.example.helth_frag.activities.ActAmbulance"
+        android:label="act_ambulance"
+        tools:layout="@layout/act_ambulance" />
 
 
 </navigation>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/amb_nav"
-    app:startDestination="@id/amb_Reg2">
+    app:startDestination="@id/ambu1_form">
 
     <fragment
         android:id="@+id/amb_Reg2"

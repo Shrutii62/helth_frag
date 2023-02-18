@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -62,20 +63,22 @@ public class ambu1_form extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if ( !validatePhoneNo() | !validateambnumber() | !validateDname()) {
+                if (!validatePhoneNo() | !validateambnumber() | !validateDname()) {
+                    return;
+                } else {
 
                     String drvename = dname.getEditText().getText().toString();
                     String ambunumber = amb_number.getEditText().getText().toString();
                     String alterntphone = alt_moblnum.getEditText().getText().toString();
                     String keyAmb = databaseReferenceAmb.push().getKey();
 
-                    Model_ambDriverdetail model_ambDriverdetail= new Model_ambDriverdetail(drvename,ambunumber,alterntphone,numphone);
+                    Model_ambDriverdetail model_ambDriverdetail = new Model_ambDriverdetail(drvename, ambunumber, alterntphone, numphone);
 
                     databaseReferenceAmb.child(keyAmb).setValue(model_ambDriverdetail);
+                    Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
 
-                    return;
-                }else {}
+                }
 
 
             }

@@ -28,48 +28,100 @@
 
    </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/add_user"
-        android:layout_width="130dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:elevation="5dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:gravity="center">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/add_user"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="5dp">
 
-            <ImageView
-                android:layout_width="64dp"
-                android:layout_height="64dp"
-                android:background="@drawable/circle_green"
-                android:src="@drawable/person"
-                android:padding="15dp"/>
-
-            <View
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/lightgray"
-                android:layout_marginTop="10dp"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="add user"
-                android:textStyle="bold"
-                android:padding="5dp"
-                android:layout_marginTop="10dp"
-                android:textColor="@color/black"/>
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_green"
+                    android:src="@drawable/person"
+                    android:padding="15dp"/>
 
-        </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="add user"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
 
 
 
-    </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ambulance_book"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:elevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_blue"
+                    android:src="@drawable/person"
+                    android:padding="15dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Book Ambulance"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+
 
 
 

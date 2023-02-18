@@ -37,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class h_Admn_selection extends Fragment {
     CardView add_userm;
+    CardView ambulance_book;
     SharedPreferences sharedPreferences;
 
     ProgressDialog progressDialog;
@@ -62,6 +63,7 @@ public class h_Admn_selection extends Fragment {
         setHasOptionsMenu(true);
 
         add_userm = view.findViewById(R.id.add_user);
+        ambulance_book = view.findViewById(R.id.ambulance_book);
         topAppBar = view.findViewById(R.id.topAppBar);
 
         topAppBar.inflateMenu(R.menu.main_dotmenu);
@@ -111,6 +113,17 @@ public class h_Admn_selection extends Fragment {
 
 
                 Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_usr_registration);
+            }
+        });
+
+
+        ambulance_book.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_amb_d_list);
             }
         });
         return view;

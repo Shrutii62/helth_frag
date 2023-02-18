@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 
 import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
-import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -51,12 +50,7 @@ public class H_amb_d_list extends Fragment {
         recyclerviewDrvlist = view.findViewById(R.id.recyclerviewDrvlist);
         DatabaseReference databaseReferenceADl= FirebaseDatabase.getInstance().getReference("amb_DrvDetails");
 
-        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-            model_d_addPrescriptn model_d_addPrescriptn = dataSnapshot.getValue(com.example.helth_frag.model_d_addPrescriptn.class);
 
-            lispymtt.add(model_d_addPrescriptn);
-
-        }
 
 
 

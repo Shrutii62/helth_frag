@@ -6,6 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".amb_OTPVerify">
 
+
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +59,7 @@
                 android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
@@ -65,89 +67,23 @@
                 android:layout_marginEnd="50dp"
                 android:layout_marginTop="20dp">
 
-                <EditText
-                    android:id="@+id/otp1"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/bacgroundbox"
+                <com.chaos.view.PinView
+                    android:id="@+id/pinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
                     android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"/>
-
-                <EditText
-                    android:id="@+id/otp2"
-                    android:layout_marginEnd="4dp"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bacgroundbox"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"/>
-
-                <EditText
-                    android:id="@+id/otp3"
-                    android:layout_marginEnd="4dp"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bacgroundbox"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"/>
-
-                <EditText
-                    android:id="@+id/otp4"
-                    android:layout_marginEnd="4dp"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bacgroundbox"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"/>
-
-                <EditText
-                    android:id="@+id/otp5"
-                    android:layout_marginEnd="4dp"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bacgroundbox"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"/>
-
-                <EditText
-                    android:id="@+id/otp6"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="no"
-                    android:inputType="number"
-                    android:maxLength="1"
-                    android:layout_marginEnd="4dp"
-                    android:layout_width="40dp"
-                    android:layout_height="46dp"
-                    android:background="@drawable/bacgroundbox"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:hint="abc"
+                    android:itemBackground="@drawable/bacgroundbox"
+                    android:lineHeight="32dp"
+                    android:textColor="@color/black"
+                    app:itemCount="6"
+                    app:itemRadius="15dp"
+                    app:itemSpacing="7dp"
+                    app:lineColor="#D6D6D6"
+                    app:viewType="rectangle"
+                    />
 
             </LinearLayout>
 

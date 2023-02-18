@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -35,6 +36,7 @@ public class amb_Reg extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.amb__reg, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         getotpm= view.findViewById(R.id.getotp);
         menternum = view.findViewById(R.id.enternumber);
@@ -43,54 +45,55 @@ public class amb_Reg extends Fragment {
         getotpm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!menternum.getText().toString().trim().isEmpty()){
-                    if ((menternum.getText().toString().trim()).length()==10){
+//                if (!menternum.getText().toString().trim().isEmpty()){
+//                    if ((menternum.getText().toString().trim()).length()==10){
+//
+//                        mprogressBar.setVisibility(View.VISIBLE);
+//                        getotpm.setVisibility(View.INVISIBLE);
+//
+//                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                                "+91" + menternum.getText().toString(), 60, TimeUnit.SECONDS, requireActivity(),
+//                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//                                    @Override
+//                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onVerificationFailed(@NonNull FirebaseException e) {
+//                                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//                                    }
+//
+//                                    @Override
+//                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//                                        super.onCodeSent(s, forceResendingToken);
+//                                        mprogressBar.setVisibility(View.GONE);
+//                                        getotpm.setVisibility(View.VISIBLE);
+//
+//
+//
+//
+//
+//
+//                                    }
+//                                }
+//                        );
+//
+//
+//
+//                    }else {
+//                        Toast.makeText(getActivity(), "Please enter correct number", Toast.LENGTH_SHORT).show();
+//                    }
+//                }else {
+//                    Toast.makeText(getActivity(), "Enter mobile number", Toast.LENGTH_SHORT).show();
+//                }
 
-                        mprogressBar.setVisibility(View.VISIBLE);
-                        getotpm.setVisibility(View.INVISIBLE);
-
-                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                                "+91" + menternum.getText().toString(), 60, TimeUnit.SECONDS, requireActivity(),
-                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                                    @Override
-                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-
-
-                                    }
-
-                                    @Override
-                                    public void onVerificationFailed(@NonNull FirebaseException e) {
-                                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                                    }
-
-                                    @Override
-                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                        super.onCodeSent(s, forceResendingToken);
-                                        mprogressBar.setVisibility(View.GONE);
-                                        getotpm.setVisibility(View.VISIBLE);
-
-                                        Bundle args = new Bundle();
-                                        args.putString("phone_no", menternum.getText().toString());
-                                        amb_Reg newFragment = new amb_Reg();
-                                        newFragment.setArguments(args);
-                                        Navigation.findNavController(view).navigate(R.id.amb_Reg2To_amb_OTPVerify,args);
-
-
-
-
-
-                                    }
-                                }
-                        );
-
-
-
-                    }else {
-                        Toast.makeText(getActivity(), "Please enter correct number", Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(getActivity(), "Enter mobile number", Toast.LENGTH_SHORT).show();
-                }
+                Bundle args = new Bundle();
+                args.putString("phone_no", menternum.getText().toString());
+                amb_Reg newFragment = new amb_Reg();
+                newFragment.setArguments(args);
+                Navigation.findNavController(view).navigate(R.id.amb_Reg2To_amb_OTPVerify,args);
 
             }
         });

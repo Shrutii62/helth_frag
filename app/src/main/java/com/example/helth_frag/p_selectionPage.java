@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 
 public class p_selectionPage extends Fragment {
-    CardView appointment, payment;
+    CardView appointment, payment, t_reports;
     private Toolbar topAppBar;
 
     @Override
@@ -68,6 +68,7 @@ public class p_selectionPage extends Fragment {
 
         appointment = view.findViewById(R.id.takappointmnt);
         payment = view.findViewById(R.id.payment);
+        t_reports = view.findViewById(R.id.t_reports);
 
 
         appointment.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +83,15 @@ public class p_selectionPage extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigate(R.id.p_selectionPageTo_p_Payment);
+
+            }
+        });
+
+
+        t_reports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(view).navigate(R.id.p_selectionPageTo_p_LabReportView);
 
             }
         });

@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +16,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Helth_frag"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.ActAmbulance"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".p_view_act"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".lab2_PDF"
             android:exported="false">
@@ -28,13 +46,6 @@
         </activity>
         <activity
             android:name=".Actity_UpiPayment"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Act_PaymentUpi"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

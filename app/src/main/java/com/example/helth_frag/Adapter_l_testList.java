@@ -46,7 +46,15 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
             @Override
             public void onClick(View view) {
 
+                String did = listlt.get(holder.getAdapterPosition()).did;
+                String hid = listlt.get(holder.getAdapterPosition()).hid;
+                String pid = listlt.get(holder.getAdapterPosition()).pid;
+
+
                 Intent intent = new Intent(view.getContext(), lab2_PDF.class);
+                intent.putExtra("piid",pid);
+                intent.putExtra("hiid",hid);
+                intent.putExtra("diid",did);
                 view.getContext().startActivity(intent);
             }
         });

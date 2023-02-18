@@ -58,8 +58,12 @@
             android:id="@+id/action_select_type_option_to_h_registration"
             app:destination="@id/h_registration" />
 
+        <action
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_select_type_option_to_amb_Reg"
+            app:destination="@id/amb_Reg" />
 
-            />
 
     </fragment>
 
@@ -245,6 +249,12 @@
             android:id="@+id/p_selectionPageTo_select_type_option"
             app:destination="@id/select_type_option" />
 
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/p_selectionPageTo_p_LabReportView"
+            app:destination="@id/p_LabReportView" />
+
 
     </fragment>
     <fragment
@@ -257,6 +267,16 @@
         android:name="com.example.helth_frag.Lab1"
         android:label="lab1"
         tools:layout="@layout/lab1" />
+    <fragment
+        android:id="@+id/p_LabReportView"
+        android:name="com.example.helth_frag.P_LabReportView"
+        android:label="p__lab_report_view"
+        tools:layout="@layout/p__lab_report_view" />
+    <fragment
+        android:id="@+id/amb_Reg"
+        android:name="com.example.helth_frag.amb_Reg"
+        android:label="amb__reg"
+        tools:layout="@layout/amb__reg" />
 
 
 </navigation>

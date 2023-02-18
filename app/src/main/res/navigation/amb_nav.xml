@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/amb_nav"
+    app:startDestination="@id/amb_Reg2">
+
+    <fragment
+        android:id="@+id/amb_Reg2"
+        android:name="com.example.helth_frag.amb_Reg"
+        android:label="amb__reg"
+        tools:layout="@layout/amb__reg" >
+
+        <action android:id="@+id/t"
+             app:destination="@+id/tryy"/>
+
+        <action app:popUpTo="@id/amb_Reg2"
+            app:popUpToInclusive="true"
+            android:id="@+id/tryy"
+            app:destination="@id/tryy"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/amb_OTPVerify"
+        android:name="com.example.helth_frag.amb_OTPVerify"
+        android:label="amb__o_t_p_verify"
+        tools:layout="@layout/amb__o_t_p_verify" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/tryy"
+        android:name="com.example.helth_frag.tryy"
+        android:label="tryy"
+        tools:layout="@layout/tryy" />
+</navigation>

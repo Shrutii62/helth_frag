@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".p_selectionPage"
-    android:orientation="vertical">
+    android:orientation="vertical"
+
+    android:background="@drawable/grey_appbackgroun_">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -46,15 +48,15 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="64dp"
-                    android:layout_height="64dp"
+                    android:layout_width="75dp"
+                    android:layout_height="70dp"
                     android:background="@drawable/circle_anothr"
-                    android:src="@drawable/person"
+                    android:src="@drawable/appntmt"
                     android:padding="15dp"/>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="1.5dp"
                     android:background="@color/lightgray"
                     android:layout_marginTop="10dp"/>
 
@@ -94,7 +96,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:background="@drawable/circle_green"
-                    android:src="@drawable/person"
+                    android:src="@drawable/pay"
                     android:padding="15dp"/>
 
                 <View
@@ -119,6 +121,65 @@
 
 
         </com.google.android.material.card.MaterialCardView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <com.google.android.material.card.MaterialCardView
+
+            android:id="@+id/t_reports"
+            android:layout_width="130dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="20dp"
+            android:elevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circle_yello"
+                    android:src="@drawable/tube"
+                    android:padding="15dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+
+                    android:id="@+id/t_reportsTxt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test Report"
+                    android:textStyle="bold"
+                    android:padding="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"/>
+
+            </LinearLayout>
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
 
     </LinearLayout>
 

@@ -51,6 +51,7 @@ public class lab2_PDF extends AppCompatActivity {
     String downloadURL  = "";
 
     private ProgressDialog progressDialog;
+    String pid, did, hid;
 
 
     @Override
@@ -70,6 +71,10 @@ public class lab2_PDF extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("lab");
         storageReference = FirebaseStorage.getInstance().getReference();
 
+        pid = getIntent().getExtras().getString("piid");
+        hid = getIntent().getExtras().getString("hiid");
+        did = getIntent().getExtras().getString("diid");
+
         addPDFM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +86,7 @@ public class lab2_PDF extends AppCompatActivity {
         btUPloadPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(lab2_PDF.this, "p"+pid, Toast.LENGTH_SHORT).show();
                 title = titletIpdfM.getText().toString();
                 if (title.isEmpty()){
                     titletIpdfM.setError("Fields cannot be empty");
@@ -122,22 +128,29 @@ public class lab2_PDF extends AppCompatActivity {
                 });
     }
 
-    private void uploaData(String valueOf) {
+    private void uploaData(String downloadURL) {
 //        databaseReference  = databaseReference.child("pdf");
 //        final  String uniqueKey = databaseReference.push().getKey();
         final String uniqueKey = databaseReference.child("lab").push().getKey();
 
 
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("pdfTitle", title);
-        data.put("pdfURL", downloadURL);
+//        HashMap<String, Object> data = new HashMap<>();
+//        data.put("pdfTitle", title);
+//        data.put("pdfURL", downloadURL);
+//        data.put("pid", pid);
+//        data.put("did", did);
+//        data.put("hid", hid);
 
 //        HashMap data = new HashMap();
 //        data.put("pdfTitle",title);
 //        data.put("pdfURL",downloadURL);
 
 //        PDFModal pdfModal = new PDFModal(title,downloadURL, uniqueKey);
-        databaseReference.child("pdf").child(uniqueKey).setValue(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        ModelP_pdfuplod modelP_pdfuplod = new ModelP_pdfuplod(title,downloadURL,pid, did, hid);
+
+
+        databaseReference.child("lab").child(uniqueKey).setValue(modelP_pdfuplod).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 progressDialog.dismiss();

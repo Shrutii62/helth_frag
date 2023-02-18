@@ -51,12 +51,12 @@ public class ambu1_form extends Fragment {
 
 
 
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            numphone = bundle.getString("pnumber");
-        }
+//        Bundle bundle = this.getArguments();
+//        if (bundle != null) {
+//            numphone = bundle.getString("pnumber");
+//        }
 
-//        String numphone = getActivity().getIntent().getExtras().getString("id");
+        String numphone = getActivity().getIntent().getExtras().getString("pnumber");
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

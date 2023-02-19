@@ -13,4 +13,21 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+    <!-- Used for the buttons -->
+    <item name="colorAccent">#FFC107</item>
+    <!-- Used for the title and text -->
+    <item name="android:textColorPrimary">#FFFFFF</item>
+    <!-- Used for the background -->
+    <item name="android:background">#4CAF50</item>
+    </style>
+
+    <style name="Theme.Helth_frag.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Helth_frag.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Helth_frag.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

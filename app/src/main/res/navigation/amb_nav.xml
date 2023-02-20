@@ -36,5 +36,17 @@
         android:id="@+id/ambu1_form"
         android:name="com.example.helth_frag.ambu1_form"
         android:label="ambu1_form"
-        tools:layout="@layout/ambu1_form" />
+        tools:layout="@layout/ambu1_form" >
+
+        <action app:popUpTo="@id/ambu1_form"
+            app:popUpToInclusive="true"
+            android:id="@+id/amb_OTPVerifyTo_amb_shwBooking"
+            app:destination="@id/amb_shwBooking"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/amb_shwBooking"
+        android:name="com.example.helth_frag.amb_shwBooking"
+        android:label="amb_shw_booking"
+        tools:layout="@layout/amb_shw_booking" />
 </navigation>

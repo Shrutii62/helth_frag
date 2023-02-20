@@ -5,34 +5,33 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-public class PageAdapter extends FragmentPagerAdapter {
+public class PageAdapterAmb  extends FragmentPagerAdapter {
 
-    int tabcount;
+    int tabcountamb;
 
-
-    public PageAdapter(@NonNull FragmentManager fm, int behavior) {
+    public PageAdapterAmb(@NonNull FragmentManager fm, int behavior) {
         super(fm, behavior);
-        tabcount= behavior;
+        tabcountamb= behavior;
     }
 
-    @NonNull
 
+    @NonNull
+    @Override
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                return  new D_get_pApp_details();
+                return  new amb_shwBooking();
 
             case 1:
-                return  new d_historyappointment();
+                return  new ambshw_inactiveBooking();
 
             default:
                 return null;
         }
     }
 
-
+    @Override
     public int getCount() {
-
         return 0;
     }
 }

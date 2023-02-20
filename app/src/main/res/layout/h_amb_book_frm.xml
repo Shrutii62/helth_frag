@@ -74,7 +74,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/dateE"
+                        android:id="@+id/dateAmbE"
                         android:layout_gravity="center"
                         android:text="Select Date"
                         android:editable="false"
@@ -100,7 +100,7 @@
                     app:boxStrokeWidthFocused="2dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/timeE"
+                        android:id="@+id/timeAmbE"
                         android:layout_marginTop="30dp"
                         android:editable="false"
                         android:layout_gravity="center"
@@ -121,7 +121,7 @@
 
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/Address"
+                    android:id="@+id/AddressAmb"
                     android:layout_marginTop="20dp"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
@@ -137,7 +137,7 @@
                     app:startIconTint="@color/black">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/issueE"
+                        android:id="@+id/AddressAmbE"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:fontFamily="casual"

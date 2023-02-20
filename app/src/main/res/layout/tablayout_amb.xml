@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".tablayoutAmb">
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/includeAmb"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_marginTop="0dp"
+        android:backgroundTint="@color/white"
+        app:tabIndicatorColor="@color/purple_700"
+        app:tabIndicatorHeight="3.5dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/teal_200"
+        app:tabTextColor="@color/teal_700">
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/activeAmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Active Booking">
+
+        </com.google.android.material.tabs.TabItem>
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/inactiveAmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="InActive Booking">
+
+        </com.google.android.material.tabs.TabItem>
+
+
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/fragmentContaineAmb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/include"
+        android:layout_marginTop="0dp"></androidx.viewpager.widget.ViewPager>
+
+
+
+</LinearLayout>

@@ -91,11 +91,7 @@
             android:id="@+id/action_h_Admn_selection_to_adminShowAmbulance"
             app:destination="@id/adminShowAmbulance" />
 
-        <action
-            app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
-            android:id="@+id/action_h_Admn_selection_to_h_amb_d_list"
-            app:destination="@id/h_amb_d_list" />
+
         <action
 
             app:popUpTo="@id/h_Admn_selection"
@@ -301,11 +297,7 @@
         android:name="com.example.helth_frag.activities.ActAmbulance"
         android:label="act_ambulance"
         tools:layout="@layout/act_ambulance" />
-    <fragment
-        android:id="@+id/h_amb_d_list"
-        android:name="com.example.helth_frag.H_amb_d_list"
-        android:label="h_amb_d_list"
-        tools:layout="@layout/h_amb_d_list" />
+
     <activity
         android:id="@+id/adminShowAmbulance"
         android:name="com.example.helth_frag.AdminShowAmbulance"

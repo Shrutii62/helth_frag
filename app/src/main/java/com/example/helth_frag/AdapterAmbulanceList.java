@@ -19,6 +19,8 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.helth_frag.activities.Act_D;
+
 import java.util.ArrayList;
 
 public class AdapterAmbulanceList extends RecyclerView.Adapter<AdapterAmbulanceList.Viewholder> {
@@ -90,10 +92,45 @@ public class AdapterAmbulanceList extends RecyclerView.Adapter<AdapterAmbulanceL
         holder.cardViewAmb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(contextAmb, "yasssss", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
+                View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.dailog_book_amb,null );
+                TextView book_ambu;
+                book_ambu=dailogview.findViewById(R.id.book_ambu);
+                book_ambu.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+//                        String id = listAmb.get(holder.getAdapterPosition()).d_id;
+//                        String name = listAmb.get(holder.getAdapterPosition()).p_name;
+//                        String pid = listAmb.get(holder.getAdapterPosition()).ppid;
+//                        String aptid = listAmb.get(holder.getAdapterPosition()).getAptmt_id();
 
-                Intent ii = new Intent(view.getContext(), h_Amb_book_frm_Acti.class);
-                ii.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+
+//                        NavController navController= Navigation.findNavController(view);
+//                        navController.navigateUp();
+//                        navController.navigate(R.id.d_addPrescription);
+
+//                        Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
+
+                        String amb_number = listAmb.get(holder.getAdapterPosition()).amb_number;
+                        String reg_phoned = listAmb.get(holder.getAdapterPosition()).reg_phoned;
+
+
+                        Intent intent = new Intent(view.getContext(), h_Amb_book_frm_Acti.class);
+                        intent.putExtra("amb_number",amb_number);
+                        intent.putExtra("reg_phoned",reg_phoned);
+
+                        view.getContext().startActivity(intent);
+                    }
+                });
+                builder.setView(dailogview);
+                builder.setCancelable(true);
+                builder.show();
+
+
+
+//                Intent ii = new Intent(contextAmb, h_Amb_book_frm_Acti.class);
+//                contextAmb.startActivity(ii);
 
 //                Intent intent= new Intent(contextAmb, h_Amb_book_frm_Acti.class);
 ////                intent.putExtra("your_extra","your_class_value");

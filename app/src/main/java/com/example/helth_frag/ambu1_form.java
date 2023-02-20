@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -76,6 +77,8 @@ public class ambu1_form extends Fragment {
 
                     databaseReferenceAmb.child(keyAmb).setValue(model_ambDriverdetail);
                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
+
+                    Navigation.findNavController(view).navigate(R.id.p_selectionPageTo_select_type_option);
 
 
                 }

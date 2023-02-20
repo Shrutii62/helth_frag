@@ -1,5 +1,6 @@
 package com.example.helth_frag;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -78,7 +79,10 @@ public class ambu1_form extends Fragment {
                     databaseReferenceAmb.child(keyAmb).setValue(model_ambDriverdetail);
                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
 
-                    Navigation.findNavController(view).navigate(R.id.p_selectionPageTo_select_type_option);
+//                    Navigation.findNavController(view).navigate(R.id.tablayoutAmb);
+
+                    Intent intent = new Intent(getContext(),tablayoutAmb.class);
+                    getContext().startActivity(intent);
 
 
                 }

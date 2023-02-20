@@ -1,6 +1,7 @@
 package com.example.helth_frag;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,12 +9,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chaos.view.PinView;
@@ -31,107 +36,225 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 public class amb_OTPVerify extends Fragment {
-    FirebaseAuth auth;
-    String verificationId= "";
-    String phone = "";
 
-    PinView pinView;
-
-    Button submitButton;
-
+    TextView getmobile;
+    String backendOTp;
+    EditText otp1, otp2, otp3, otp4, otp5,otp6;
+    Button btsubmit,resendotp;
+    ProgressBar prrgressbarV;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        auth = FirebaseAuth.getInstance();
-
         View view = inflater.inflate(R.layout.amb__o_t_p_verify, container, false);
 
+        getmobile = view.findViewById(R.id.getmobile);
+        btsubmit = view.findViewById(R.id.btsubmit);
+        resendotp = view.findViewById(R.id.resendotp);
+        otp1 = view.findViewById(R.id.otp1);
+        otp2 = view.findViewById(R.id.otp2);
+        otp3 = view.findViewById(R.id.otp3);
+        otp4 = view.findViewById(R.id.otp4);
+        otp5 = view.findViewById(R.id.otp5);
+        otp6 = view.findViewById(R.id.otp6);
 
-        submitButton = view.findViewById(R.id.btsubmit);
+        getmobile.setText(String.format("+91-%s",
+                getActivity().getIntent().getStringExtra("pnumber")));
+
+        backendOTp = getActivity().getIntent().getStringExtra("s");
+        Toast.makeText(getActivity(), "s"+backendOTp, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "getmobile"+getmobile, Toast.LENGTH_SHORT).show();
+
+//       btsubmit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                if (!otp1.getText().toString().trim().isEmpty() && !otp2.getText().toString().trim().isEmpty() &&
+//                        !otp3.getText().toString().trim().isEmpty() && !otp4.getText().toString().trim().isEmpty() &&
+//                        !otp5.getText().toString().trim().isEmpty() && !otp6.getText().toString().trim().isEmpty())
+//                {
+//                    String  entercodeOtp =
+//                            otp1.getText().toString() +
+//                                   otp2.getText().toString() +
+//                                    otp3.getText().toString() +
+//                                    otp4.getText().toString() +
+//                                    otp5.getText().toString() +
+//                                    otp6.getText().toString() ;
+//
+//                    if (backendOTp!=null){
+//                        prrgressbarV.setVisibility(View.VISIBLE);
+//                        btsubmit.setVisibility(View.INVISIBLE);
+//
+//                        PhoneAuthCredential phoneAuthCredential =PhoneAuthProvider.getCredential(backendOTp ,entercodeOtp);
+//
+//                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+//                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                                    @Override
+//                                    public void onComplete(@NonNull Task<AuthResult> task) {
+//
+//                                        prrgressbarV.setVisibility(View.INVISIBLE);
+//                                        btsubmit.setVisibility(View.VISIBLE);
+//
+//                                        if (task.isSuccessful()){
+////                                            Intent intent = new Intent(getActivity(), ambu1_form.class);
+////                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
+////                                            startActivity(intent);
+//                                        }else {
+////                                            Toast.makeText(getContext(), "Enter the correct OTP", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    }
+//                                });
+//
+//                    }else {
+//                        Toast.makeText(getActivity(), "Please check Internet connection", Toast.LENGTH_SHORT).show();
+//                    }
+//
+////                    Toast.makeText(verifyotp.this, "verifying OTP", Toast.LENGTH_SHORT).show();
+//                }else{
+//                    Toast.makeText(getActivity(), "Please Enter All Numbers", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });//onc end
+
+//        resendotp.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+//                        "+91" + getActivity().getIntent().getStringExtra("mobile"),
+//                        60, TimeUnit.SECONDS, getActivity(),
+//                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//                            @Override
+//                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+//
+//                            }
+//
+//                            @Override
+//                            public void onVerificationFailed(@NonNull FirebaseException e) {
+//                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                            @Override
+//                            public void onCodeSent(@NonNull String news, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+//                                backendOTp = news;
+//                                Toast.makeText(getActivity(), "Otp sent succesfully", Toast.LENGTH_SHORT).show();
+//
+//
+//
+//
+//                            }
+//                        }
+//                );
+//            }
+//        });
+//
+//        numotpmove();
 
 
-        pinView = view.findViewById(R.id.pinView);
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-            phone = bundle.getString("phone_no");
-        }
-
-
-
-
-        PhoneAuthOptions options = PhoneAuthOptions.newBuilder(auth)
-                .setPhoneNumber("+91" + phone)       // Phone number to verify
-                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                .setActivity(getActivity())                 // Activity (for callback binding)
-                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-                    @Override
-                    public void onVerificationCompleted(@NonNull PhoneAuthCredential p0) {
-                        String code = p0.getSmsCode();
-                        pinView.setText(code);
-
-
-                    }
-
-                    @Override
-                    public void onVerificationFailed(@NonNull FirebaseException p0) {
-                        Toast.makeText(getActivity(), p0.toString(), Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onCodeSent(@NonNull String p0, @NonNull PhoneAuthProvider.ForceResendingToken p1) {
-                        super.onCodeSent(p0, p1);
-                        verificationId = p0;
-                    }
-                })
-                .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
 
 
 
 
 
 
+        return view;
+    }
 
-        submitButton.setOnClickListener(new View.OnClickListener() {
+    //for auto movment of  otp no box
+    private void numotpmove() {
+        otp1.addTextChangedListener(new TextWatcher() {
+
             @Override
-            public void onClick(View view) {
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
-
-                if (pinView.getText() == null || pinView.getText().length() != 6) {
-                    Toast.makeText(getActivity(), "Please Enter 6 digit ", Toast.LENGTH_SHORT).show();
-                } else {
-                    PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, pinView.getText().toString());
-                    auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = task.getResult().getUser();
-                                Toast.makeText(getActivity(), "haa", Toast.LENGTH_SHORT).show();
-
-
-                                Bundle args = new Bundle();
-                                args.putString("pnumber", phone);
-                                amb_Reg newFragment = new amb_Reg();
-                                newFragment.setArguments(args);
-                                Navigation.findNavController(view).navigate(R.id.amb_OTPVerifyTo_ambu1_form,args);
-
-
-                            } else {
-                                // Sign in failed, display a message and update the UI
-                                Log.w(ContentValues.TAG, "signInWithCredential:failure", task.getException());
-                                if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                    Toast.makeText(getActivity(), "Otp is wrong", Toast.LENGTH_SHORT).show();
-                                }
-                                // Update UI
-                            }
-                        }
-                    });
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!s.toString().trim().isEmpty()){
+                   otp2.requestFocus();
                 }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+
+        });
+       otp2.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().trim().isEmpty()){
+                   otp3.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+       otp3.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().trim().isEmpty()){
+                  otp4.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+       otp4.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().trim().isEmpty()){
+                   otp5.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        otp5.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (!s.toString().trim().isEmpty()){
+                    otp6.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
 
             }
         });
 
-        return view;
     }
 }

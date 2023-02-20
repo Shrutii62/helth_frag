@@ -45,55 +45,64 @@ public class amb_Reg extends Fragment {
         getotpm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if (!menternum.getText().toString().trim().isEmpty()){
-//                    if ((menternum.getText().toString().trim()).length()==10){
-//
-//                        mprogressBar.setVisibility(View.VISIBLE);
-//                        getotpm.setVisibility(View.INVISIBLE);
-//
-//                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
-//                                "+91" + menternum.getText().toString(), 60, TimeUnit.SECONDS, requireActivity(),
-//                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-//                                    @Override
-//                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-//
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onVerificationFailed(@NonNull FirebaseException e) {
-//                                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//                                    }
-//
-//                                    @Override
-//                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-//                                        super.onCodeSent(s, forceResendingToken);
-//                                        mprogressBar.setVisibility(View.GONE);
-//                                        getotpm.setVisibility(View.VISIBLE);
-//
-//
-//
-//
-//
-//
-//                                    }
-//                                }
-//                        );
-//
-//
-//
-//                    }else {
-//                        Toast.makeText(getActivity(), "Please enter correct number", Toast.LENGTH_SHORT).show();
-//                    }
-//                }else {
-//                    Toast.makeText(getActivity(), "Enter mobile number", Toast.LENGTH_SHORT).show();
-//                }
+                if (!menternum.getText().toString().trim().isEmpty()){
+                    if ((menternum.getText().toString().trim()).length()==10){
 
-                Bundle args = new Bundle();
-                args.putString("pnumber", menternum.getText().toString());
-                amb_Reg newFragment = new amb_Reg();
-                newFragment.setArguments(args);
-                Navigation.findNavController(view).navigate(R.id.amb_Reg2To_amb_OTPVerify,args);
+                        mprogressBar.setVisibility(View.VISIBLE);
+                        getotpm.setVisibility(View.INVISIBLE);
+
+                        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                                "+91" + menternum.getText().toString(), 60, TimeUnit.SECONDS, requireActivity(),
+                                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                                    @Override
+                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
+
+                                    }
+
+                                    @Override
+                                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                        super.onCodeSent(s, forceResendingToken);
+                                        mprogressBar.setVisibility(View.GONE);
+                                        getotpm.setVisibility(View.VISIBLE);
+
+
+
+//                                        Intent intent = new Intent(getActivity(),amb_OTPVerify.class);
+//                                        intent.putExtra("mobile",menternum.getText().toString());
+//
+//                                        intent.putExtra("s",s);
+//                                        startActivity(intent);
+
+
+                                        String phone = menternum.getText().toString();
+                                        Bundle args = new Bundle();
+                                        args.putString("pnumber", phone);
+                                        args.putString("s", s);
+
+                                        amb_Reg newFragment = new amb_Reg();
+                                        newFragment.setArguments(args);
+                                        Navigation.findNavController(view).navigate(R.id.amb_Reg2To_amb_OTPVerify,args);
+
+                                    }
+                                }
+                        );
+
+
+
+                    }else {
+                        Toast.makeText(getActivity(), "Please enter correct number", Toast.LENGTH_SHORT).show();
+                    }
+                }else {
+                    Toast.makeText(getActivity(), "Enter mobile number", Toast.LENGTH_SHORT).show();
+                }
+
+
 
             }
         });

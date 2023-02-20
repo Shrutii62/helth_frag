@@ -261,6 +261,12 @@
         <action
 
             app:popUpToInclusive="true"
+            android:id="@+id/p_selectionPageTo_tablayoutAmb"
+            app:destination="@id/tablayoutAmb" />
+
+        <action
+
+            app:popUpToInclusive="true"
             android:id="@+id/p_selectionPageTo_select_type_option"
             app:destination="@id/select_type_option" />
 
@@ -303,6 +309,11 @@
         android:name="com.example.helth_frag.AdminShowAmbulance"
         android:label="admin_show_ambulance"
         tools:layout="@layout/admin_show_ambulance" />
+    <activity
+        android:id="@+id/tablayoutAmb"
+        android:name="com.example.helth_frag.tablayoutAmb"
+        android:label="tablayout_amb"
+        tools:layout="@layout/tablayout_amb" />
 
 
 </navigation>

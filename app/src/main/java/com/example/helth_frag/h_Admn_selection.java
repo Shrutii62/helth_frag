@@ -148,10 +148,9 @@ public class h_Admn_selection extends Fragment {
         ambulance_book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                showDialog();
+                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_adminShowAmbulance);
 
-
-
-                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_amb_d_list);
             }
         });
 
@@ -278,7 +277,6 @@ public class h_Admn_selection extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(requireActivity(),AdminShowAmbulance.class);
-//                intent.putExtra("ambulanceType",selectedType);
                 startActivity(intent);
             }
         });

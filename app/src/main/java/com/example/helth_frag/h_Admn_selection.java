@@ -59,7 +59,7 @@ import java.util.Calendar;
 
 public class h_Admn_selection extends Fragment {
     CardView add_userm;
-    CardView ambulance_book;
+    CardView ambulance_book, RequestServc;
     SharedPreferences sharedPreferences;
     LinearLayout dateLayout;
     String hospitalAddress;
@@ -93,6 +93,7 @@ public class h_Admn_selection extends Fragment {
         add_userm = view.findViewById(R.id.add_user);
         ambulance_book = view.findViewById(R.id.ambulance_book);
         topAppBar = view.findViewById(R.id.topAppBar);
+        RequestServc = view.findViewById(R.id.RequestServc);
 
         topAppBar.inflateMenu(R.menu.main_dotmenu);
 
@@ -153,149 +154,130 @@ public class h_Admn_selection extends Fragment {
 
             }
         });
-
-
-
-
-        hospitalDatabase = FirebaseDatabase.getInstance().getReference("Hospital");
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        hospitalEmail = user.getEmail();
-        String hospitalEncodedEmail = hospitalEmail.replace('.',',');
-
-        Query getHospitalAddress = hospitalDatabase.orderByChild("email").equalTo(hospitalEmail);
-        getHospitalAddress.addValueEventListener(new ValueEventListener() {
+        RequestServc.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.exists()){
-                    hospitalAddress = snapshot.child(hospitalEncodedEmail).child("address").getValue(String.class);
-                }
-                Toast.makeText(getActivity(), hospitalAddress, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+            public void onClick(View v) {
+//                showDialog();
+                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_request_servces2);
 
             }
         });
 
-        CalendarConstraints.Builder cc = new CalendarConstraints.Builder().setValidator(DateValidatorPointForward.now());
 
 
-        datePicker = MaterialDatePicker.Builder.datePicker()
-                .setCalendarConstraints(cc.build())
-                .setTitleText("select date").setSelection(MaterialDatePicker.todayInUtcMilliseconds())
-                .build();
+
+
 
 
         return view;
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.main_dotmenu,menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-
-    public void showDialog(){
-        Dialog dialog = new Dialog(requireContext());
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_book_ambulance);
-        dateLayout = dialog.findViewById(R.id.selectDate);
-        TextView dateText;
-        dateText = dialog.findViewById(R.id.date);
-        Button btn = dialog.findViewById(R.id.booking_done);
-        EditText address = dialog.findViewById(R.id.hospital_address);
-        address.setText(hospitalAddress);
-        RadioButton now = dialog.findViewById(R.id.booking_now);
-
-
-        RadioGroup ambulanceType = dialog.findViewById(R.id.rg);
-
-//        ambulanceType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-//                switch(i){
-//                    case R.id.type_als: {
-//                        selectedType = "ALS";
-//                        break;
-//                    }
-//                    case R.id.type_bls:{
-//                        selectedType = "BLS";
-//                        break;
-//                    }
+//    @Override
+//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+//        inflater.inflate(R.menu.main_dotmenu,menu);
+//        super.onCreateOptionsMenu(menu, inflater);
+//    }
 //
-//                    case R.id.type_dk: {
-//                        selectedType = "DK";
-//                        break;
+//
+//    public void showDialog(){
+//        Dialog dialog = new Dialog(requireContext());
+//        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        dialog.setContentView(R.layout.dialog_book_ambulance);
+//        dateLayout = dialog.findViewById(R.id.selectDate);
+//        TextView dateText;
+//        dateText = dialog.findViewById(R.id.date);
+//        Button btn = dialog.findViewById(R.id.booking_done);
+//        EditText address = dialog.findViewById(R.id.hospital_address);
+//        address.setText(hospitalAddress);
+//        RadioButton now = dialog.findViewById(R.id.booking_now);
+//
+//
+//        RadioGroup ambulanceType = dialog.findViewById(R.id.rg);
+//
+////        ambulanceType.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+////            @Override
+////            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+////                switch(i){
+////                    case R.id.type_als: {
+////                        selectedType = "ALS";
+////                        break;
+////                    }
+////                    case R.id.type_bls:{
+////                        selectedType = "BLS";
+////                        break;
+////                    }
+////
+////                    case R.id.type_dk: {
+////                        selectedType = "DK";
+////                        break;
+////                    }
+////                    case R.id.type_motuary: {
+////                        selectedType = "MOTUARY";
+////                        break;
+////                    }
+////                    case R.id.type_pTransport:{
+////                        selectedType = "PT";
+////                        break;
+////                    }
+////                }
+////            }
+////        });
+//
+//        dateText.setText(getDate(System.currentTimeMillis(),"MMM dd yyyy"));
+//        dateText.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                datePicker.show(getParentFragmentManager(), "Material_date_picker");
+//                datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
+//                    @Override
+//                    public void onPositiveButtonClick(Object selection) {
+//                        dateText.setText(datePicker.getHeaderText());
 //                    }
-//                    case R.id.type_motuary: {
-//                        selectedType = "MOTUARY";
-//                        break;
-//                    }
-//                    case R.id.type_pTransport:{
-//                        selectedType = "PT";
-//                        break;
-//                    }
-//                }
+//                });
 //            }
 //        });
-
-        dateText.setText(getDate(System.currentTimeMillis(),"MMM dd yyyy"));
-        dateText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                datePicker.show(getParentFragmentManager(), "Material_date_picker");
-                datePicker.addOnPositiveButtonClickListener(new MaterialPickerOnPositiveButtonClickListener() {
-                    @Override
-                    public void onPositiveButtonClick(Object selection) {
-                        dateText.setText(datePicker.getHeaderText());
-                    }
-                });
-            }
-        });
-
-
-        now.setOnClickListener(new View.OnClickListener() {
-                                   @Override
-                                   public void onClick(View view) {
-
-                                       dateLayout.setVisibility(View.GONE);
-                                   }
-                               }
-        );
-
-        RadioButton later = dialog.findViewById(R.id.booking_later);
-        later.setOnClickListener(new View.OnClickListener() {
-                                     @Override
-                                     public void onClick(View view) {
-                                         dateLayout.setVisibility(View.VISIBLE);
-                                     }
-                                 }
-        );
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(requireActivity(),AdminShowAmbulance.class);
-                startActivity(intent);
-            }
-        });
-
-
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.show();
-    }
-
-    public static String getDate(long milliSeconds, String dateFormat)
-    {
-        // Create a DateFormatter object for displaying date in specified format.
-        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-
-        // Create a calendar object that will convert the date and time value in milliseconds to date.
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(milliSeconds);
-        return formatter.format(calendar.getTime());
-    }
+//
+//
+//        now.setOnClickListener(new View.OnClickListener() {
+//                                   @Override
+//                                   public void onClick(View view) {
+//
+//                                       dateLayout.setVisibility(View.GONE);
+//                                   }
+//                               }
+//        );
+//
+//        RadioButton later = dialog.findViewById(R.id.booking_later);
+//        later.setOnClickListener(new View.OnClickListener() {
+//                                     @Override
+//                                     public void onClick(View view) {
+//                                         dateLayout.setVisibility(View.VISIBLE);
+//                                     }
+//                                 }
+//        );
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(requireActivity(),AdminShowAmbulance.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//
+//        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+//        dialog.show();
+//    }
+//
+//    public static String getDate(long milliSeconds, String dateFormat)
+//    {
+//        // Create a DateFormatter object for displaying date in specified format.
+//        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+//
+//        // Create a calendar object that will convert the date and time value in milliseconds to date.
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.setTimeInMillis(milliSeconds);
+//        return formatter.format(calendar.getTime());
+//    }
 
 
 

@@ -91,6 +91,18 @@
             android:id="@+id/action_h_Admn_selection_to_adminShowAmbulance"
             app:destination="@id/adminShowAmbulance" />
 
+        <action
+            app:popUpTo="@id/h_Admn_selection"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_Admn_selection_to_acti_request"
+            app:destination="@id/acti_request" />
+
+        <action
+            app:popUpTo="@id/h_Admn_selection"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_Admn_selection_to_h_request_servces2"
+            app:destination="@id/h_request_servces2" />
+
 
         <action
 
@@ -98,6 +110,8 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_select_type_option"
             app:destination="@id/select_type_option" />
+
+
 
 
     </fragment>
@@ -314,6 +328,16 @@
         android:name="com.example.helth_frag.tablayoutAmb"
         android:label="tablayout_amb"
         tools:layout="@layout/tablayout_amb" />
+    <activity
+        android:id="@+id/acti_request"
+        android:name="com.example.helth_frag.Acti_request"
+        android:label="acti_request"
+        tools:layout="@layout/acti_request" />
+    <fragment
+        android:id="@+id/h_request_servces2"
+        android:name="com.example.helth_frag.h_request_servces"
+        android:label="h_request_pg"
+        tools:layout="@layout/h_request_pg" />
 
 
 </navigation>

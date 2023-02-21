@@ -37,11 +37,11 @@ import java.util.concurrent.TimeUnit;
 
 public class amb_OTPVerify extends Fragment {
 
-    TextView getmobile;
+    TextView getmobile, resendotp;
     String backendOTp;
     EditText otp1, otp2, otp3, otp4, otp5,otp6;
-    Button btsubmit,resendotp;
-    ProgressBar prrgressbarV;
+    Button btsubmit;
+//    ProgressBar prrgressbarV;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,96 +58,112 @@ public class amb_OTPVerify extends Fragment {
         otp5 = view.findViewById(R.id.otp5);
         otp6 = view.findViewById(R.id.otp6);
 
-        getmobile.setText(String.format("+91-%s",
-                getActivity().getIntent().getStringExtra("pnumber")));
 
-        backendOTp = getActivity().getIntent().getStringExtra("s");
-        Toast.makeText(getActivity(), "s"+backendOTp, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getActivity(), "getmobile"+getmobile, Toast.LENGTH_SHORT).show();
 
-//       btsubmit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
+
+
+
+//        getmobile.setText(String.format("+91-%s",
+//                getActivity().getIntent().getStringExtra("pnumber")));
 //
-//                if (!otp1.getText().toString().trim().isEmpty() && !otp2.getText().toString().trim().isEmpty() &&
-//                        !otp3.getText().toString().trim().isEmpty() && !otp4.getText().toString().trim().isEmpty() &&
-//                        !otp5.getText().toString().trim().isEmpty() && !otp6.getText().toString().trim().isEmpty())
-//                {
-//                    String  entercodeOtp =
-//                            otp1.getText().toString() +
-//                                   otp2.getText().toString() +
-//                                    otp3.getText().toString() +
-//                                    otp4.getText().toString() +
-//                                    otp5.getText().toString() +
-//                                    otp6.getText().toString() ;
+//        backendOTp = getActivity().getIntent().getStringExtra("s");
 //
-//                    if (backendOTp!=null){
+
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            String number = bundle.getString("pnumber");
+             backendOTp = bundle.getString("s");
+        }
+
+
+       // Toast.makeText(requireActivity(), backendOTp, Toast.LENGTH_SHORT).show();
+
+       btsubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!otp1.getText().toString().trim().isEmpty() && !otp2.getText().toString().trim().isEmpty() &&
+                        !otp3.getText().toString().trim().isEmpty() && !otp4.getText().toString().trim().isEmpty() &&
+                        !otp5.getText().toString().trim().isEmpty() && !otp6.getText().toString().trim().isEmpty())
+                {
+                    String  entercodeOtp =
+                            otp1.getText().toString() +
+                                   otp2.getText().toString() +
+                                    otp3.getText().toString() +
+                                    otp4.getText().toString() +
+                                    otp5.getText().toString() +
+                                    otp6.getText().toString() ;
+
+                    if (backendOTp!=null){
 //                        prrgressbarV.setVisibility(View.VISIBLE);
 //                        btsubmit.setVisibility(View.INVISIBLE);
-//
-//                        PhoneAuthCredential phoneAuthCredential =PhoneAuthProvider.getCredential(backendOTp ,entercodeOtp);
-//
-//                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
-//                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-//                                    @Override
-//                                    public void onComplete(@NonNull Task<AuthResult> task) {
-//
-//                                        prrgressbarV.setVisibility(View.INVISIBLE);
-//                                        btsubmit.setVisibility(View.VISIBLE);
-//
-//                                        if (task.isSuccessful()){
-////                                            Intent intent = new Intent(getActivity(), ambu1_form.class);
-////                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK );
-////                                            startActivity(intent);
-//                                        }else {
-////                                            Toast.makeText(getContext(), "Enter the correct OTP", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    }
-//                                });
-//
-//                    }else {
-//                        Toast.makeText(getActivity(), "Please check Internet connection", Toast.LENGTH_SHORT).show();
-//                    }
-//
-////                    Toast.makeText(verifyotp.this, "verifying OTP", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    Toast.makeText(getActivity(), "Please Enter All Numbers", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });//onc end
 
-//        resendotp.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                PhoneAuthProvider.getInstance().verifyPhoneNumber(
-//                        "+91" + getActivity().getIntent().getStringExtra("mobile"),
-//                        60, TimeUnit.SECONDS, getActivity(),
-//                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-//                            @Override
-//                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        Toast.makeText(getContext(), entercodeOtp, Toast.LENGTH_SHORT).show();
+                        PhoneAuthCredential phoneAuthCredential =PhoneAuthProvider.getCredential(backendOTp ,entercodeOtp);
+
+                        FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)
+                                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+//                                        prrgressbarV.setVisibility(
 //
-//                            }
-//
-//                            @Override
-//                            public void onVerificationFailed(@NonNull FirebaseException e) {
-//                                Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
-//                            }
-//
-//                            @Override
-//                            public void onCodeSent(@NonNull String news, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-//                                backendOTp = news;
-//                                Toast.makeText(getActivity(), "Otp sent succesfully", Toast.LENGTH_SHORT).show();
-//
-//
-//
-//
-//                            }
-//                        }
-//                );
-//            }
-//        });
-//
-//        numotpmove();
+//                                       View.INVISIBLE);
+                                        btsubmit.setVisibility(View.VISIBLE);
+
+                                        if (task.isSuccessful()){
+                                            Navigation.findNavController(view).navigate(R.id.amb_OTPVerifyTo_ambu1_form);
+
+                                        }else {
+                                           Toast.makeText(getContext(), "Enter the correct OTP", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                    }else {
+
+                        Toast.makeText(getContext(), "Please check Internet connection", Toast.LENGTH_SHORT).show();
+                    }
+
+                    Toast.makeText(getContext(), "verifying OTP", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getContext(), "Please Enter All Numbers", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });//onc end
+
+        resendotp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                        "+91" + getActivity().getIntent().getStringExtra("mobile"),
+                        60, TimeUnit.SECONDS, getActivity(),
+                        new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            @Override
+                            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+
+                            }
+
+                            @Override
+                            public void onVerificationFailed(@NonNull FirebaseException e) {
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onCodeSent(@NonNull String news, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                                backendOTp = news;
+                                Toast.makeText(getContext(), "Otp sent succesfully", Toast.LENGTH_SHORT).show();
+
+
+
+
+                            }
+                        }
+                );
+            }
+        });
+
+        numotpmove();
 
 
 

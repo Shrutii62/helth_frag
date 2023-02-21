@@ -73,12 +73,6 @@ public class amb_Reg extends Fragment {
 
 
 
-//                                        Intent intent = new Intent(getActivity(),amb_OTPVerify.class);
-//                                        intent.putExtra("mobile",menternum.getText().toString());
-//
-//                                        intent.putExtra("s",s);
-//                                        startActivity(intent);
-
 
                                         String phone = menternum.getText().toString();
                                         Bundle args = new Bundle();

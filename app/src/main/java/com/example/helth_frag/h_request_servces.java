@@ -66,25 +66,27 @@ public class h_request_servces extends Fragment {
         recyclerviewReq.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         list_HD = new ArrayList<>();
+        Toast.makeText(getActivity(), "e"+email, Toast.LENGTH_SHORT).show();
 
         databaseReference_HD= FirebaseDatabase.getInstance().getReference("Hospital");
 
 
-        Query checkemail = databaseReference_HD.orderByChild("email").equalTo(email);
-        String HencodeUserEmail = email.replace(".", ",");
-        checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
+
+        String encodeD_Email = email.replace(".", ",");
+
+        databaseReference_HD.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
                     for (DataSnapshot dataSnapshot : snapshot1.getChildren()) {
                         modelHD modelHD = dataSnapshot.getValue(com.example.helth_frag.modelHD.class);
 
+                        String hnam=snapshot1.child(encodeD_Email).child("hname").getValue(String.class);
+                        Toast.makeText(getActivity(), "hey"+hnam, Toast.LENGTH_SHORT).show();
+
                         list_HD.add(modelHD);
 
                     }
-
-
-
 
                 }else {
                     Toast.makeText(getActivity(), "sanp1 not exist", Toast.LENGTH_SHORT).show();

@@ -102,6 +102,9 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_h_request_servces2"
             app:destination="@id/h_request_servces2" />
+        <action
+            android:id="@+id/action_h_Admn_selection_to_manageInventory"
+            app:destination="@id/manageInventory" />
 
 
         <action
@@ -338,6 +341,10 @@
         android:name="com.example.helth_frag.h_request_servces"
         android:label="h_request_pg"
         tools:layout="@layout/h_request_pg" />
+    <fragment
+        android:id="@+id/manageInventory"
+        android:name="com.example.helth_frag.ManageInventory"
+        android:label="ManageInventory" />
 
 
 </navigation>

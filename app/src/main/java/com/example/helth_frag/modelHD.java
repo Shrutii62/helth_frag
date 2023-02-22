@@ -5,6 +5,10 @@ public class modelHD {
 
     public modelHD() {}
 
+    public void setHname(String hname) {
+        Hname = hname;
+    }
+
     public modelHD(String hname, String address, String mngr_name, String email, String phoneno, String passwd, String h_id) {
         Hname = hname;
         this.address = address;

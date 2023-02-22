@@ -58,7 +58,7 @@ import java.util.Calendar;
 
 
 public class h_Admn_selection extends Fragment {
-    CardView add_userm;
+    CardView add_userm, invntory;
     CardView ambulance_book, RequestServc;
     SharedPreferences sharedPreferences;
     LinearLayout dateLayout;
@@ -94,6 +94,7 @@ public class h_Admn_selection extends Fragment {
         ambulance_book = view.findViewById(R.id.ambulance_book);
         topAppBar = view.findViewById(R.id.topAppBar);
         RequestServc = view.findViewById(R.id.RequestServc);
+        invntory = view.findViewById(R.id.invntory);
 
         topAppBar.inflateMenu(R.menu.main_dotmenu);
 
@@ -162,6 +163,16 @@ public class h_Admn_selection extends Fragment {
 
             }
         });
+
+        invntory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                showDialog();
+                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_manageInventory);
+
+            }
+        });
+
 
 
 

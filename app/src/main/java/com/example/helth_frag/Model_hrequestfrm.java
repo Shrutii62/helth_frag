@@ -1,7 +1,23 @@
 package com.example.helth_frag;
 
 public class Model_hrequestfrm {
-    String pname,  description, hid , h_addrs, h_name, statusact, key;
+    String pname,  description , h_addrs, h_name, statusact, key, hid_recivedRHos,hid_sendig_h_me;
+
+    public String getHid_recivedRHos() {
+        return hid_recivedRHos;
+    }
+
+    public void setHid_recivedRHos(String hid_recivedRHos) {
+        this.hid_recivedRHos = hid_recivedRHos;
+    }
+
+    public String getHid_sendig_h_me() {
+        return hid_sendig_h_me;
+    }
+
+    public void setHid_sendig_h_me(String hid_sendig_h_me) {
+        this.hid_sendig_h_me = hid_sendig_h_me;
+    }
 
     public String getKey() {
         return key;
@@ -22,14 +38,15 @@ public class Model_hrequestfrm {
     public Model_hrequestfrm() {
     }
 
-    public Model_hrequestfrm(String pname, String description, String hid, String h_addrs, String h_name, String statusact, String key) {
+    public Model_hrequestfrm(String pname, String description,  String h_addrs, String h_name, String statusact, String key, String hid_recivedRHos, String hid_sendig_h_me) {
         this.pname = pname;
         this.description = description;
-        this.hid = hid;
         this.h_addrs = h_addrs;
         this.h_name = h_name;
         this.statusact = statusact;
         this.key = key;
+        this.hid_recivedRHos = hid_recivedRHos;
+        this.hid_sendig_h_me = hid_sendig_h_me;
     }
 
     public String getPname() {
@@ -48,13 +65,6 @@ public class Model_hrequestfrm {
         this.description = description;
     }
 
-    public String getHid() {
-        return hid;
-    }
-
-    public void setHid(String hid) {
-        this.hid = hid;
-    }
 
     public String getH_addrs() {
         return h_addrs;

@@ -76,6 +76,8 @@ public class h_Admn_selection extends Fragment {
     Button logoutm;
     private Toolbar topAppBar;
 
+    TextView Hlist, viewReq;
+
 
 
 
@@ -96,7 +98,8 @@ public class h_Admn_selection extends Fragment {
         RequestServc = view.findViewById(R.id.RequestServc);
         invntory = view.findViewById(R.id.invntory);
 
-        topAppBar.inflateMenu(R.menu.main_dotmenu);
+
+
 
 //        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
 
@@ -158,8 +161,34 @@ public class h_Admn_selection extends Fragment {
         RequestServc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+                Dialog dialog = new Dialog(requireContext());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setContentView(R.layout.dailog_on_ptransfer);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+
+                dialog.findViewById(R.id.Hlist).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_request_servces2);
+                        dialog.cancel();
+                    }
+                });
+
+                dialog.findViewById(R.id.viewReq).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_tablayoutAmb);
+                        dialog.cancel();
+
+                    }
+                });
+
 //                showDialog();
-                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_request_servces2);
+//                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_h_request_servces2);
 
             }
         });
@@ -168,7 +197,12 @@ public class h_Admn_selection extends Fragment {
             @Override
             public void onClick(View v) {
 //                showDialog();
-                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_manageInventory);
+                Bundle bundle = new Bundle();
+                bundle.putString("navigate", "Admin");
+                ManageInventory mi = new ManageInventory();
+                mi.setArguments(bundle);
+
+                Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_manageInventory, bundle);
 
             }
         });

@@ -19,6 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,10 @@ public class h_requestSentForm extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
     ProgressDialog progressDialog;
+
+    String hid_current;
+
+    DatabaseReference databaseReference_HD;
 
     Button sendRq;
     ImageView backbt;
@@ -57,15 +62,17 @@ public class h_requestSentForm extends AppCompatActivity {
         //databsase
 
 
+
         progressDialog= new ProgressDialog(this);
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("We're creating your Account");
 
 
+
         String hname = getIntent().getExtras().getString("Hname");
         String address = getIntent().getExtras().getString("address");
         String phone = getIntent().getExtras().getString("phoneno");
-        String hid = getIntent().getExtras().getString("hid");
+        String hid_recieved_R = getIntent().getExtras().getString("hid");
 
         pnameReqE.addTextChangedListener(new TextWatcher() {
             @Override
@@ -105,6 +112,41 @@ public class h_requestSentForm extends AppCompatActivity {
         });
 
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+
+        databaseReference_HD= FirebaseDatabase.getInstance().getReference("Hospital");
+
+        String encodeD_Email = email.replace(".", ",");
+
+        databaseReference_HD.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        modelHD modelHD = dataSnapshot.getValue(com.example.helth_frag.modelHD.class);
+
+                         hid_current=snapshot.child(encodeD_Email).child("h_id").getValue(String.class);
+                        Toast.makeText(getApplicationContext(), "hey"+hid_current, Toast.LENGTH_SHORT).show();
+
+
+
+                    }
+                }else {}
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
         sendRq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,7 +166,7 @@ public class h_requestSentForm extends AppCompatActivity {
 
                     String statusact = "accept";
 
-                    Model_hrequestfrm model_hrequestfrm = new Model_hrequestfrm(pname, description, hid, address, hname,statusact,keyDescp );
+                    Model_hrequestfrm model_hrequestfrm = new Model_hrequestfrm(pname, description, address, hname,statusact,keyDescp,hid_recieved_R,hid_current );
                     reference.child(keyDescp).setValue(model_hrequestfrm);
 
                     Toast.makeText(h_requestSentForm.this, "Request Sent....Done!", Toast.LENGTH_SHORT).show();

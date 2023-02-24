@@ -30,7 +30,7 @@ public class user1stpg extends Fragment {
 
 
 
-    CardView appt_details;
+    CardView appt_details, invntoryD;
     private Toolbar topAppBar;
 
     @Override
@@ -81,6 +81,7 @@ public class user1stpg extends Fragment {
 
 
         appt_details = view.findViewById(R.id.appt_details);
+        invntoryD = view.findViewById(R.id.invntoryD);
 
 
         appt_details.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +94,20 @@ public class user1stpg extends Fragment {
 
 
 
+
+            }
+        });
+
+        invntoryD.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                showDialog();
+                Bundle bundle = new Bundle();
+                bundle.putString("navigate", "Doctor");
+                ManageInventory mi = new ManageInventory();
+                mi.setArguments(bundle);
+
+                Navigation.findNavController(view).navigate(R.id.action_user1stpg_to_manageInventory, bundle);
 
             }
         });

@@ -105,6 +105,9 @@
         <action
             android:id="@+id/action_h_Admn_selection_to_manageInventory"
             app:destination="@id/manageInventory" />
+        <action
+            android:id="@+id/action_h_Admn_selection_to_tablayoutAmb"
+            app:destination="@id/tablayoutAmb" />
 
 
         <action
@@ -213,6 +216,11 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_user1stpg_to_select_type_option"
             app:destination="@id/select_type_option" />
+
+        <action
+
+            android:id="@+id/action_user1stpg_to_manageInventory"
+            app:destination="@id/manageInventory" />
 
 
         <action

@@ -6,10 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -59,6 +61,35 @@ public class Lab1 extends Fragment {
                 .toBuilder()
                 .setAllCorners(CornerFamily.ROUNDED,radius)
                 .build());
+
+
+
+
+
+        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.mngInvetory:
+                        Bundle bundle = new Bundle();
+                        bundle.putString("navigate","Lab");
+                        ManageInventory mi = new ManageInventory();
+                        mi.setArguments(bundle);
+                        Navigation.findNavController(view).navigate(R.id.lab1_to_manageInventory2,bundle);
+                        return true;
+
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
+
+                        Navigation.findNavController(view).navigate(R.id.lab1_to_select_type_option2);
+                        return true;
+
+                }
+                return false;
+            }
+        });
+
+
 
 
         recyclerviewLT = view.findViewById(R.id.recyclerviewLT);

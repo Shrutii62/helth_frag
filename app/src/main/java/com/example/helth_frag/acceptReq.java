@@ -60,7 +60,7 @@ public class acceptReq extends Fragment {
                     Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String get_hid = snapshot1.child(HencodeUserEmail).child("h_id").getValue(String.class);
                     Toast.makeText(getActivity(), "get_hid "+ get_hid, Toast.LENGTH_SHORT).show();
-                    Query hidcheck = databaseReference.orderByChild("hid").equalTo(get_hid);
+                    Query hidcheck = databaseReference.orderByChild("hid_sendig_h_me").equalTo(get_hid);
 
 
 
@@ -70,35 +70,55 @@ public class acceptReq extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot snapshot2) {
                             if (snapshot2.exists()){
 
-                                Query statusCheck= databaseReference.orderByChild("statusact").equalTo("on");
 
-                                statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot3) {
-                                        if (snapshot3.exists()){
+                                if (snapshot2.exists()){
 
-                                            for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
-                                                Model_hrequestfrm model_hrequestfrm = dataSnapshot.getValue(com.example.helth_frag.Model_hrequestfrm.class);
+                                    for (DataSnapshot dataSnapshot : snapshot2.getChildren()) {
+                                        Model_hrequestfrm model_hrequestfrm = dataSnapshot.getValue(com.example.helth_frag.Model_hrequestfrm.class);
 
-                                                listR.add(model_hrequestfrm);
-                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
-                                            }
-                                            adapteracc = new Adpter_acceptReg(
-                                                    getActivity(),listR);
-                                            recyclerViewR.setAdapter(adapteracc);
-
-                                        }else{
-                                            Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
-                                        }
-                                        Toast.makeText(getActivity(), "dd"+listR.size(), Toast.LENGTH_SHORT).show();
-
+                                        listR.add(model_hrequestfrm);
+                                        Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                     }
+                                    adapteracc = new Adpter_acceptReg(
+                                            getActivity(),listR);
+                                    recyclerViewR.setAdapter(adapteracc);
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
+                                }else{
+                                    Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+                                }
 
-                                    }
-                                });
+
+
+
+//                                Query statusCheck= databaseReference.orderByChild("statusact").equalTo("on");
+
+//                                statusCheck.addListenerForSingleValueEvent(new ValueEventListener() {
+//                                    @Override
+//                                    public void onDataChange(@NonNull DataSnapshot snapshot3) {
+//                                        if (snapshot3.exists()){
+//
+//                                            for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
+//                                                Model_hrequestfrm model_hrequestfrm = dataSnapshot.getValue(com.example.helth_frag.Model_hrequestfrm.class);
+//
+//                                                listR.add(model_hrequestfrm);
+//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                            }
+//                                            adapteracc = new Adpter_acceptReg(
+//                                                    getActivity(),listR);
+//                                            recyclerViewR.setAdapter(adapteracc);
+//
+//                                        }else{
+//                                            Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                        Toast.makeText(getActivity(), "dd"+listR.size(), Toast.LENGTH_SHORT).show();
+//
+//                                    }
+//
+//                                    @Override
+//                                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                                    }
+//                                });
 
 
 
@@ -112,6 +132,9 @@ public class acceptReq extends Fragment {
 
                         }
                     });
+
+
+
 
 
                 }else{}

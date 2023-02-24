@@ -9,5 +9,29 @@
         android:id="@+id/lab1"
         android:name="com.example.helth_frag.Lab1"
         android:label="lab1"
-        tools:layout="@layout/lab1" />
+        tools:layout="@layout/lab1" >
+
+        <action
+            app:popUpTo="@id/lab1"
+            app:popUpToInclusive="true"
+            android:id="@+id/lab1_to_manageInventory2"
+            app:destination="@id/manageInventory2" />
+
+        <action
+            app:popUpTo="@id/lab1"
+            app:popUpToInclusive="true"
+            android:id="@+id/lab1_to_select_type_option2"
+            app:destination="@id/select_type_option2" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/manageInventory2"
+        android:name="com.example.helth_frag.ManageInventory"
+        android:label="ManageInventory" />
+    <fragment
+        android:id="@+id/select_type_option2"
+        android:name="com.example.helth_frag.select_type_option"
+        android:label="select_type_option"
+        tools:layout="@layout/select_type_option" />
 </navigation>

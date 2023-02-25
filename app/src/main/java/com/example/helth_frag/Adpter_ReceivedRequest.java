@@ -1,6 +1,9 @@
 package com.example.helth_frag;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -49,7 +55,33 @@ public class Adpter_ReceivedRequest extends RecyclerView.Adapter<Adpter_Received
 
 
 
+        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                switch (checkedId) {
+
+
+                    case R.id.r1:
+                        FirebaseDatabase firebaseA= FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReferenceA = firebaseA.getReference("request");
+
+                        databaseReferenceA.child(model_hrequestfrm.getKey()).child("statusact").setValue("on");
+                        break;
+                    case R.id.r2:
+                        FirebaseDatabase firebaseB= FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReferenceB = firebaseB.getReference("request");
+
+                        databaseReferenceB.child(model_hrequestfrm.getKey()).child("statusact").setValue("off");
+                        break;
+                    default:
+                        Log.v(TAG, "Huh?");
+                        break;
+                }
+
+
+            }
+        });
 
 
         view= holder.rootview;
@@ -80,6 +112,13 @@ public class Adpter_ReceivedRequest extends RecyclerView.Adapter<Adpter_Received
             pname = itemView.findViewById(R.id.P_name);
             hname = itemView.findViewById(R.id.hnameacc);
 
+//            amnt = itemView.findViewById(R.id.amnt);
+            cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);
+
+            description = itemView.findViewById(R.id.descriptionacc);
+
+            r1 = itemView.findViewById(R.id.r1);
+            r2 = itemView.findViewById(R.id.r2);
 //            amnt = itemView.findViewById(R.id.amnt);
             cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);
             radioGroup = itemView.findViewById(R.id.radioGroup);

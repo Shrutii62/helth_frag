@@ -61,7 +61,33 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
 
 
 
+        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
 
+                switch (checkedId) {
+
+
+                    case R.id.r1:
+                        FirebaseDatabase firebaseA= FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReferenceA = firebaseA.getReference("request");
+
+                        databaseReferenceA.child(model_hrequestfrm.getKey()).child("statusact").setValue("on");
+                        break;
+                    case R.id.r2:
+                        FirebaseDatabase firebaseB= FirebaseDatabase.getInstance();
+                        DatabaseReference databaseReferenceB = firebaseB.getReference("request");
+
+                        databaseReferenceB.child(model_hrequestfrm.getKey()).child("statusact").setValue("off");
+                        break;
+                    default:
+                        Log.v(TAG, "Huh?");
+                        break;
+                }
+
+
+            }
+        });
 
 
 

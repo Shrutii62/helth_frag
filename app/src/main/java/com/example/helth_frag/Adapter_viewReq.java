@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Adapter_viewReq extends RecyclerView.Adapter<Adapter_viewReq.Viewholder>{
+//not use
 
 
     Context contextV;

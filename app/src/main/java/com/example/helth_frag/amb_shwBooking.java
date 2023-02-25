@@ -3,7 +3,6 @@ package com.example.helth_frag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -28,14 +27,13 @@ public class amb_shwBooking extends Fragment {
 
     RecyclerView recyclerViewAmb;
     DatabaseReference databaseReferenceBAm;
-    AdapterAmbulanceList adapterAmb;
+    Adapter_dshow_ambBokking adapterAmb;
     ArrayList<Model_hAmb_book_frm> listamb;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.amb_shw_booking, container, false);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String phone = user.getPhoneNumber();
@@ -79,7 +77,7 @@ public class amb_shwBooking extends Fragment {
                                 Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                             }
                             Toast.makeText(getActivity(), "dd"+listamb.size(), Toast.LENGTH_SHORT).show();
-                            adapterAmb = new AdapterAmbulanceList(
+                            adapterAmb = new Adapter_dshow_ambBokking(
                                     getActivity(),listamb);
                             recyclerViewAmb.setAdapter(adapterAmb);
                         }

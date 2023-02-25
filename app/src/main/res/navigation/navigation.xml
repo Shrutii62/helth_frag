@@ -106,8 +106,8 @@
             android:id="@+id/action_h_Admn_selection_to_manageInventory"
             app:destination="@id/manageInventory" />
         <action
-            android:id="@+id/action_h_Admn_selection_to_tablayoutAmb"
-            app:destination="@id/tablayoutAmb" />
+            android:id="@+id/action_h_Admn_selection_to_tablayout_request"
+            app:destination="@id/tablayout_request" />
 
 
         <action
@@ -353,6 +353,11 @@
         android:id="@+id/manageInventory"
         android:name="com.example.helth_frag.ManageInventory"
         android:label="ManageInventory" />
+    <activity
+        android:id="@+id/tablayout_request"
+        android:name="com.example.helth_frag.tablayout_request"
+        android:label="tablayout_request"
+        tools:layout="@layout/tablayout_request" />
 
 
 </navigation>

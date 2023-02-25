@@ -181,7 +181,7 @@ public class h_Admn_selection extends Fragment {
                 dialog.findViewById(R.id.viewReq).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Navigation.findNavController(view).navigate(R.id.action_h_Admn_selection_to_tablayoutAmb);
+                        Navigation.findNavController(view).navigate(R.id.tablayout_request);
                         dialog.cancel();
 
                     }

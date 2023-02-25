@@ -61,37 +61,29 @@
 
 
 
-                <TextView
-                    android:id="@+id/pending"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:text="pending.."/>
+                    <RadioGroup
 
-                <TextView
-                    android:id="@+id/accepted"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:textStyle="bold"
-                    android:textColor="@color/green"
-                    android:textSize="18sp"
-                    android:text="accepted"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/radioGroup">
 
-                <TextView
-                    android:id="@+id/rejectes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:textStyle="bold"
-                    android:textColor="@color/red"
-                    android:textSize="18sp"
-                    android:visibility="gone"
-                    android:text="Rejected"/>
+                        <RadioButton
+                            android:id="@+id/r1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  Accept"
+                            android:checked="false"
+                            android:textSize="20dp" />
+
+                        <RadioButton
+                            android:id="@+id/r2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="  Reject"
+                            android:checked="false"
+                            android:textSize="20dp" />
+                    </RadioGroup>
 
 
 

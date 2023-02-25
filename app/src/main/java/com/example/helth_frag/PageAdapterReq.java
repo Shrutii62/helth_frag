@@ -22,7 +22,7 @@ public class PageAdapterReq  extends FragmentPagerAdapter {
                 return  new acceptReq();
 
             case 1:
-                return  new ambshw_inactiveBooking();
+                return  new RequestinTabh();
 
             default:
                 return null;
@@ -31,6 +31,6 @@ public class PageAdapterReq  extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return tabcountamb;
     }
 }

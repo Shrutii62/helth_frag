@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class tablayout_request extends AppCompatActivity {
 
-    TabLayout tabLayout;
+    TabLayout tabLayoutR;
     TabItem accept , reject;
     PageAdapterReq pageAdapterReq;
 
@@ -24,13 +24,13 @@ public class tablayout_request extends AppCompatActivity {
         reject = findViewById(R.id.inactiveReq);
 
         ViewPager viewPager = findViewById(R.id.fragmentContaineReq);
-        tabLayout = findViewById(R.id.includeReq);
+        tabLayoutR = findViewById(R.id.includeReq);
 
         pageAdapterReq =new PageAdapterReq(getSupportFragmentManager(),2);
         viewPager.setAdapter(pageAdapterReq);
 
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        tabLayoutR.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
@@ -50,7 +50,7 @@ public class tablayout_request extends AppCompatActivity {
             }
         });
         //for swipping on mbl
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutR));
 
 
     }

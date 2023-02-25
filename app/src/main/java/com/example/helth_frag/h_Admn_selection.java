@@ -88,9 +88,43 @@ public class h_Admn_selection extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.h__admn_selection, container, false);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        View view= inflater.inflate(R.layout.h__admn_selection, container, false);((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         setHasOptionsMenu(true);
+
+
+        topAppBar = view.findViewById(R.id.topAppBar);
+
+
+        topAppBar.inflateMenu(R.menu.main_dotmenu);
+
+//        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
+
+        float radius = getResources().getDimension(R.dimen.default_corner_radius);
+        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable)topAppBar.getBackground();
+        materialShapeDrawable.setShapeAppearanceModel(materialShapeDrawable.getShapeAppearanceModel()
+                .toBuilder()
+                .setAllCorners(CornerFamily.ROUNDED,radius)
+                .build());
+
+
+
+        topAppBar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.men1:
+                    FirebaseAuth.getInstance().signOut();
+
+                    NavHostFragment.findNavController(h_Admn_selection.this).navigate(R.id.action_user1stpg_to_select_type_option);
+                    Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
+                    return true;
+                case R.id.men2:
+                    // Save profile changes
+                    return true;
+                default:
+                    return false;
+            }
+        });
+
+
 
         add_userm = view.findViewById(R.id.add_user);
         ambulance_book = view.findViewById(R.id.ambulance_book);
@@ -104,30 +138,7 @@ public class h_Admn_selection extends Fragment {
 //        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
 
 
-        float radius = getResources().getDimension(R.dimen.default_corner_radius);
-        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable)topAppBar.getBackground();
-        materialShapeDrawable.setShapeAppearanceModel(materialShapeDrawable.getShapeAppearanceModel()
-                .toBuilder()
-                .setAllCorners(CornerFamily.ROUNDED,radius)
-                .build());
 
-
-
-       topAppBar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.men1:
-                    FirebaseAuth.getInstance().signOut();
-
-                NavHostFragment.findNavController(h_Admn_selection.this).navigate(R.id.action_h_Admn_selection_to_select_type_option);
-                Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
-                default:
-                    return false;
-            }
-        });
 
 //        logoutm.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -217,13 +228,14 @@ public class h_Admn_selection extends Fragment {
         return view;
     }
 
-//    @Override
-//    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-//        inflater.inflate(R.menu.main_dotmenu,menu);
-//        super.onCreateOptionsMenu(menu, inflater);
-//    }
-//
-//
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.main_dotmenu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+
 //    public void showDialog(){
 //        Dialog dialog = new Dialog(requireContext());
 //        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

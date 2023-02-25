@@ -114,13 +114,6 @@ public class Adpter_ReceivedRequest extends RecyclerView.Adapter<Adpter_Received
 
 //            amnt = itemView.findViewById(R.id.amnt);
             cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);
-
-            description = itemView.findViewById(R.id.descriptionacc);
-
-            r1 = itemView.findViewById(R.id.r1);
-            r2 = itemView.findViewById(R.id.r2);
-//            amnt = itemView.findViewById(R.id.amnt);
-            cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);
             radioGroup = itemView.findViewById(R.id.radioGroup);
             description = itemView.findViewById(R.id.descriptionacc);
 

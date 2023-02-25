@@ -68,6 +68,7 @@
                     android:layout_gravity="end"
                     android:textStyle="bold"
                     android:textColor="@color/black"
+                    android:visibility="gone"
                     android:textSize="18sp"
                     android:text="pending.."/>
 

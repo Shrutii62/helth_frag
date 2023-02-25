@@ -30,6 +30,18 @@
             android:id="@+id/h_Admn_selection"
             app:destination="@id/h_Admn_selection"
             />
+
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/tablayoutAmb"
+            app:destination="@id/tablayoutAmb"
+            />
+        <action app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true"
+            android:id="@+id/s_to_ambu1_form"
+            app:destination="@id/ambu1_form"
+            />
+
         <action app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true"
             android:id="@+id/user1stpg"
@@ -339,6 +351,15 @@
         android:name="com.example.helth_frag.tablayoutAmb"
         android:label="tablayout_amb"
         tools:layout="@layout/tablayout_amb" />
+
+
+
+    <activity
+        android:id="@+id/ambu1_form"
+        android:name="com.example.helth_frag.tablayoutAmb"
+        android:label="tablayout_amb"
+        tools:layout="@layout/ambu1_form" />
+
     <activity
         android:id="@+id/acti_request"
         android:name="com.example.helth_frag.Acti_request"

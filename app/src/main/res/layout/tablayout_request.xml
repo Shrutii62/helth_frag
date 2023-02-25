@@ -24,7 +24,7 @@
             android:id="@+id/activeReq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Accepted Request">
+            android:text="Sent Requests Status">
 
         </com.google.android.material.tabs.TabItem>
 
@@ -33,7 +33,7 @@
             android:id="@+id/inactiveReq"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rejected Request">
+            android:text="Requests Section">
 
         </com.google.android.material.tabs.TabItem>
 

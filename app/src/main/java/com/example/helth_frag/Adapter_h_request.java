@@ -59,8 +59,8 @@ public class Adapter_h_request extends RecyclerView.Adapter<Adapter_h_request.Vi
 
                 TextView send_request,accept_reject, ViewReq;
                 send_request=dailogview.findViewById(R.id.send_request);
-                accept_reject=dailogview.findViewById(R.id.accept_reject);
-                ViewReq=dailogview.findViewById(R.id.ViewReq);
+//                accept_reject=dailogview.findViewById(R.id.accept_reject);
+//                ViewReq=dailogview.findViewById(R.id.ViewReq);
 
                 send_request.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -85,54 +85,54 @@ public class Adapter_h_request extends RecyclerView.Adapter<Adapter_h_request.Vi
                     }
                 });
 
-                accept_reject.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        String address = listHD.get(holder.getAdapterPosition()).address;
-                        String email = listHD.get(holder.getAdapterPosition()).email;
-                        String Hname = listHD.get(holder.getAdapterPosition()).Hname;
-                        String phoneno = listHD.get(holder.getAdapterPosition()).phoneno;
-                        String hid = listHD.get(holder.getAdapterPosition()).h_id;
-
-
-//                        Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(view.getContext(), tablayout_request.class);
-                        intent.putExtra("address",address);
-                        intent.putExtra("email",email);
-                        intent.putExtra("Hname",Hname);
-                        intent.putExtra("phoneno",phoneno);
-                        intent.putExtra("hid",hid);
-//                            intent.putExtra("STRING_I_NEED",);
-                        view.getContext().startActivity(intent);
-
-                    }
-                });
-                ViewReq.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-
-                        String address = listHD.get(holder.getAdapterPosition()).address;
-                        String email = listHD.get(holder.getAdapterPosition()).email;
-                        String Hname = listHD.get(holder.getAdapterPosition()).Hname;
-                        String phoneno = listHD.get(holder.getAdapterPosition()).phoneno;
-                        String hid = listHD.get(holder.getAdapterPosition()).h_id;
-
-
-//                        Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
-
-                        Intent intent = new Intent(view.getContext(), ViewRequest.class);
-                        intent.putExtra("address",address);
-                        intent.putExtra("email",email);
-                        intent.putExtra("Hname",Hname);
-                        intent.putExtra("phoneno",phoneno);
-                        intent.putExtra("hid",hid);
-//                            intent.putExtra("STRING_I_NEED",);
-                        view.getContext().startActivity(intent);
-
-                    }
-                });
+//                accept_reject.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        String address = listHD.get(holder.getAdapterPosition()).address;
+//                        String email = listHD.get(holder.getAdapterPosition()).email;
+//                        String Hname = listHD.get(holder.getAdapterPosition()).Hname;
+//                        String phoneno = listHD.get(holder.getAdapterPosition()).phoneno;
+//                        String hid = listHD.get(holder.getAdapterPosition()).h_id;
+//
+//
+////                        Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
+//
+//                        Intent intent = new Intent(view.getContext(), tablayout_request.class);
+//                        intent.putExtra("address",address);
+//                        intent.putExtra("email",email);
+//                        intent.putExtra("Hname",Hname);
+//                        intent.putExtra("phoneno",phoneno);
+//                        intent.putExtra("hid",hid);
+////                            intent.putExtra("STRING_I_NEED",);
+//                        view.getContext().startActivity(intent);
+//
+//                    }
+//                });
+//                ViewReq.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//
+//                        String address = listHD.get(holder.getAdapterPosition()).address;
+//                        String email = listHD.get(holder.getAdapterPosition()).email;
+//                        String Hname = listHD.get(holder.getAdapterPosition()).Hname;
+//                        String phoneno = listHD.get(holder.getAdapterPosition()).phoneno;
+//                        String hid = listHD.get(holder.getAdapterPosition()).h_id;
+//
+//
+////                        Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
+//
+//                        Intent intent = new Intent(view.getContext(), ViewRequest.class);
+//                        intent.putExtra("address",address);
+//                        intent.putExtra("email",email);
+//                        intent.putExtra("Hname",Hname);
+//                        intent.putExtra("phoneno",phoneno);
+//                        intent.putExtra("hid",hid);
+////                            intent.putExtra("STRING_I_NEED",);
+//                        view.getContext().startActivity(intent);
+//
+//                    }
+//                });
 
 
                 builder.setView(dailogview);

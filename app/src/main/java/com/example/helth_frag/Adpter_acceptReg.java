@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.opengl.Visibility;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,35 +60,19 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
         holder.pname.setText(model_hrequestfrm.pname);
         holder.description.setText(model_hrequestfrm.description);
 
+        if(model_hrequestfrm.statusact.equals("pending")){
+            holder.pending.setVisibility(View.VISIBLE);
+
+        }
+        if(model_hrequestfrm.statusact.equals("on")){
+            holder.accepted.setVisibility(View.VISIBLE);
+        }
+        if(model_hrequestfrm.statusact.equals("off")){
+            holder.rejected.setVisibility(View.VISIBLE);
+
+        }
 
 
-        holder.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-
-                switch (checkedId) {
-
-
-                    case R.id.r1:
-                        FirebaseDatabase firebaseA= FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReferenceA = firebaseA.getReference("request");
-
-                        databaseReferenceA.child(model_hrequestfrm.getKey()).child("statusact").setValue("on");
-                        break;
-                    case R.id.r2:
-                        FirebaseDatabase firebaseB= FirebaseDatabase.getInstance();
-                        DatabaseReference databaseReferenceB = firebaseB.getReference("request");
-
-                        databaseReferenceB.child(model_hrequestfrm.getKey()).child("statusact").setValue("off");
-                        break;
-                    default:
-                        Log.v(TAG, "Huh?");
-                        break;
-                }
-
-
-            }
-        });
 
 
 
@@ -109,6 +94,7 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
         ImageView call;
 
         TextView pname, hname, description;
+        TextView pending, accepted, rejected;
         RadioButton r1, r2;
         RadioGroup radioGroup;
         View rootview;
@@ -119,6 +105,10 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
 
             pname = itemView.findViewById(R.id.P_name);
             hname = itemView.findViewById(R.id.hnameacc);
+
+            pending = itemView.findViewById(R.id.pending);
+            accepted = itemView.findViewById(R.id.accepted);
+            rejected = itemView.findViewById(R.id.rejectes);
 
 //            amnt = itemView.findViewById(R.id.amnt);
             cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);

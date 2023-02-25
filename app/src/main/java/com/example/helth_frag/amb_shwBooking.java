@@ -3,6 +3,7 @@ package com.example.helth_frag;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -34,6 +35,7 @@ public class amb_shwBooking extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.amb_shw_booking, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String phone = user.getPhoneNumber();

@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,7 +30,7 @@ public class ambu1_form extends Fragment {
     TextInputEditText dnameE, amb_numberE, alt_moblnumE;
     TextView displaynum;
     Button submit;
-    String numphone;
+    String numphone =" ";
 
     FirebaseDatabase firebaseDatabaseAmb;
     DatabaseReference databaseReferenceAmb;
@@ -37,6 +39,7 @@ public class ambu1_form extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.ambu1_form, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         dname= view.findViewById(R.id.dname);
         dnameE= view.findViewById(R.id.dnameE);
@@ -52,6 +55,16 @@ public class ambu1_form extends Fragment {
          firebaseDatabaseAmb= FirebaseDatabase.getInstance();
          databaseReferenceAmb = firebaseDatabaseAmb.getReference("amb_DrvDetails");
 
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            numphone = bundle.getString("num");
+        }else{
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            numphone = user.getPhoneNumber();
+        }
+
+
+displaynum.setText(numphone);
 
 
 //        Bundle bundle = this.getArguments();
@@ -59,7 +72,7 @@ public class ambu1_form extends Fragment {
 //            numphone = bundle.getString("pnumber");
 //        }
 
-        String numphone = getActivity().getIntent().getExtras().getString("pnumber");
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +86,9 @@ public class ambu1_form extends Fragment {
                     String ambunumber = amb_number.getEditText().getText().toString();
                     String alterntphone = alt_moblnum.getEditText().getText().toString();
                     String keyAmb = databaseReferenceAmb.push().getKey();
+
+
+                    Toast.makeText(getContext(), "num"+numphone, Toast.LENGTH_SHORT).show();
 
                     Model_ambDriverdetail model_ambDriverdetail = new Model_ambDriverdetail(drvename, ambunumber, alterntphone, numphone);
 

@@ -41,6 +41,8 @@ public class amb_OTPVerify extends Fragment {
     String backendOTp;
     EditText otp1, otp2, otp3, otp4, otp5,otp6;
     Button btsubmit;
+
+    String number;
 //    ProgressBar prrgressbarV;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,12 +73,17 @@ public class amb_OTPVerify extends Fragment {
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            String number = bundle.getString("pnumber");
+             number = bundle.getString("pnumber");
              backendOTp = bundle.getString("s");
         }
 
 
-       // Toast.makeText(requireActivity(), backendOTp, Toast.LENGTH_SHORT).show();
+
+
+
+
+
+        // Toast.makeText(requireActivity(), backendOTp, Toast.LENGTH_SHORT).show();
 
        btsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,7 +119,12 @@ public class amb_OTPVerify extends Fragment {
                                         btsubmit.setVisibility(View.VISIBLE);
 
                                         if (task.isSuccessful()){
-                                            Navigation.findNavController(view).navigate(R.id.amb_OTPVerifyTo_ambu1_form);
+
+                                            Bundle args = new Bundle();
+                                            args.putString("num", number);
+                                            amb_OTPVerify newFragment = new amb_OTPVerify();
+                                            newFragment.setArguments(args);
+                                            Navigation.findNavController(view).navigate(R.id.amb_OTPVerifyTo_ambu1_form, args);
 
                                         }else {
                                            Toast.makeText(getContext(), "Enter the correct OTP", Toast.LENGTH_SHORT).show();

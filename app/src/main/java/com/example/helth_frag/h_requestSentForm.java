@@ -164,7 +164,7 @@ public class h_requestSentForm extends AppCompatActivity {
                     String pname = pnameReq.getEditText().getText().toString();
                     String description = descriptionReq.getEditText().getText().toString();
 
-                    String statusact = "accept";
+                    String statusact = "pending";
 
                     Model_hrequestfrm model_hrequestfrm = new Model_hrequestfrm(pname, description, address, hname,statusact,keyDescp,hid_recieved_R,hid_current );
                     reference.child(keyDescp).setValue(model_hrequestfrm);

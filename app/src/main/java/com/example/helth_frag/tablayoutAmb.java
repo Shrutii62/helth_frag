@@ -2,17 +2,12 @@ package com.example.helth_frag;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
-import com.google.android.material.shape.CornerFamily;
-import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class tablayoutAmb extends AppCompatActivity {
 
@@ -28,48 +23,6 @@ public class tablayoutAmb extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_amb);
 
-
-
-//        setHasOptionsMenu(true);
-//
-//
-//        topAppBar = view.findViewById(R.id.topAppBar);
-
-
-        topAppBar.inflateMenu(R.menu.main_dotmenu);
-
-//        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
-
-        float radius = getResources().getDimension(R.dimen.default_corner_radius);
-        MaterialShapeDrawable materialShapeDrawable = (MaterialShapeDrawable)topAppBar.getBackground();
-        materialShapeDrawable.setShapeAppearanceModel(materialShapeDrawable.getShapeAppearanceModel()
-                .toBuilder()
-                .setAllCorners(CornerFamily.ROUNDED,radius)
-                .build());
-
-
-
-        topAppBar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.men1:
-                    FirebaseAuth.getInstance().signOut();
-
-                     Toast.makeText(tablayoutAmb.this, "logged out", Toast.LENGTH_SHORT).show();
-                    return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
-                default:
-                    return false;
-            }
-        });
-
-
-
-
-
-
-
         active = findViewById(R.id.activeAmb);
         inactive = findViewById(R.id.inactiveAmb);
 
@@ -78,13 +31,6 @@ public class tablayoutAmb extends AppCompatActivity {
 
         pageAdtrAmb =new PageAdapterAmb(getSupportFragmentManager(),2);
         viewPager.setAdapter(pageAdtrAmb);
-
-
-
-
-
-
-
 
 
 

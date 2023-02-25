@@ -29,7 +29,7 @@ public class amb_shwBooking extends Fragment {
     RecyclerView recyclerViewAmb;
     DatabaseReference databaseReferenceBAm;
     AdapterAmbulanceList adapterAmb;
-    ArrayList<Model_ambDriverdetail> listamb;
+    ArrayList<Model_hAmb_book_frm> listamb;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,9 +69,9 @@ public class amb_shwBooking extends Fragment {
                             if (snapshot3.exists()){
 
                                 for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
-                                    Model_ambDriverdetail model_ambDriverdetail = dataSnapshot.getValue(com.example.helth_frag.Model_ambDriverdetail.class);
+                                    Model_hAmb_book_frm model_hAmb_book_frm = dataSnapshot.getValue(com.example.helth_frag.Model_hAmb_book_frm.class);
 
-                                    listamb.add(model_ambDriverdetail);
+                                    listamb.add(model_hAmb_book_frm);
 //                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                 }
 

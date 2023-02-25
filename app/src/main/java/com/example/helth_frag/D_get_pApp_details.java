@@ -74,9 +74,9 @@ public class D_get_pApp_details extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
-                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
-                    Toast.makeText(getActivity(), "did"+ get_did, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "did"+ get_did, Toast.LENGTH_SHORT).show();
                     Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
 
 
@@ -104,7 +104,7 @@ public class D_get_pApp_details extends Fragment {
                                         }else{
                                             Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                                         }
-                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
                                         adapterD = new Adapter_getApptmtDetail_D(
                                                 getActivity(),listD);
                                         recyclerViewD.setAdapter(adapterD);

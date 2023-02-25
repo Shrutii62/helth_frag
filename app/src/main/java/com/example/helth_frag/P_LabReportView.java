@@ -60,7 +60,7 @@ public class P_LabReportView extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
                      get_Pid = snapshot1.child(HencodeUserEmail).child("p_id").getValue(String.class);
-                    Toast.makeText(getActivity(), "p"+get_Pid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "p"+get_Pid, Toast.LENGTH_SHORT).show();
 
 
                     Query pd = databaseReferenceLl.orderByChild("pid").equalTo(get_Pid);

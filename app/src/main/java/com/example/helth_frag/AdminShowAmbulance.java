@@ -58,7 +58,7 @@ public class AdminShowAmbulance extends AppCompatActivity {
                         Model_ambDriverdetail ambulance = data.getValue(com.example.helth_frag.Model_ambDriverdetail.class);
                         listAMB.add(ambulance);
                     }
-                    Toast.makeText(AdminShowAmbulance.this, listAMB.size()+"heu", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(AdminShowAmbulance.this, listAMB.size()+"heu", Toast.LENGTH_SHORT).show();
                     adapter = new AdapterAmbulanceList(getApplicationContext(),listAMB);
                     recyclerView.setAdapter(adapter);
                 }

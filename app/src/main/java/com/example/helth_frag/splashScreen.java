@@ -78,7 +78,7 @@ public class splashScreen extends Fragment {
 
                     DatabaseReference databaseReference = firebaseDatabase.getReference("Hospital");
 
-                    Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
 
                     Query checkemail = databaseReference.orderByChild("email").equalTo(email);
                     String HencodeUserEmail = email.replace(".", ",");
@@ -131,7 +131,7 @@ public class splashScreen extends Fragment {
 
                                                         DatabaseReference databaseReferenceAmb = firebaseDatabase.getReference("amb_Drvdetails");
 
-                                                        Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
+//                                                        Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
 
                                                         Query checkPhone = databaseReferenceAmb.orderByChild("reg_phoned").equalTo(phone);
 

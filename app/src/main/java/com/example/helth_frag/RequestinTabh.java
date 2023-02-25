@@ -43,7 +43,7 @@ public class RequestinTabh extends Fragment {
 
         recyclerViewR = view.findViewById(R.id.recyclerviewrecivedR);
 
-        Toast.makeText(getActivity(), "hellow", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "hellow", Toast.LENGTH_SHORT).show();
 
 
         recyclerViewR.setHasFixedSize(true);
@@ -60,9 +60,9 @@ public class RequestinTabh extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
-                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String get_hid = snapshot1.child(HencodeUserEmail).child("h_id").getValue(String.class);
-                    Toast.makeText(getActivity(), "get_hid "+ get_hid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "get_hid "+ get_hid, Toast.LENGTH_SHORT).show();
                     Query hidcheck = databaseReference.orderByChild("hid_recivedRHos").equalTo(get_hid);
 
 
@@ -77,7 +77,7 @@ public class RequestinTabh extends Fragment {
                                         Model_hrequestfrm model_hrequestfrm = dataSnapshot.getValue(com.example.helth_frag.Model_hrequestfrm.class);
 
                                         listR.add(model_hrequestfrm);
-                                        Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                     }
                                     adapteracc = new Adpter_ReceivedRequest(
                                             getActivity(),listR);

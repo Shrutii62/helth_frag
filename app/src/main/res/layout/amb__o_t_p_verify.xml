@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/grey_appbackgroun_"
     tools:context=".amb_OTPVerify">
 
 

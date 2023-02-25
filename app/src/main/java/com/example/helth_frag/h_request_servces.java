@@ -66,7 +66,7 @@ public class h_request_servces extends Fragment {
         recyclerviewReq.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         list_HD = new ArrayList<>();
-        Toast.makeText(getActivity(), "e"+email, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "e"+email, Toast.LENGTH_SHORT).show();
 
         databaseReference_HD= FirebaseDatabase.getInstance().getReference("Hospital");
 
@@ -82,7 +82,7 @@ public class h_request_servces extends Fragment {
                         modelHD modelHD = dataSnapshot.getValue(com.example.helth_frag.modelHD.class);
 
                         String hnam=snapshot1.child(encodeD_Email).child("hname").getValue(String.class);
-                        Toast.makeText(getActivity(), "hey"+hnam, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "hey"+hnam, Toast.LENGTH_SHORT).show();
 
                         list_HD.add(modelHD);
 

@@ -78,7 +78,7 @@ public class Adapter_getApptmtDetail_D extends RecyclerView.Adapter<Adapter_getA
 //                        navController.navigateUp();
 //                        navController.navigate(R.id.d_addPrescription);
 
-                            Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(builder.getContext(), "pid"+pid, Toast.LENGTH_SHORT).show();
 
                             Intent intent = new Intent(view.getContext(), Act_D.class);
                             intent.putExtra("id",id);

@@ -278,7 +278,7 @@ public class h_registration extends Fragment {
                     String h_id = String.valueOf(maxid+1);
 
 
-                    Toast.makeText(getActivity(), "" + hname_s, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "" + hname_s, Toast.LENGTH_SHORT).show();
 
                     Auth.createUserWithEmailAndPassword
                                     (emailmh.getEditText().getText().toString(), passwdhm.getEditText().getText().toString())

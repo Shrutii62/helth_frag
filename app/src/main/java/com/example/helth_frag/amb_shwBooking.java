@@ -37,7 +37,7 @@ public class amb_shwBooking extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String phone = user.getPhoneNumber();
-        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
 
         recyclerViewAmb = view.findViewById(R.id.recyclerviewAmbAc);
 
@@ -76,7 +76,7 @@ public class amb_shwBooking extends Fragment {
                             }else{
                                 Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(getActivity(), "dd"+listamb.size(), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), "dd"+listamb.size(), Toast.LENGTH_SHORT).show();
                             adapterAmb = new Adapter_dshow_ambBokking(
                                     getActivity(),listamb);
                             recyclerViewAmb.setAdapter(adapterAmb);

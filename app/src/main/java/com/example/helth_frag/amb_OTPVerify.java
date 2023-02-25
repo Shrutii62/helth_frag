@@ -105,7 +105,7 @@ public class amb_OTPVerify extends Fragment {
 //                        prrgressbarV.setVisibility(View.VISIBLE);
 //                        btsubmit.setVisibility(View.INVISIBLE);
 
-                        Toast.makeText(getContext(), entercodeOtp, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getContext(), entercodeOtp, Toast.LENGTH_SHORT).show();
                         PhoneAuthCredential phoneAuthCredential =PhoneAuthProvider.getCredential(backendOTp ,entercodeOtp);
 
                         FirebaseAuth.getInstance().signInWithCredential(phoneAuthCredential)

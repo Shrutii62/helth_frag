@@ -264,7 +264,7 @@ public class ManageInventory extends Fragment implements AdapterInventoryItem.Re
 
     public void addToDatabase(String key, ModelInventoryItem item){
 
-        Toast.makeText(requireContext(), item.getKey(), Toast.LENGTH_SHORT).show();
+//        Toast .makeText(requireContext(), item.getKey(), Toast.LENGTH_SHORT).show();
 
         databaseReference.child(key).setValue(item).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override

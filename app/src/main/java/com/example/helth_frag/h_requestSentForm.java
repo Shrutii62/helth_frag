@@ -127,7 +127,7 @@ public class h_requestSentForm extends AppCompatActivity {
                         modelHD modelHD = dataSnapshot.getValue(com.example.helth_frag.modelHD.class);
 
                          hid_current=snapshot.child(encodeD_Email).child("h_id").getValue(String.class);
-                        Toast.makeText(getApplicationContext(), "hey"+hid_current, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "hey"+hid_current, Toast.LENGTH_SHORT).show();
 
 
 

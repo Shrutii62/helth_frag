@@ -49,7 +49,7 @@ public class d_historyappointment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user.getEmail();
-        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
         Query checkemail = UdatabaseReference.orderByChild("email").equalTo(email);
         String HencodeUserEmail = email.replace(".", ",");
 
@@ -57,9 +57,9 @@ public class d_historyappointment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
-                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
-                    Toast.makeText(getActivity(), "mila"+ get_did, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "mila"+ get_did, Toast.LENGTH_SHORT).show();
 
                     Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
 
@@ -82,18 +82,18 @@ public class d_historyappointment extends Fragment {
                                     public void onDataChange(@NonNull DataSnapshot snapshot3) {
                                         if (snapshot3.exists()){
 
-                                            Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(getActivity(), "3 exist", Toast.LENGTH_SHORT).show();
                                             for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
                                                 model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
 
                                                 listD.add(model_appointment);
-                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                             }
 
                                         }else{
                                             Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                                         }
-                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
                                         adapterD = new Adapter_getApptmtDetail_D(
                                                 getActivity(),listD);
                                         recyclerViewD.setAdapter(adapterD);

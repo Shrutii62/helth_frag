@@ -110,8 +110,8 @@ public class p_to_d_form extends Fragment {
                 getnameP = snapshot.child(encodeP_Email).child("pname").getValue(String.class);
 
 
-                Toast.makeText(getActivity(), "pid" + get_Pid, Toast.LENGTH_SHORT).show();
-                Toast.makeText(getActivity(), "did" + did, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "pid" + get_Pid, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "did" + did, Toast.LENGTH_SHORT).show();
             }
 
             @Override

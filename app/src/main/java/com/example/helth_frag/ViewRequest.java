@@ -53,9 +53,9 @@ public class ViewRequest extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
-                    Toast.makeText(ViewRequest.this, "ahe", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ViewRequest.this, "ahe", Toast.LENGTH_SHORT).show();
                     String get_hid = snapshot1.child(HencodeUserEmail).child("h_id").getValue(String.class);
-                    Toast.makeText(ViewRequest.this, "get_hid "+ get_hid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(ViewRequest.this, "get_hid "+ get_hid, Toast.LENGTH_SHORT).show();
                     Query hidcheck = databaseReferenceV.orderByChild("hid").equalTo(get_hid);
 
 

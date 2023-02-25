@@ -219,20 +219,20 @@ public class h_login extends Fragment {
 
 //        int s = b.getInt("user_id");
         if (b.equals("u")){
-            Toast.makeText(getActivity(), "yayyaaa", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "yayyaaa", Toast.LENGTH_SHORT).show();
             createAcc.setVisibility(View.GONE);
         }
         else if (b.equals("h")){
-            Toast.makeText(getActivity(), "naaaaaa", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "naaaaaa", Toast.LENGTH_SHORT).show();
             createAcc.setVisibility(View.VISIBLE);
         }else if (b.equals("ral")){
-            Toast.makeText(getActivity(), "ral", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "ral", Toast.LENGTH_SHORT).show();
             createAcc.setVisibility(View.VISIBLE);
         }else if (b.equals("ural")){
-            Toast.makeText(getActivity(), "ural", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "ural", Toast.LENGTH_SHORT).show();
             createAcc.setVisibility(View.VISIBLE);
         }else if (b.equals("p")){
-            Toast.makeText(getActivity(), "ural", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), "ural", Toast.LENGTH_SHORT).show();
             createAcc.setVisibility(View.VISIBLE);
         }
 
@@ -289,7 +289,7 @@ public class h_login extends Fragment {
 
                                             DatabaseReference databaseReference = firebaseDatabase.getReference("Hospital");
 
-                                            Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(getActivity(), email, Toast.LENGTH_SHORT).show();
 
                                             Query checkemail = databaseReference.orderByChild("email").equalTo(email);
                                             String HencodeUserEmail = email.replace(".", ",");
@@ -299,7 +299,7 @@ public class h_login extends Fragment {
                                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                                     String abc = snapshot.child(HencodeUserEmail).child("email").getValue(String.class);
-                                                    Toast.makeText(getActivity(), "abc" + abc, Toast.LENGTH_SHORT).show();
+//                                                    Toast.makeText(getActivity(), "abc" + abc, Toast.LENGTH_SHORT).show();
 
                                                     if (snapshot.exists()) {
                                                         Navigation.findNavController(view).navigate(R.id.action_h_login_to_h_Admin_selection);
@@ -331,7 +331,7 @@ public class h_login extends Fragment {
                                                                         public void onDataChange(@NonNull DataSnapshot dsnapshot) {
 
                                                                             String fgh = dsnapshot.child(HencodeUserEmail).child("email").getValue(String.class);
-                                                                            Toast.makeText(getActivity(), "cde" + fgh, Toast.LENGTH_SHORT).show();
+//                                                                            Toast.makeText(getActivity(), "cde" + fgh, Toast.LENGTH_SHORT).show();
 
                                                                             if (dsnapshot.exists()) {
                                                                                 Navigation.findNavController(view).navigate(R.id.ltop_selectionPage);

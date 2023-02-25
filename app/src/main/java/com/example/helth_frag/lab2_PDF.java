@@ -86,7 +86,7 @@ public class lab2_PDF extends AppCompatActivity {
         btUPloadPDF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(lab2_PDF.this, "p"+pid, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(lab2_PDF.this, "p"+pid, Toast.LENGTH_SHORT).show();
                 title = titletIpdfM.getText().toString();
                 if (title.isEmpty()){
                     titletIpdfM.setError("Fields cannot be empty");

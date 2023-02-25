@@ -29,8 +29,8 @@ public class ambshw_inactiveBooking extends Fragment {
 
     RecyclerView recyclerViewAmpInac;
     DatabaseReference databaseReference;
-    AdapterAmbulanceList adapterAmbInc;
-    ArrayList<Model_ambDriverdetail> listAmbInc;
+    Adapter_dshow_ambBokking adapterAmbInc;
+    ArrayList<Model_hAmb_book_frm> listAmbInc;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +42,7 @@ public class ambshw_inactiveBooking extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String phone = user.getPhoneNumber();
-        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
 
         recyclerViewAmpInac = view.findViewById(R.id.recyclerviewAmbInAc);
 
@@ -72,17 +72,17 @@ public class ambshw_inactiveBooking extends Fragment {
                             if (snapshot3.exists()){
 
                                 for (DataSnapshot dataSnapshot : snapshot3.getChildren()) {
-                                    Model_ambDriverdetail model_ambDriverdetail = dataSnapshot.getValue(com.example.helth_frag.Model_ambDriverdetail.class);
+                                    Model_hAmb_book_frm model_hAmb_book_frm = dataSnapshot.getValue(com.example.helth_frag.Model_hAmb_book_frm.class);
 
-                                    listAmbInc.add(model_ambDriverdetail);
+                                    listAmbInc.add(model_hAmb_book_frm);
 //                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                 }
 
                             }else{
                                 Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                             }
-                            Toast.makeText(getActivity(), "dd"+listAmbInc.size(), Toast.LENGTH_SHORT).show();
-                            adapterAmbInc = new AdapterAmbulanceList(
+//                            Toast.makeText(getActivity(), "dd"+listAmbInc.size(), Toast.LENGTH_SHORT).show();
+                            adapterAmbInc = new Adapter_dshow_ambBokking(
                                     getActivity(),listAmbInc);
                             recyclerViewAmpInac.setAdapter(adapterAmbInc);
                         }

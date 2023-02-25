@@ -49,7 +49,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "recycler", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(context, "recycler", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getRootView().getContext());
                 View dailogview = LayoutInflater.from(view.getRootView().getContext()).inflate(R.layout.p_dailog_recyl,null );
 
@@ -61,7 +61,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
                     public void onClick(View view) {
                         String id = list.get(holder.getAdapterPosition()).u_id;
                         String name = list.get(holder.getAdapterPosition()).getEmail();
-                        Toast.makeText(view.getContext(), "pp"+name, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(view.getContext(), "pp"+name, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(view.getContext(), Act_P.class);
                         intent.putExtra("id",id);
                         intent.putExtra("name",name);

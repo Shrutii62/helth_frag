@@ -85,9 +85,9 @@ public class d_addPrescription extends Fragment {
                 if (snapshoth.exists()){
                     get_hid = snapshoth.child(encodeD_Email).child("h_id").getValue(String.class);
 
-                    Toast.makeText(getActivity(), "pid"+pid, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "hid"+get_hid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "pid"+pid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "hid"+get_hid, Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(), "snapshot does not exist", Toast.LENGTH_SHORT).show();
                 }
@@ -147,9 +147,9 @@ public class d_addPrescription extends Fragment {
 
 
 
-                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "pid"+pid, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getActivity(), "hid"+get_hid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "did"+did, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "pid"+pid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "hid"+get_hid, Toast.LENGTH_SHORT).show();
 
 
 

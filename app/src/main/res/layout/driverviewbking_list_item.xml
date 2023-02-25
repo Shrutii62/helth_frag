@@ -77,7 +77,16 @@
                     android:textColor="@color/black"
                     android:text="time"/>
 
+
+
                 </LinearLayout>
+                <CheckBox
+                    android:id="@+id/done"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="end"
+                    android:text="done"/>
 
 
             </LinearLayout>

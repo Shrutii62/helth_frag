@@ -117,7 +117,7 @@ public class Actity_UpiPayment extends AppCompatActivity {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Actity_UpiPayment.this, "a"+amountt, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(Actity_UpiPayment.this, "a"+amountt, Toast.LENGTH_SHORT).show();
 
                 if (!validateName() | !validateNote() | !validateUPI()) {
                     return;

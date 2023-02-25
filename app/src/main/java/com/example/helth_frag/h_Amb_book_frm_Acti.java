@@ -108,8 +108,8 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
                 getnameH = snapshot.child(encodeP_Email).child("hname").getValue(String.class);
 
 
-                Toast.makeText(h_Amb_book_frm_Acti.this, "pid" + get_Hid, Toast.LENGTH_SHORT).show();
-                Toast.makeText(h_Amb_book_frm_Acti.this, "did" + getnameH, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(h_Amb_book_frm_Acti.this, "pid" + get_Hid, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(h_Amb_book_frm_Acti.this, "did" + getnameH, Toast.LENGTH_SHORT).show();
             }
 
             @Override

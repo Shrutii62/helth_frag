@@ -205,7 +205,7 @@ public class Usr_registration extends Fragment {
                 String  Category = userCategoryM.getSelectedItem().toString();
                 spinnerPosition = adapter.getPosition(Category);
 
-                Toast.makeText(getActivity(), ""+spinnerPosition, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), ""+spinnerPosition, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -241,14 +241,14 @@ public class Usr_registration extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             String abc = snapshot.child(HencodeUserEmail).child("email").getValue(String.class);
-                            Toast.makeText(getActivity(), "abc"+abc , Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getActivity(), "abc"+abc , Toast.LENGTH_SHORT).show();
 
                             if(snapshot.exists()){
 //                    maxid=(snapshot.getChildrenCount());
 //                    String hid = String.valueOf(maxid+1);
 
                                 String gethid = snapshot.child(HencodeUserEmail).child("h_id").getValue(String.class);
-                                Toast.makeText(getActivity(), "gfhgyhg"+gethid , Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "gfhgyhg"+gethid , Toast.LENGTH_SHORT).show();
 
 
 
@@ -281,7 +281,7 @@ public class Usr_registration extends Fragment {
                                 String usr_id = String.valueOf(u_id+1);
 
 
-                                Toast.makeText(getActivity(), "" + hname_u, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "" + hname_u, Toast.LENGTH_SHORT).show();
 
                                 Auth.createUserWithEmailAndPassword
                                                 (emailuu.getEditText().getText().toString(), passwduu.getEditText().getText().toString())

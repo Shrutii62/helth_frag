@@ -113,7 +113,7 @@ public class h_Admn_selection extends Fragment {
                 case R.id.men1:
                     FirebaseAuth.getInstance().signOut();
 
-                    NavHostFragment.findNavController(h_Admn_selection.this).navigate(R.id.action_user1stpg_to_select_type_option);
+                    NavHostFragment.findNavController(h_Admn_selection.this).navigate(R.id.action_h_Admn_selection_to_select_type_option);
                     Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
                     return true;
                 case R.id.men2:

@@ -38,6 +38,7 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
     TextInputLayout dateAmb ,timeAmb, AddressAmb;
 
     MaterialDatePicker datePicker;
+    String regnum;
 
     ProgressDialog progressD, progressDialogP;
 
@@ -66,6 +67,8 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
 
         String amb_number = getIntent().getExtras().getString("amb_number");
         String reg_phoned = getIntent().getExtras().getString("reg_phoned");
+
+         regnum = "+91"+ reg_phoned;
 
         dateAmbE = findViewById(R.id.dateAmbE);
         timeAmbE = findViewById(R.id.timeAmbE);
@@ -255,7 +258,7 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
 
 
                     String key = databaseReferenceA.push().getKey();
-                    Model_hAmb_book_frm model_hAmb_book_frm = new Model_hAmb_book_frm(dateget, timeget, Address, amb_number, reg_phoned, key, get_Hid, status);
+                    Model_hAmb_book_frm model_hAmb_book_frm = new Model_hAmb_book_frm(dateget, timeget, Address, amb_number, regnum, key, get_Hid, status);
                     String emailEncode = Hemail.replace(".", ",");
 
                     databaseReferenceA.child(key).setValue(model_hAmb_book_frm);

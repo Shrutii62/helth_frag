@@ -33,7 +33,7 @@
 
         <action app:popUpTo="@id/splashScreen"
             app:popUpToInclusive="true"
-            android:id="@+id/tablayoutAmb"
+            android:id="@+id/tablayoutAmbl"
             app:destination="@id/tablayoutAmb"
             />
         <action app:popUpTo="@id/splashScreen"
@@ -96,6 +96,13 @@
             app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_usr_registration"
             app:destination="@id/usr_registration" />
+ <action
+            app:popUpTo="@id/h_Admn_selection"
+            app:popUpToInclusive="true"
+            android:id="@+id/action_h_Admn_selection_to_select_type_option"
+            app:destination="@id/select_type_option" />
+
+
 
         <action
             app:popUpTo="@id/h_Admn_selection"
@@ -122,12 +129,7 @@
             app:destination="@id/tablayout_request" />
 
 
-        <action
 
-            app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
-            android:id="@+id/action_h_Admn_selection_to_select_type_option"
-            app:destination="@id/select_type_option" />
 
 
 

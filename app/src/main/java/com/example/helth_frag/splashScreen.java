@@ -135,9 +135,6 @@ public class splashScreen extends Fragment {
 
                                                         Query checkPhone = databaseReferenceAmb.orderByChild("reg_phoned").equalTo(phone);
 
-                                                        if (phone!=null){
-                                                            Navigation.findNavController(view).navigate(R.id.tablayoutAmb);
-                                                        }
 
                                                         checkPhone.addListenerForSingleValueEvent(new ValueEventListener() {
                                                             @Override

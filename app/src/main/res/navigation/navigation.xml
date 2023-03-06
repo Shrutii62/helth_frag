@@ -93,7 +93,7 @@
 
         <action
             app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
+
             android:id="@+id/action_h_Admn_selection_to_usr_registration"
             app:destination="@id/usr_registration" />
  <action
@@ -106,13 +106,11 @@
 
         <action
             app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_adminShowAmbulance"
             app:destination="@id/adminShowAmbulance" />
 
         <action
             app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_acti_request"
             app:destination="@id/acti_request" />
 

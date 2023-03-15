@@ -18,7 +18,8 @@ public class tablayout_request extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_request);
-
+        getSupportActionBar().hide();
+//        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         accept = findViewById(R.id.activeReq);
         reject = findViewById(R.id.inactiveReq);

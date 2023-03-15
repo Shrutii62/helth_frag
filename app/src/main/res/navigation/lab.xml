@@ -23,6 +23,12 @@
             android:id="@+id/lab1_to_select_type_option2"
             app:destination="@id/select_type_option2" />
 
+        <action
+            app:popUpTo="@id/lab1"
+            app:popUpToInclusive="true"
+            android:id="@+id/tryy"
+            app:destination="@id/tryy" />
+
 
     </fragment>
     <fragment
@@ -34,4 +40,9 @@
         android:name="com.example.helth_frag.select_type_option"
         android:label="select_type_option"
         tools:layout="@layout/select_type_option" />
+    <fragment
+        android:id="@+id/tryy"
+        android:name="com.example.helth_frag.tryy"
+        android:label="tryy"
+        tools:layout="@layout/tryy" />
 </navigation>

@@ -22,6 +22,7 @@ public class tablayoutP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_p);
+        getSupportActionBar().hide();
 
 
 

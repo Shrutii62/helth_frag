@@ -29,6 +29,7 @@ public class tablayoutAmb extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_amb);
+        getSupportActionBar().hide();
 
         topAppBar = findViewById(R.id.topAppBar);
 

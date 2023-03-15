@@ -32,6 +32,9 @@ public class AdminShowAmbulance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_show_ambulance);
 
+        getSupportActionBar().hide();
+//        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+
         //Call permission
 
         if (ContextCompat.checkSelfPermission(this,

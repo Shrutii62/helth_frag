@@ -93,7 +93,6 @@
 
         <action
             app:popUpTo="@id/h_Admn_selection"
-
             android:id="@+id/action_h_Admn_selection_to_usr_registration"
             app:destination="@id/usr_registration" />
  <action
@@ -116,7 +115,6 @@
 
         <action
             app:popUpTo="@id/h_Admn_selection"
-            app:popUpToInclusive="true"
             android:id="@+id/action_h_Admn_selection_to_h_request_servces2"
             app:destination="@id/h_request_servces2" />
         <action

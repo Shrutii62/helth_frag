@@ -49,6 +49,7 @@ public class amb_OTPVerify extends Fragment {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.amb__o_t_p_verify, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
         getmobile = view.findViewById(R.id.getmobile);
         btsubmit = view.findViewById(R.id.btsubmit);

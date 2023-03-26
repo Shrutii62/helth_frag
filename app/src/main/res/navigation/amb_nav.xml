@@ -9,7 +9,7 @@
         android:id="@+id/amb_Reg2"
         android:name="com.example.helth_frag.amb_Reg"
         android:label="amb__reg"
-        tools:layout="@layout/amb__reg" >
+        tools:layout="@layout/amb__reg">
 
 
 
@@ -27,7 +27,6 @@
         tools:layout="@layout/amb__o_t_p_verify" >
 
         <action app:popUpTo="@id/amb_OTPVerify"
-            app:popUpToInclusive="true"
             android:id="@+id/amb_OTPVerifyTo_ambu1_form"
             app:destination="@id/ambu1_form"/>
 

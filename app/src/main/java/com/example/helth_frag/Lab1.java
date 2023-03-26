@@ -7,10 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,26 +69,43 @@ public class Lab1 extends Fragment {
 
 
 
-        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.mngInvetory:
-                        Bundle bundle = new Bundle();
-                        bundle.putString("navigate","Lab");
-                        ManageInventory mi = new ManageInventory();
-                        mi.setArguments(bundle);
-                        Navigation.findNavController(view).navigate(R.id.lab1_to_manageInventory2,bundle);
-                        return true;
+//        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                switch (item.getItemId()){
+//                    case R.id.mngInvetory:
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("navigate","Lab");
+//                        ManageInventory mi = new ManageInventory();
+//                        mi.setArguments(bundle);
+//                        Navigation.findNavController(view).navigate(R.id.lab1_to_manageInventory2,bundle);
+//                        return true;
+//
+//                    case R.id.logOut:
+//                        FirebaseAuth.getInstance().signOut();
+//
+//                        Toast.makeText(getActivity(), "out", Toast.LENGTH_SHORT).show();
+//                        Navigation.findNavController(view).navigate(R.id.lab1_to_select_type_option2);
+//                        return true;
+//
+//                }
+//                return false;
+//            }
+//        });
 
-                    case R.id.logOut:
-                        FirebaseAuth.getInstance().signOut();
+        topAppBar.setOnMenuItemClickListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.men1:
+                    FirebaseAuth.getInstance().signOut();
 
-                        Navigation.findNavController(view).navigate(R.id.lab1_to_select_type_option2);
-                        return true;
-
-                }
-                return false;
+                    NavHostFragment.findNavController(Lab1.this).navigate(R.id.l_to_selection);
+                    Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
+                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
+                default:
+                    return false;
             }
         });
 
@@ -153,5 +173,12 @@ public class Lab1 extends Fragment {
 
 
         return view;
+    }
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.main_dotmenu,menu);
+        super.onCreateOptionsMenu(menu, inflater);
     }
 }

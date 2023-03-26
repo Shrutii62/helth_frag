@@ -149,10 +149,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.Viewholder> {
                     view.getContext().startActivity(intent);
 
                     return true;
-                        case R.id.men2:
-
-                            //handle menu2 click
-                            return true;
+//                        case R.id.men2:
+//
+//                            //handle menu2 click
+//                            return true;
 
                         default:
                             return false;

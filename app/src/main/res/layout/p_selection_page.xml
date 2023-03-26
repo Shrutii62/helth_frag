@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".p_selectionPage"
     android:orientation="vertical"
-
     android:background="@drawable/grey_appbackgroun_">
 
     <androidx.cardview.widget.CardView
@@ -28,7 +27,8 @@
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
@@ -37,7 +37,6 @@
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp"
             android:layout_marginRight="20dp"
             android:elevation="5dp">
 
@@ -48,15 +47,15 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="75dp"
-                    android:layout_height="70dp"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
                     android:background="@drawable/circle_anothr"
                     android:src="@drawable/appntmt"
                     android:padding="15dp"/>
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1.5dp"
+                    android:layout_height="1dp"
                     android:background="@color/lightgray"
                     android:layout_marginTop="10dp"/>
 
@@ -82,7 +81,7 @@
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:elevation="5dp">
 
@@ -110,7 +109,7 @@
                     android:id="@+id/paymnt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Payment \n checkup detail"
+                    android:text="Payment and checkup detail"
                     android:textStyle="bold"
                     android:padding="5dp"
                     android:layout_marginTop="10dp"
@@ -127,19 +126,18 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="horizontal">
 
 
 
         <com.google.android.material.card.MaterialCardView
-
             android:id="@+id/t_reports"
             android:layout_width="130dp"
             android:layout_height="150dp"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"
             android:layout_marginRight="20dp"
             android:elevation="5dp">
 

@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,13 +26,17 @@ import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.firebase.auth.FirebaseAuth;
 
+import pl.droidsonroids.gif.GifDecoder;
+
 
 public class user1stpg extends Fragment {
 
 
 
-    CardView appt_details, invntoryD;
+//    CardView  invntoryD;
     private Toolbar topAppBar;
+
+    LinearLayout appt_details,invntoryD;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -68,9 +73,9 @@ public class user1stpg extends Fragment {
                     NavHostFragment.findNavController(user1stpg.this).navigate(R.id.action_user1stpg_to_select_type_option);
                     Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
                 default:
                     return false;
             }

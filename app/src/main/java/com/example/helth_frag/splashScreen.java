@@ -139,14 +139,11 @@ public class splashScreen extends Fragment {
                                                         checkPhone.addListenerForSingleValueEvent(new ValueEventListener() {
                                                             @Override
                                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                                if (snapshot.exists()){
-                                                                    Navigation.findNavController(view).navigate(R.id.s_to_ambu1_form);
-                                                                }else{
+
                                                                     if (phone!=null){
                                                                         Navigation.findNavController(view).navigate(R.id.tablayoutAmb);
                                                                     }
 
-                                                                }
                                                             }
 
                                                             @Override

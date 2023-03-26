@@ -83,9 +83,9 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
                     NavHostFragment.findNavController(patient1pg.this).navigate(R.id.patient1pg_to_select_type_option);
                     Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
                 default:
                     return false;
             }

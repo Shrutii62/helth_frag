@@ -57,9 +57,9 @@ public class p_selectionPage extends Fragment {
                     Navigation.findNavController(view).navigate(R.id.p_selectionPageTo_select_type_option);
                     Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
                 default:
                     return false;
             }

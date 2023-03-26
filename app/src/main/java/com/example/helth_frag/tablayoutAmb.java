@@ -6,8 +6,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -15,6 +17,7 @@ import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class tablayoutAmb extends AppCompatActivity {
 
@@ -29,12 +32,19 @@ public class tablayoutAmb extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_amb);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
+
+
+
+
+
+
+
 
         topAppBar = findViewById(R.id.topAppBar);
 
 
-        topAppBar.inflateMenu(R.menu.main_dotmenu);
+        topAppBar.inflateMenu(R.menu.amb_menu);
 
 
 
@@ -45,6 +55,27 @@ public class tablayoutAmb extends AppCompatActivity {
                 .toBuilder()
                 .setAllCorners(CornerFamily.ROUNDED,radius)
                 .build());
+
+//        topAppBar.setOnMenuItemClickListener(item -> {
+//            switch (item.getItemId()) {
+//                case R.id.men1:
+//                    FirebaseAuth.getInstance().signOut();
+//
+//                    Intent intent = new Intent(tablayoutAmb.this, select_type_option.class);
+//                    startActivity(intent);
+//
+//                    Toast.makeText(this, "out", Toast.LENGTH_SHORT).show();
+//                    return true;
+////                case R.id.men2:
+////                    // Save profile changes
+////                    return true;
+//                default:
+//                    return false;
+//            }
+//        });
+
+
+
 
         active = findViewById(R.id.activeAmb);
         inactive = findViewById(R.id.inactiveAmb);
@@ -82,28 +113,53 @@ public class tablayoutAmb extends AppCompatActivity {
     }
 
 
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main_dotmenu, menu);
+//        return true;
+//    }
+
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//
+//        switch (item.getItemId()) {
+//            case R.id.men1:
+//                onBackPressed();
+//
+////            case R.id.men2:
+////                Toast.makeText(this, "men2", Toast.LENGTH_SHORT).show();
+////
+////            case R.id.men3:
+////                Toast.makeText(this, "men3", Toast.LENGTH_SHORT).show();
+//        }
+//        return true;
+//    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_dotmenu, menu);
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.amb_menu, menu);
         return true;
+
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.logoutamb:
+//                FirebaseAuth.getInstance().signOut();
+//                Intent intent = new Intent(tablayoutAmb.this, Acti_lab.class);
+//                startActivity(intent);
+//                finish();
+                Toast.makeText(this, "bye", Toast.LENGTH_SHORT).show();
 
-        switch (item.getItemId()) {
-            case R.id.men1:
-                onBackPressed();
-
-            case R.id.men2:
-                Toast.makeText(this, "men2", Toast.LENGTH_SHORT).show();
-
-            case R.id.men3:
-                Toast.makeText(this, "men3", Toast.LENGTH_SHORT).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return true;
+
+
+
     }
-
-
-
 }

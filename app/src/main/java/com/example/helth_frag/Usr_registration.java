@@ -194,7 +194,7 @@ public class Usr_registration extends Fragment {
 
 
         //for spinner items
-        String[] items = new String[]{"select user type", " Doctor", "Nurse", " Lab Assistant", "blood bank manager", "Inventory manager"};
+        String[] items = new String[]{"select user type", " Doctor", " Lab Assistant" };
         ArrayAdapter<String> adapter =new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_dropdown_item, items);
 //        userCategoryM.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items));
         userCategoryM.setAdapter(adapter);

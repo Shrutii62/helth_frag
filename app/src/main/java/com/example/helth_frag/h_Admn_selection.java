@@ -88,7 +88,8 @@ public class h_Admn_selection extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.h__admn_selection, container, false);((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        View view= inflater.inflate(R.layout.h__admn_selection, container, false);
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         setHasOptionsMenu(true);
 
 
@@ -116,9 +117,9 @@ public class h_Admn_selection extends Fragment {
                     NavHostFragment.findNavController(h_Admn_selection.this).navigate(R.id.action_h_Admn_selection_to_select_type_option);
                     Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
                     return true;
-                case R.id.men2:
-                    // Save profile changes
-                    return true;
+//                case R.id.men2:
+//                    // Save profile changes
+//                    return true;
                 default:
                     return false;
             }

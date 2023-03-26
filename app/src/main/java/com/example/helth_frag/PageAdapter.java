@@ -33,6 +33,6 @@ public class PageAdapter extends FragmentPagerAdapter {
 
     public int getCount() {
 
-        return 0;
+        return tabcount;
     }
 }

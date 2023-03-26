@@ -37,7 +37,6 @@
             app:destination="@id/tablayoutAmb"
             />
         <action app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true"
             android:id="@+id/s_to_ambu1_form"
             app:destination="@id/ambu1_form"
             />
@@ -61,7 +60,6 @@
         tools:layout="@layout/select_type_option" >
         <action
             app:popUpTo="@id/select_type_option"
-            app:popUpToInclusive="true"
             android:id="@+id/action_select_type_option_to_usr_login"
             app:destination="@id/h_login" />
         <action
@@ -78,7 +76,6 @@
 
         <action
             app:popUpTo="@id/select_type_option"
-            app:popUpToInclusive="true"
             android:id="@+id/actAmbulance"
             app:destination="@id/actAmbulance" />
 
@@ -262,7 +259,6 @@
 
         <action
             app:popUpTo="@id/patient1pg"
-            app:popUpToInclusive="true"
             android:id="@+id/patient1pg_to_select_type_option"
             app:destination="@id/select_type_option" />
 
@@ -322,7 +318,14 @@
         android:id="@+id/lab12"
         android:name="com.example.helth_frag.Lab1"
         android:label="lab1"
-        tools:layout="@layout/lab1" />
+        tools:layout="@layout/lab1" >
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/l_to_selection"
+            app:destination="@id/select_type_option" />
+
+    </fragment>
     <fragment
         android:id="@+id/p_LabReportView"
         android:name="com.example.helth_frag.P_LabReportView"
@@ -377,6 +380,18 @@
         android:name="com.example.helth_frag.tablayout_request"
         android:label="tablayout_request"
         tools:layout="@layout/tablayout_request" />
+    <fragment
+        android:id="@+id/ambshw_inactiveBooking"
+        android:name="com.example.helth_frag.ambshw_inactiveBooking"
+        android:label="ambshw_inactive_booking"
+        tools:layout="@layout/ambshw_inactive_booking" >
+        <action
+            app:popUpTo="@id/ambshw_inactiveBooking"
+            app:popUpToInclusive="true"
+            android:id="@+id/ambshw_inactiveBooking_to_select_type_option"
+            app:destination="@id/select_type_option" />
+
+    </fragment>
 
 
 </navigation>

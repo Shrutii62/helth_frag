@@ -47,7 +47,6 @@ public class ManageInventory extends Fragment implements AdapterInventoryItem.Re
     RecyclerView inventoryItemListView;
     ArrayList<ModelInventoryItem> itemsList;
     AdapterInventoryItem adapter;
-
     DatabaseReference databaseReference;
 
 

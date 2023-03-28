@@ -21,7 +21,6 @@
             android:layout_height="?attr/actionBarSize"
             app:title="Health Care"
             android:backgroundTint="#63A598"
-            app:navigationIcon="@drawable/menu"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             />
 

@@ -2,14 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <item
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/hos"
-        android:title="TODO">
-
-    </item>
-
     <item
         android:id="@+id/logoutamb"
         android:title="Log out"/>

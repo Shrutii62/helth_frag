@@ -1,18 +1,24 @@
 package com.example.helth_frag;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.shape.CornerFamily;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.tabs.TabItem;
@@ -22,9 +28,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class tablayoutAmb extends AppCompatActivity {
 
     TabLayout tabLayout;
+
+    NavigationView navigationView;
     TabItem active , inactive;
     PageAdapterAmb pageAdtrAmb;
 
+    DrawerLayout drawer;
     private Toolbar topAppBar;
 
 
@@ -32,19 +41,33 @@ public class tablayoutAmb extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tablayout_amb);
-//        getSupportActionBar().hide();
 
 
-
-
-
-
-
-
+        drawer = findViewById(R.id.my_drawer_layout);
+        navigationView = findViewById(R.id.navigation_view);
         topAppBar = findViewById(R.id.topAppBar);
 
 
-        topAppBar.inflateMenu(R.menu.amb_menu);
+
+        topAppBar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawer.openDrawer(GravityCompat.START);
+            }
+        });
+
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.logoutamb){
+                    FirebaseAuth.getInstance().signOut();
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
 
 
 
@@ -56,23 +79,6 @@ public class tablayoutAmb extends AppCompatActivity {
                 .setAllCorners(CornerFamily.ROUNDED,radius)
                 .build());
 
-//        topAppBar.setOnMenuItemClickListener(item -> {
-//            switch (item.getItemId()) {
-//                case R.id.men1:
-//                    FirebaseAuth.getInstance().signOut();
-//
-//                    Intent intent = new Intent(tablayoutAmb.this, select_type_option.class);
-//                    startActivity(intent);
-//
-//                    Toast.makeText(this, "out", Toast.LENGTH_SHORT).show();
-//                    return true;
-////                case R.id.men2:
-////                    // Save profile changes
-////                    return true;
-//                default:
-//                    return false;
-//            }
-//        });
 
 
 
@@ -144,22 +150,4 @@ public class tablayoutAmb extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.logoutamb:
-//                FirebaseAuth.getInstance().signOut();
-//                Intent intent = new Intent(tablayoutAmb.this, Acti_lab.class);
-//                startActivity(intent);
-//                finish();
-                Toast.makeText(this, "bye", Toast.LENGTH_SHORT).show();
-
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-
-
-
-    }
 }

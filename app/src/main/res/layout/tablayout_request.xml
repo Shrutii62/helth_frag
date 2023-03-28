@@ -22,7 +22,6 @@
         app:tabSelectedTextColor="@color/teal_200"
         app:tabTextColor="@color/teal_700">
 
-
         <com.google.android.material.tabs.TabItem
             android:id="@+id/activeReq"
             android:layout_width="wrap_content"

@@ -54,7 +54,30 @@ public class Lab1 extends Fragment {
 
 
         topAppBar = view.findViewById(R.id.topAppBar);
-        topAppBar.inflateMenu(R.menu.main_dotmenu);
+        topAppBar.inflateMenu(R.menu.lab_menu);
+
+        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.manageInventory:
+                        Bundle bundle = new Bundle();
+                        bundle.putString("navigate","Lab");
+                        ManageInventory mi = new ManageInventory();
+                        mi.setArguments(bundle);
+                    //    Navigation.findNavController(view).navigate(R.id.action_lab12_to_manageInventory,bundle);
+                        return true;
+
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
+
+                      //  Navigation.findNavController(view).navigate(R.id.action_lab12_to_usr_registration);
+                        return true;
+
+                }
+                return false;
+            }
+        });
 
 //        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
 

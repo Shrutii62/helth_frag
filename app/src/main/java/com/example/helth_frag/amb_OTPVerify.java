@@ -32,6 +32,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthOptions;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,6 +49,7 @@ public class amb_OTPVerify extends Fragment {
     Button btsubmit;
 
     String number;
+    FirebaseDatabase firebaseDatabase;
 //    ProgressBar prrgressbarV;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,6 +57,8 @@ public class amb_OTPVerify extends Fragment {
 
         View view = inflater.inflate(R.layout.amb__o_t_p_verify, container, false);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+
+        firebaseDatabase= FirebaseDatabase.getInstance();
 
         getmobile = view.findViewById(R.id.getmobile);
         btsubmit = view.findViewById(R.id.btsubmit);
@@ -125,8 +134,25 @@ public class amb_OTPVerify extends Fragment {
                                             args.putString("num", number);
                                             amb_OTPVerify newFragment = new amb_OTPVerify();
                                             newFragment.setArguments(args);
-                                            Navigation.findNavController(view).navigate(R.id.amb_OTPVerifyTo_ambu1_form, args);
+                                            DatabaseReference databaseReferenceAmb = firebaseDatabase.getReference("amb_Drvdetails");
+                                            Query checkPhone = databaseReferenceAmb.orderByChild("reg_phoned").equalTo(number);
 
+
+                                            checkPhone.addListenerForSingleValueEvent(new ValueEventListener() {
+                                                @Override
+                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                    if (snapshot.exists()){
+                                                        Navigation.findNavController(view).navigate(R.id.tablayoutAmb);
+                                                    }else{
+                                                        Navigation.findNavController(view).navigate(R.id.ambu1_form);
+                                                    }
+                                                }
+
+                                                @Override
+                                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                                }
+                                            });
                                         }else {
                                            Toast.makeText(getContext(), "Enter the correct OTP", Toast.LENGTH_SHORT).show();
                                         }

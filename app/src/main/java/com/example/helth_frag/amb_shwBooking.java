@@ -30,13 +30,16 @@ public class amb_shwBooking extends Fragment {
     Adapter_dshow_ambBokking adapterAmb;
     ArrayList<Model_hAmb_book_frm> listamb;
 
+    String phone = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        View view = inflater.inflate(R.layout.amb_shw_booking, container, false);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String phone = user.getPhoneNumber();
+        if(user != null) {
+             phone = user.getPhoneNumber();
+        }
 //        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
 
         recyclerViewAmb = view.findViewById(R.id.recyclerviewAmbAc);
@@ -70,7 +73,7 @@ public class amb_shwBooking extends Fragment {
                                     Model_hAmb_book_frm model_hAmb_book_frm = dataSnapshot.getValue(com.example.helth_frag.Model_hAmb_book_frm.class);
 
                                     listamb.add(model_hAmb_book_frm);
-//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                     Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                 }
 
                             }else{

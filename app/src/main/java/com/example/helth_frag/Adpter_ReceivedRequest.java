@@ -11,11 +11,13 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -66,7 +68,12 @@ public class Adpter_ReceivedRequest extends RecyclerView.Adapter<Adpter_Received
                         FirebaseDatabase firebaseA= FirebaseDatabase.getInstance();
                         DatabaseReference databaseReferenceA = firebaseA.getReference("request");
 
-                        databaseReferenceA.child(model_hrequestfrm.getKey()).child("statusact").setValue("on");
+                        databaseReferenceA.child(model_hrequestfrm.getKey()).child("statusact").setValue("on").addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Toast.makeText(contextRaccpt, "edited", Toast.LENGTH_SHORT).show();
+                            }
+                        });
                         break;
                     case R.id.r2:
                         FirebaseDatabase firebaseB= FirebaseDatabase.getInstance();

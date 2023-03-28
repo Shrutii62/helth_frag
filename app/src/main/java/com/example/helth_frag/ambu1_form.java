@@ -90,7 +90,7 @@ displaynum.setText(numphone);
 
 //                    Toast.makeText(getContext(), "num"+numphone, Toast.LENGTH_SHORT).show();
 
-                    Model_ambDriverdetail model_ambDriverdetail = new Model_ambDriverdetail(drvename, ambunumber, alterntphone, numphone);
+                    Model_ambDriverdetail model_ambDriverdetail = new Model_ambDriverdetail(drvename, ambunumber, alterntphone, "+91"+numphone);
 
                     databaseReferenceAmb.child(keyAmb).setValue(model_ambDriverdetail);
                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();

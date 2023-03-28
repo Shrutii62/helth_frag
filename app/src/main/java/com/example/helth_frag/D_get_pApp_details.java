@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,46 +36,37 @@ public class D_get_pApp_details extends Fragment {
 
 
 
-    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    String email = user.getEmail();
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.d_get_papp_details, container, false);
-
-//        bb=view.findViewById(R.id.bb);
-//        bb.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Navigation.findNavController(view).navigate(R.id.d_to_tryy);
-//            }
-//        });
-
-        recyclerViewD = view.findViewById(R.id.recyclerviewD);
+        Toast.makeText(requireContext(), "bkdbon", Toast.LENGTH_SHORT).show();
 
 
+        Log.d("TAG","created");
+        recyclerViewD =view.findViewById(R.id.recyclerviewD);
         recyclerViewD.setHasFixedSize(true);
         recyclerViewD.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listD = new ArrayList<>();
 
-//        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
 
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+        recyclerViewD = view.findViewById(R.id.recyclerviewD);
 
-//        getList();
-
-
+        Toast.makeText(requireContext(), email, Toast.LENGTH_SHORT).show();
         databaseReference= FirebaseDatabase.getInstance().getReference("appointment");
-        DatabaseReference UdatabaseReference=FirebaseDatabase.getInstance().getReference("Users");
+        DatabaseReference UdatabaseReference = FirebaseDatabase.getInstance().getReference("Users");
         Query checkemail = UdatabaseReference.orderByChild("email").equalTo(email);
         String HencodeUserEmail = email.replace(".", ",");
         checkemail.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
-//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+                  Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String get_did = snapshot1.child(HencodeUserEmail).child("u_id").getValue(String.class);
 //                    Toast.makeText(getActivity(), "did"+ get_did, Toast.LENGTH_SHORT).show();
                     Query didcheck = databaseReference.orderByChild("d_id").equalTo(get_did);
@@ -98,7 +90,7 @@ public class D_get_pApp_details extends Fragment {
                                                 model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
 
                                                 listD.add(model_appointment);
-//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                             }
 
                                         }else{

@@ -24,8 +24,9 @@ public class Adapter_dshow_ambBokking extends RecyclerView.Adapter<Adapter_dshow
 
     Context contextAmb;
     View view;
+    String hname = "";
+
     ArrayList<Model_hAmb_book_frm> listAmb;
-    String hname;
 
 
     public Adapter_dshow_ambBokking(Context context, ArrayList<Model_hAmb_book_frm> list){

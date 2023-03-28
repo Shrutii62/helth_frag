@@ -32,6 +32,7 @@ public class ambshw_inactiveBooking extends Fragment {
     Adapter_dshow_ambBokking adapterAmbInc;
     ArrayList<Model_hAmb_book_frm> listAmbInc;
 
+    String phone = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -40,8 +41,11 @@ public class ambshw_inactiveBooking extends Fragment {
 
 
 
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String phone = user.getPhoneNumber();
+        if(user != null) {
+            phone = user.getPhoneNumber();
+        }
 //        Toast.makeText(getActivity(), "ph"+phone, Toast.LENGTH_SHORT).show();
 
         recyclerViewAmpInac = view.findViewById(R.id.recyclerviewAmbInAc);

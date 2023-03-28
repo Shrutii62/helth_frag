@@ -59,7 +59,6 @@
         android:label="select_type_option"
         tools:layout="@layout/select_type_option" >
         <action
-            app:popUpTo="@id/select_type_option"
             android:id="@+id/action_select_type_option_to_usr_login"
             app:destination="@id/h_login" />
         <action
@@ -75,7 +74,6 @@
             app:destination="@id/amb_Reg" />
 
         <action
-            app:popUpTo="@id/select_type_option"
             android:id="@+id/actAmbulance"
             app:destination="@id/actAmbulance" />
 
@@ -141,10 +139,10 @@
             app:destination="@id/h_registration" />
 
         <action
-            app:popUpTo="@id/h_login"
-            app:popUpToInclusive="true"
             android:id="@+id/action_h_login_to_h_Admin_selection"
-            app:destination="@id/h_Admn_selection" />
+            app:destination="@id/h_Admn_selection"
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true" />
         <action
             app:popUpTo="@id/h_login"
             app:popUpToInclusive="true"
@@ -152,18 +150,17 @@
             app:destination="@id/usr_registration" />
 
         <action
-            app:popUpTo="@id/h_login"
-            app:popUpToInclusive="true"
             android:id="@+id/ltouser1stpg"
-            app:destination="@id/user1stpg" />
-
+            app:destination="@id/user1stpg"
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true" />
 
 
         <action
-            app:popUpTo="@id/h_login"
-            app:popUpToInclusive="true"
             android:id="@+id/ltop_selectionPage"
-            app:destination="@id/p_selectionPage" />
+            app:destination="@id/p_selectionPage"
+            app:popUpTo="@id/select_type_option"
+            app:popUpToInclusive="true" />
 
         <action
             app:popUpTo="@id/h_login"

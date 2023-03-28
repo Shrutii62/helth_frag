@@ -246,6 +246,7 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
                     status = "on";
 
 
+
                     DatabaseU = DatabaseU.getInstance();
                     referenceU = DatabaseU.getReference("bookAmbulance");
 
@@ -269,6 +270,7 @@ public class h_Amb_book_frm_Acti extends AppCompatActivity {
                         public void run() {
                             progressDialogP.dismiss();
 
+                            finish();
                         }
                     };
                     Handler pdCanceller = new Handler();

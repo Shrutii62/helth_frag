@@ -121,6 +121,7 @@ public class AdapterAmbulanceList extends RecyclerView.Adapter<AdapterAmbulanceL
                         intent.putExtra("reg_phoned",reg_phoned);
 
                         view.getContext().startActivity(intent);
+
                     }
                 });
                 builder.setView(dailogview);

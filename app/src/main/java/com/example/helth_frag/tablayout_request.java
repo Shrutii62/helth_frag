@@ -35,9 +35,9 @@ public class tablayout_request extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
-                if (tab.getPosition() == 0 || tab.getPosition() == 1 ) {
-                    pageAdapterReq.notifyDataSetChanged();
-                }
+//                if (tab.getPosition() == 0 || tab.getPosition() == 1 ) {
+//                    pageAdapterReq.notifyDataSetChanged();
+//                }
             }
 
             @Override

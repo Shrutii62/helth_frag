@@ -56,6 +56,17 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
 
         Model_hrequestfrm model_hrequestfrm= listRaccpt.get(position);
 
+        if(model_hrequestfrm.statusact.equals("Pending")){
+
+        }
+        if(model_hrequestfrm.statusact.equals("Accepted")){
+
+        }
+        if(model_hrequestfrm.statusact.equals("Rejected")){
+
+        }
+
+
         holder.hname.setText(model_hrequestfrm.h_name);
         holder.pname.setText(model_hrequestfrm.pname);
         holder.description.setText(model_hrequestfrm.description);
@@ -93,8 +104,8 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
         public CardView cardviewRaccpt;
         ImageView call;
 
-        TextView pname, hname, description;
-        TextView pending, accepted, rejected;
+        TextView pname, hname, description,pending;
+        TextView  accepted, rejected;
         RadioButton r1, r2;
         RadioGroup radioGroup;
         View rootview;
@@ -110,6 +121,7 @@ public class Adpter_acceptReg extends RecyclerView.Adapter<Adpter_acceptReg.View
             accepted = itemView.findViewById(R.id.accepted);
             rejected = itemView.findViewById(R.id.rejectes);
 
+            pending = itemView.findViewById(R.id.pending);
 //            amnt = itemView.findViewById(R.id.amnt);
             cardviewRaccpt = itemView.findViewById(R.id.cardviewRaccpt);
             radioGroup = itemView.findViewById(R.id.radioGroup);

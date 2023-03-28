@@ -31,11 +31,11 @@
             app:destination="@id/h_Admn_selection"
             />
 
-        <action app:popUpTo="@id/splashScreen"
-            app:popUpToInclusive="true"
+        <action
             android:id="@+id/tablayoutAmbl"
             app:destination="@id/tablayoutAmb"
-            />
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
         <action app:popUpTo="@id/splashScreen"
             android:id="@+id/s_to_ambu1_form"
             app:destination="@id/ambu1_form"

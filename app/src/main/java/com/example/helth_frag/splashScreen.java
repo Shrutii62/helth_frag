@@ -10,8 +10,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Handler;
 import android.provider.DocumentsContract;
@@ -53,18 +55,21 @@ public class splashScreen extends Fragment {
         getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
 
-        imageView = view.findViewById(R.id.splashimage);
-//        textView = view.findViewById(R.id.splashtext);
 
-//        upperanimation= AnimationUtils.loadAnimation(getActivity(),R.anim.upper_animation);
-//        bottomanimation= AnimationUtils.loadAnimation(getActivity(),R.anim.bottom_animation);
+
+        imageView = view.findViewById(R.id.splashimage);
 
         imageView.setAnimation(upperanimation);
-//        textView.setAnimation(bottomanimation);
 
         FirebaseDatabase firebaseDatabase= FirebaseDatabase.getInstance();
 
 
+//        Bundle extras = getActivity().getIntent().getExtras();
+//        if (extras != null) {
+//            String value = extras.getString("key");
+//            Navigation.findNavController(view).navigate(R.id.toselection_type_option);
+//
+//        }
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user !=null){

@@ -62,6 +62,9 @@ public class tablayoutAmb extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if(item.getItemId() == R.id.logoutamb){
                     FirebaseAuth.getInstance().signOut();
+                    Intent intent = new Intent(tablayoutAmb.this,MainActivity.class);
+                    intent.putExtra("key","fromTabLayout");
+                    startActivity(intent);
                     finish();
                     return true;
                 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">helth_frag</string>
+    <string name="app_name">HealthCare</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_admin_show_ambulance">AdminShowAmbulance</string>

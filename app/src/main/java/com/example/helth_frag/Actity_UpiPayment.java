@@ -301,8 +301,8 @@ public class Actity_UpiPayment extends AppCompatActivity {
             return false;
         }
         else {
-            nameEt.setError(null);
-            nameEt.setErrorEnabled(false);
+            upiIdEtE.setError(null);
+            upiIdE.setErrorEnabled(false);
             return true;
         }
     }

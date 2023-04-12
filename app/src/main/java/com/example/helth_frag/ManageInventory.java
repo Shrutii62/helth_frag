@@ -172,9 +172,23 @@ public class ManageInventory extends Fragment implements AdapterInventoryItem.Re
 
                 String itemName = etitemName.getText().toString();
                 String itemDescription = etitemDescription.getText().toString();
-                ModelInventoryItem item = new ModelInventoryItem(key, itemName, itemDescription, quantity, false, filterBy);
-                addToDatabase(key, item);
-                retrieveFromDatabase(filterBy);
+//                ModelInventoryItem item = new ModelInventoryItem(key, itemName, itemDescription, quantity, false, filterBy);
+//                addToDatabase(key, item);
+//                retrieveFromDatabase(filterBy);
+
+                if(!validateItemDesc(itemDescription) || !validateItemName(itemName) || !validateItemQuantity(quantity)){
+                    Toast.makeText(requireContext(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    ModelInventoryItem item = new ModelInventoryItem(key, itemName, itemDescription, quantity, false, filterBy);
+                    addToDatabase(key, item);
+                    retrieveFromDatabase(filterBy);
+                    dialog.cancel();
+                    Toast.makeText(getActivity(), "Item Added to Inventory", Toast.LENGTH_SHORT).show();
+                }
+
+
+
                 dialog.cancel();
             }
         });
@@ -183,6 +197,19 @@ public class ManageInventory extends Fragment implements AdapterInventoryItem.Re
 
 
     }
+
+
+    private Boolean validateItemName(String itemName){
+        return !itemName.isEmpty();
+    }
+    private Boolean validateItemDesc(String itemDesc){
+
+        return !itemDesc.isEmpty();
+    }  private Boolean validateItemQuantity(String itemQuantity){
+
+        return !itemQuantity.isEmpty();
+    }
+
 
     @Override
     public void onDoneClick(int position,String quantity) {

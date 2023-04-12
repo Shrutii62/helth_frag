@@ -7,6 +7,7 @@
 <!--    app:startDestination="@id/select_type_option">-->
 
 
+
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.example.helth_frag.splashScreen"
@@ -317,10 +318,16 @@
         android:label="lab1"
         tools:layout="@layout/lab1" >
         <action
-
             app:popUpToInclusive="true"
             android:id="@+id/l_to_selection"
             app:destination="@id/select_type_option" />
+
+        <action
+
+            app:popUpToInclusive="true"
+            android:id="@+id/l_to_manageInventory"
+            app:destination="@id/manageInventory" />
+
 
     </fragment>
     <fragment

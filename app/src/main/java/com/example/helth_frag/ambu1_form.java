@@ -94,6 +94,7 @@ displaynum.setText(numphone);
 
                     databaseReferenceAmb.child(keyAmb).setValue(model_ambDriverdetail);
                     Toast.makeText(getActivity(), "done", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
 
 //                    Navigation.findNavController(view).navigate(R.id.tablayoutAmb);
 

@@ -10,7 +10,21 @@
         android:id="@+id/d_addPrescription"
         android:name="com.example.helth_frag.d_addPrescription"
         android:label="d_add_prescription"
-        tools:layout="@layout/d_add_prescription" />
+        tools:layout="@layout/d_add_prescription" >
+
+        <action
+            app:popUpToInclusive="true"
+            android:id="@+id/d_addPrescriptionTo_tablayoup"
+            app:destination="@id/tablayoutP" />
+
+    </fragment>
+    <activity
+        android:id="@+id/tablayoutP"
+        android:name="com.example.helth_frag.tablayoutP"
+        android:label="tablayout_p"
+        tools:layout="@layout/tablayout_p" >
+
+    </activity>
 
 
 </navigation>

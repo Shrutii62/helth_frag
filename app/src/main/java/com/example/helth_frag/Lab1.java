@@ -56,28 +56,28 @@ public class Lab1 extends Fragment {
         topAppBar = view.findViewById(R.id.topAppBar);
         topAppBar.inflateMenu(R.menu.lab_menu);
 
-        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
-                    case R.id.manageInventory:
-                        Bundle bundle = new Bundle();
-                        bundle.putString("navigate","Lab");
-                        ManageInventory mi = new ManageInventory();
-                        mi.setArguments(bundle);
-                    //    Navigation.findNavController(view).navigate(R.id.action_lab12_to_manageInventory,bundle);
-                        return true;
-
-                    case R.id.logOut:
-                        FirebaseAuth.getInstance().signOut();
-
-                      //  Navigation.findNavController(view).navigate(R.id.action_lab12_to_usr_registration);
-                        return true;
-
-                }
-                return false;
-            }
-        });
+//        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                switch (item.getItemId()){
+//                    case R.id.manageInventory:
+//                        Bundle bundle = new Bundle();
+//                        bundle.putString("navigate","Lab");
+//                        ManageInventory mi = new ManageInventory();
+//                        mi.setArguments(bundle);
+//                     Navigation.findNavController(view).navigate(R.id.action_lab12_to_manageInventory,bundle);
+//                        return true;
+//
+//                    case R.id.logOut:
+//                        FirebaseAuth.getInstance().signOut();
+//
+//                        Navigation.findNavController(view).navigate(R.id.action_lab12_to_usr_registration);
+//                        return true;
+//
+//                }
+//                return false;
+//            }
+//        });
 
 //        ((AppCompatActivity) getActivity()).setSupportActionBar(topAppBar);
 
@@ -92,45 +92,31 @@ public class Lab1 extends Fragment {
 
 
 
-//        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-//            @Override
-//            public boolean onMenuItemClick(MenuItem item) {
-//                switch (item.getItemId()){
-//                    case R.id.mngInvetory:
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString("navigate","Lab");
-//                        ManageInventory mi = new ManageInventory();
-//                        mi.setArguments(bundle);
-//                        Navigation.findNavController(view).navigate(R.id.lab1_to_manageInventory2,bundle);
-//                        return true;
-//
-//                    case R.id.logOut:
-//                        FirebaseAuth.getInstance().signOut();
-//
-//                        Toast.makeText(getActivity(), "out", Toast.LENGTH_SHORT).show();
-//                        Navigation.findNavController(view).navigate(R.id.lab1_to_select_type_option2);
-//                        return true;
-//
-//                }
-//                return false;
-//            }
-//        });
+        topAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.manageInventory:
+                        Bundle bundle = new Bundle();
+                        bundle.putString("navigate","Lab");
+                        ManageInventory mi = new ManageInventory();
+                        mi.setArguments(bundle);
+                        Navigation.findNavController(view).navigate(R.id.l_to_manageInventory
+                                ,bundle);
+                        return true;
 
-        topAppBar.setOnMenuItemClickListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.men1:
-                    FirebaseAuth.getInstance().signOut();
+                    case R.id.logOut:
+                        FirebaseAuth.getInstance().signOut();
 
-                    NavHostFragment.findNavController(Lab1.this).navigate(R.id.l_to_selection);
-                    Toast.makeText(getActivity(), "logged out", Toast.LENGTH_SHORT).show();
-                    return true;
-//                case R.id.men2:
-//                    // Save profile changes
-//                    return true;
-                default:
-                    return false;
+                        Navigation.findNavController(view).navigate(R.id.l_to_selection);
+                        return true;
+
+                }
+                return false;
             }
         });
+
+
 
 
 

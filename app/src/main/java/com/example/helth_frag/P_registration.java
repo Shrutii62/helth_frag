@@ -207,7 +207,6 @@ public class P_registration extends Fragment {
                         @Override
                         public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                             String selectItem= (String) spn.getSelectedItem();
-//                            Toast.makeText(getActivity(), ""+selectItem, Toast.LENGTH_SHORT).show();
 
                             Query checkHname = databaseReference.orderByChild("hname").equalTo(selectItem);
 

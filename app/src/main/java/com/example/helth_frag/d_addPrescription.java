@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -159,6 +160,9 @@ public class d_addPrescription extends Fragment {
                     model_d_addPrescriptn model_d_addPrescriptn = new model_d_addPrescriptn(pid,did,issueDescripton,tstname,get_hid,keyDescp,Aamount,DateFormat.getDateInstance().format(System.currentTimeMillis()));
 
                     databaseReferenceDdscrptn.child(keyDescp).setValue(model_d_addPrescriptn);
+                    Toast.makeText(getContext(), "Done", Toast.LENGTH_SHORT).show();
+
+                    Navigation.findNavController(view).navigate(R.id.d_addPrescriptionTo_tablayoup);
 
                     }
 

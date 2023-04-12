@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.navigation.Navigation;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
@@ -156,6 +158,8 @@ public class lab2_PDF extends AppCompatActivity {
                 progressDialog.dismiss();
                 Toast.makeText(lab2_PDF.this, "PDF Uploaded Successfully", Toast.LENGTH_SHORT).show();
                 titletIpdfM.setText("");
+                finish();
+
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override

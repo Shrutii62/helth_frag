@@ -82,7 +82,6 @@ public class P_Payment extends Fragment {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user.getEmail();
-//        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
         String HencodeUserEmail = email.replace(".", ",");
 
         Query emailP = databaseReferenceP.orderByChild("email").equalTo(email);
@@ -92,7 +91,6 @@ public class P_Payment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshotP) {
                 if (snapshotP.exists()){
                     String getpidd = snapshotP.child(HencodeUserEmail).child("p_id").getValue(String.class);
-//                    Toast.makeText(getActivity(), "pid"+getpidd, Toast.LENGTH_SHORT).show();
 
 
                     Query checkemail = databaseReference.orderByChild("pid").equalTo(getpidd);
@@ -102,7 +100,6 @@ public class P_Payment extends Fragment {
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                             if (snapshot.exists()){
-//                                Toast.makeText(requireContext(), "yes", Toast.LENGTH_SHORT).show();
 
                                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                     model_d_addPrescriptn model_d_addPrescriptn = dataSnapshot.getValue(com.example.helth_frag.model_d_addPrescriptn.class);
@@ -111,7 +108,8 @@ public class P_Payment extends Fragment {
 
                                 }
                             }else{
-                                Toast.makeText(getActivity(), "there not", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), "not exist" +
+                                        "", Toast.LENGTH_SHORT).show();
                             }
 //
 //                            Toast.makeText(getActivity(), "dd"+lispymtt.size(), Toast.LENGTH_SHORT).show();

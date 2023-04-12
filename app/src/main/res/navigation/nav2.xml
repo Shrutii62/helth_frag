@@ -29,6 +29,10 @@
         android:name="com.example.helth_frag.patient1pg"
         android:label="patient1pg"
         tools:layout="@layout/patient1pg" >
+        <action
+            app:popUpToInclusive="true"
+            android:id="@+id/d_addPrescriptionTo_p_to_D_form"
+            app:destination="@id/p_to_D_form" />
 
 
 

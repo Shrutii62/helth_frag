@@ -60,7 +60,7 @@ public class P_LabReportView extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()){
                      get_Pid = snapshot1.child(HencodeUserEmail).child("p_id").getValue(String.class);
-//                    Toast.makeText(getActivity(), "p"+get_Pid, Toast.LENGTH_SHORT).show();
+
 
 
                     Query pd = databaseReferenceLl.orderByChild("pid").equalTo(get_Pid);
@@ -73,7 +73,6 @@ public class P_LabReportView extends Fragment {
                                     ModelP_pdfuplod modelP_pdfuplod = dataSnapshot.getValue(com.example.helth_frag.ModelP_pdfuplod.class);
 
                                     listPdf.add(modelP_pdfuplod);
-//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                 }
 
                             }else {

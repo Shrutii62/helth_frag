@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.os.Handler;
 import android.text.Editable;
@@ -110,8 +111,6 @@ public class p_to_d_form extends Fragment {
                 getnameP = snapshot.child(encodeP_Email).child("pname").getValue(String.class);
 
 
-//                Toast.makeText(getActivity(), "pid" + get_Pid, Toast.LENGTH_SHORT).show();
-//                Toast.makeText(getActivity(), "did" + did, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -270,11 +269,16 @@ public class p_to_d_form extends Fragment {
                         @Override
                         public void run() {
                             progressDialogP.dismiss();
+                            getActivity().finish();
 
                         }
                     };
                     Handler pdCanceller = new Handler();
                     pdCanceller.postDelayed(progressRunnable, 3000);
+
+
+
+
 
 
                 }

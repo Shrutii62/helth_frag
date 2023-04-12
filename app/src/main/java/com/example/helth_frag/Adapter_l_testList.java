@@ -40,6 +40,7 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
 
         model_d_addPrescriptn model_d_addPrescriptn= listlt.get(position);
         holder.textnamelt.setText(model_d_addPrescriptn.test_recomd);
+        holder.dt.setText(model_d_addPrescriptn.getDate());
 //        holder.amnt.setText("Amount To Be Paid : ₹"+model_d_addPrescriptn.amount);
 //
         holder.cardRecyllt.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +74,7 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
 
         public CardView cardRecyllt;
 
-        TextView textnamelt, amnt;
+        TextView textnamelt, dt;
 
         View rootview;
 
@@ -81,6 +82,7 @@ public class Adapter_l_testList extends RecyclerView.Adapter<Adapter_l_testList.
             super(itemView);
 
             textnamelt = itemView.findViewById(R.id.Testamelt);
+            dt = itemView.findViewById(R.id.dt);
 //            amnt = itemView.findViewById(R.id.amnt);
             cardRecyllt = itemView.findViewById(R.id.cardRecylLT);
         }

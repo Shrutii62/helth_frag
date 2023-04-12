@@ -129,7 +129,7 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String email = user.getEmail();
-        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getActivity(), "mail"+email, Toast.LENGTH_SHORT).show();
         Query checkemail = adatabaseReference.orderByChild("email").equalTo(email);
         String HencodeUserEmail = email.replace(".", ",");
 
@@ -137,9 +137,9 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot1) {
                 if (snapshot1.exists()) {
-                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "ahe", Toast.LENGTH_SHORT).show();
                     String gethid = snapshot1.child(HencodeUserEmail).child("h_id").getValue(String.class);
-                    Toast.makeText(getActivity(), "mila"+ gethid, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity(), "mila"+ gethid, Toast.LENGTH_SHORT).show();
 
                     Query hidcheck = databaseReference.orderByChild("h_id").equalTo(gethid);
 
@@ -147,7 +147,7 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot2) {
                             if (snapshot2.exists()){
-                                Toast.makeText(getActivity(), "hidcheck_mila"+ gethid, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(), "hidcheck_mila"+ gethid, Toast.LENGTH_SHORT).show();
                                 Query checkDoc = databaseReference.orderByChild("userTypedd").equalTo("4");
 
                                 checkDoc.addValueEventListener(new ValueEventListener() {
@@ -165,16 +165,16 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
                                                 if(modelH_usr.h_id.equals(gethid)){
                                                 list.add(modelH_usr);
                                                 }else {
-
-                                                    Toast.makeText(getActivity(), "hjghjgjh", Toast.LENGTH_SHORT).show();
+//
+//                                                    Toast.makeText(getActivity(), "hjghjgjh", Toast.LENGTH_SHORT).show();
                                                 }
 
 
                                             }
                                         }else {
-                                            Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(getActivity(), "nooooooooooo", Toast.LENGTH_SHORT).show();
                                         }
-                                        Toast.makeText(getActivity(), "dd"+list.size(), Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(getActivity(), "dd"+list.size(), Toast.LENGTH_SHORT).show();
                                         adapter = new Adapter(getActivity(),list);
                                         recyclerView.setAdapter(adapter);
 

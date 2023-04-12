@@ -133,7 +133,7 @@ public class h_login extends Fragment {
 
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setTitle("Login");
-        progressDialog.setMessage("login to your account your Account");
+        progressDialog.setMessage("login to your account ");
 
         emailE.addTextChangedListener(new TextWatcher() {
             @Override
@@ -316,9 +316,9 @@ public class h_login extends Fragment {
 
 
                                                                 if (dsnapshot.exists()) {
-                                                                    if (userType.equals("4")){
+                                                                    if (userType.equals("1")){
                                                                         Navigation.findNavController(view).navigate(R.id.ltouser1stpg);
-                                                                    }else if (userType.equals("3")){
+                                                                    }else if (userType.equals("2")){
                                                                         Navigation.findNavController(view).navigate(R.id.action_h_login_to_lab12);
                                                                     }
 
@@ -331,7 +331,6 @@ public class h_login extends Fragment {
                                                                         public void onDataChange(@NonNull DataSnapshot dsnapshot) {
 
                                                                             String fgh = dsnapshot.child(HencodeUserEmail).child("email").getValue(String.class);
-//                                                                            Toast.makeText(getActivity(), "cde" + fgh, Toast.LENGTH_SHORT).show();
 
                                                                             if (dsnapshot.exists()) {
                                                                                 Navigation.findNavController(view).navigate(R.id.ltop_selectionPage);

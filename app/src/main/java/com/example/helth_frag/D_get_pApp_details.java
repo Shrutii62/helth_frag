@@ -90,11 +90,11 @@ public class D_get_pApp_details extends Fragment {
                                                 model_appointment model_appointment = dataSnapshot.getValue(com.example.helth_frag.model_appointment.class);
 
                                                 listD.add(model_appointment);
-                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
+//                                                Toast.makeText(getActivity(), "3 list here", Toast.LENGTH_SHORT).show();
                                             }
 
                                         }else{
-                                            Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
+//                                            Toast.makeText(getActivity(), "stats not", Toast.LENGTH_SHORT).show();
                                         }
 //                                        Toast.makeText(getActivity(), "dd"+listD.size(), Toast.LENGTH_SHORT).show();
                                         adapterD = new Adapter_getApptmtDetail_D(

@@ -148,7 +148,7 @@ View view = inflater.inflate(R.layout.patient1pg, container, false);;
                         public void onDataChange(@NonNull DataSnapshot snapshot2) {
                             if (snapshot2.exists()){
 //                                Toast.makeText(getActivity(), "hidcheck_mila"+ gethid, Toast.LENGTH_SHORT).show();
-                                Query checkDoc = databaseReference.orderByChild("userTypedd").equalTo("4");
+                                Query checkDoc = databaseReference.orderByChild("userTypedd").equalTo("1");
 
                                 checkDoc.addValueEventListener(new ValueEventListener() {
                                     @Override
